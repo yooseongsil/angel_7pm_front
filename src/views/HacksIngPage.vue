@@ -8,7 +8,7 @@
 <!--    요일 리스트-->
         <section class="d-flex">
           <template v-for="(day, index) in dayList">
-            <a href="#" class="nes-badge" :key="index" style="display: inline-block;">
+            <a href="#" class="nes-badge" :key="index" style="display: inline-block;" @click="changeDay(index)">
               <span :class="day === today ? 'is-success' : 'is-dark'">{{day}}</span>
             </a>
           </template>
@@ -22,52 +22,11 @@
         :missionTimeLeft="missionText.missionTimeLeft"
         :missionQuestion="missionText.missionQuestion"
         :missionQuestionLink="missionText.missionQuestionLink"/>
-      <!-- coin -->
-      <i class="nes-icon coin is-small"></i>
-      <span class="nes-text is-warning">첫 번째 환급 미션!</span>
-      <div>슬랙에서 팀빌딩 양식을 제출하세요.</div>
-      <div>팀빌딩까지 남은 시간:</div>
-      <div>16시간 46분 22초</div>
-      <div class="nes-text is-warning" style="text-decoration: underline;">팀빌딩을 하지 않으면 어떻게 되나요?</div>
     </section>
 <!--    자기소개-->
-        <section class="nes-container is-dark with-title is-left">
-          <p class="title">자기소개</p>
-          <template v-for="todo in todoList">
-            <div style="padding: 1rem 0;" :key="todo.id">
-              <label>
-                <input type="checkbox" class="nes-checkbox is-dark" :checked="todo.checked" />
-                <span>{{todo.text}}</span>
-              </label>
-            </div>
-            <div :key="`todo-${index}`" class="lists">
-              <ul class="nes-list is-circle">
-                <template v-for="(description, index) in todo.descriptionList">
-                      <li :key="`des-${index}`">{{description}}</li>
-                </template>
-              </ul>
-            </div>
-          </template>
-        </section>
+    <TodosComponent todos-title="자기소개" :todos="todoList"/>
 <!--    아이디어-->
-        <section class="nes-container is-dark with-title is-left">
-          <p class="title">아이디어</p>
-          <template v-for="idea in ideaList">
-            <div style="padding: 1rem 0;" :key="`idea-${index}`">
-              <label>
-                <input type="checkbox" class="nes-checkbox is-dark" :checked="idea.checked" />
-                <span>{{idea.text}}</span>
-              </label>
-            </div>
-            <div :key="`idea-des-${index}`" class="lists">
-              <ul class="nes-list is-circle">
-                <template v-for="(description, index) in idea.descriptionList">
-                  <li :key="`des-${index}`">{{description}}</li>
-                </template>
-              </ul>
-            </div>
-          </template>
-      </section>
+    <TodosComponent todos-title="아이디어" :todos="ideaList"/>
 <!--    팀빌딩 미션-->
     <section class="d-flex flex-column align-center">
       <div>팀빌딩 미션:</div>
@@ -78,6 +37,7 @@
 </template>
 <script>
 import MissionComponent from '../components/hacks/MissionComponent'
+import TodosComponent from '../components/hacks/TodosComponent'
 
 export default {
   name: 'HacksIngPage',
@@ -133,7 +93,7 @@ export default {
         }
       ],
       isMissionSuccess: false,
-      missionText: [
+      missionTextList: [
         {
           missionTitle: '첫 번째 환급 미션!',
           mission: '슬랙에서 팀빌딩 양식을 제출하세요.',
@@ -159,8 +119,19 @@ export default {
       ]
     }
   },
+  methods: {
+    changeDay (index) {
+      this.today = this.dayList[index]
+    }
+  },
+  computed: {
+    missionText () {
+      const index = this.dayList.indexOf(this.today)
+      return this.missionTextList[index]
+    }
+  },
   components: {
-    MissionComponent
+    MissionComponent, TodosComponent
   }
 }
 </script>
