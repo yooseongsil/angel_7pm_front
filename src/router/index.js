@@ -8,6 +8,7 @@ import HacksListPage from '../views/HacksListPage.vue'
 import HacksDetailPage from '../views/HacksDetailPage.vue'
 import HacksIngPage from '../views/HacksIngPage.vue'
 import TeamListPage from '../views/TeamListPage.vue'
+import HacksMissionPage from '../views/hacks/misson/HacksMissionPage'
 
 Vue.use(VueRouter)
 
@@ -46,6 +47,11 @@ const routes = [
     path: '/hacks/:id',
     name: 'HacksDetailPage',
     component: HacksDetailPage
+  },
+  {
+    path: '/hacks/ing/mission/:id',
+    name: 'HacksMissionPage',
+    component: HacksMissionPage
   },
   {
     path: '/team/list',
