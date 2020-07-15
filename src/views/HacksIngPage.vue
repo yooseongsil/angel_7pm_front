@@ -107,7 +107,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
   .is-dark {
     color: white;
   }
