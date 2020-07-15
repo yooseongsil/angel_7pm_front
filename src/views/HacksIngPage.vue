@@ -108,9 +108,6 @@ export default {
 </script>
 
 <style>
-  div, p, span {
-    font-family: 'DungGeunMo', 'kongtext' !Important;
-  }
   .is-dark {
     color: white;
   }

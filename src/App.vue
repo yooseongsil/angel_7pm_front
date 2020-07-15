@@ -1,6 +1,6 @@
 <template>
-  <v-app>
-    <v-main no-gutters class="pa-4" :class="{ 'bg_black': isHacksIngPage }">
+  <v-app :id="isHacksIngPage ? 'hacksIngPage' : ''">
+    <v-main no-gutters class="pa-4">
       <router-view></router-view>
     </v-main>
   </v-app>
@@ -20,7 +20,13 @@ export default {
 </script>
 
 <style lang="css">
-  .bg_black {
-    background: #212529;
+  #hacksIngPage {
+    background: #212529 !important;
+    color: white !important;
+  }
+  #hacksIngPage div,
+  #hacksIngPage p,
+  #hacksIngPage span {
+    font-family: 'DungGeunMo', 'kongtext' !important;
   }
 </style>
