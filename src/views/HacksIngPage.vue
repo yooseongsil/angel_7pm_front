@@ -1,5 +1,5 @@
 <template>
-  <v-main style="background-color:#212529;">
+  <v-main>
       <div>
         <div class="is-dark">진행상황: {{progress}}% / {{totalProgress}}% (권장)</div>
         <progress class="nes-progress is-pattern is-dark" :value="progress" max="100"></progress>
@@ -17,7 +17,7 @@
         <div class="nes-container is-dark with-title is-left">
           <p class="title">자기소개</p>
           <template v-for="todo in todoList">
-            <div style="background-color:#212529; padding: 1rem 0;" :key="todo.id">
+            <div style="padding: 1rem 0;" :key="todo.id">
               <label>
                 <input type="checkbox" class="nes-checkbox is-dark" :checked="todo.checked" />
                 <span>{{todo.text}}</span>
@@ -28,7 +28,7 @@
         <div class="nes-container is-dark with-title is-left">
           <p class="title">아이디어</p>
           <template v-for="idea in ideaList">
-            <div style="background-color:#212529; padding: 1rem 0;" :key="idea.id">
+            <div style="padding: 1rem 0;" :key="idea.id">
               <label>
                 <input type="checkbox" class="nes-checkbox is-dark" :checked="idea.checked" />
                 <span>{{idea.text}}</span>
@@ -113,9 +113,6 @@ export default {
   }
   .is-dark {
     color: white;
-  }
-  .v-application--wrap {
-    background-color:#212529 !important;
   }
   .nes-title {
     display: table;
