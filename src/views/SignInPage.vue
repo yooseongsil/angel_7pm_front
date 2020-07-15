@@ -30,7 +30,8 @@
     </v-col>
 
     <template>
-      <v-btn block class="deep-purple accent-2">회원가입</v-btn>
+      <v-btn block class="deep-purple accent-2"
+      @click="singIn">회원가입</v-btn>
     </template>
     </v-container>
   </div>
@@ -44,9 +45,6 @@ export default {
     email: null,
     password: null
   }),
-  created () {
-    this.singIn()
-  },
   methods: {
     singIn () {
       axios({
@@ -57,7 +55,7 @@ export default {
           password: this.password
         }
       }).then(({ data }) => {
-        // console.log(data)
+        console.log(data)
         document.cookie = `accessToken=${data.token}`
         axios.defaults.headers.common['x-access-token'] = data.token
       })
