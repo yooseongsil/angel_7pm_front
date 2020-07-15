@@ -19,15 +19,15 @@ export default {
     singIn () {
       axios({
         method: 'POST',
-        url: '/accounts/sing-in',
+        url: `${this.$store.state.host}/accounts/sing-in/`,
         data: {
-          email: 'paikend@gmail.com',
+          email: 'test@test.com',
           password: 'admin12345'
         }
-      }).then(function (response) {
-        console.log(response)
+      }).then(({ data }) => {
+        console.log(data)
       })
-        .catch(function (error) {
+        .catch(({ error }) => {
           console.log(error)
         })
     }
