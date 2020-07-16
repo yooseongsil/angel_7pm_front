@@ -1,6 +1,7 @@
 <template>
   <v-main>
-    <div>
+    <section class="nes-container is-dark with-title is-left">
+      <p class="title">팀빌딩 제출</p>
       <div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
         <label for="teamName" style="color:#fff;">팀명</label>
         <input type="text" id="teamName" v-model="teamName" class="nes-input is-dark" placeholder="오후 7시">
@@ -51,7 +52,7 @@
       <div class="text-center">
         <button type="button" class="nes-btn is-primary" @click="submit()">제출하기</button>
       </div>
-    </div>
+    </section>
   </v-main>
 </template>
 
