@@ -63,6 +63,9 @@ export default {
         axios.defaults.headers.common['x-access-token'] = data.token
         this.userInfo = data
         this.$store.state.userInfo = this.userInfo
+        if (data !== undefined) {
+          window.location.href = '/hacks/list'
+        }
       })
         .catch(({ error }) => {
           console.log(error)

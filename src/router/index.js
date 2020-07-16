@@ -5,6 +5,7 @@ import SignInPage from '../views/SignInPage.vue'
 import SignUpPage from '../views/SignUpPage.vue'
 import Mypage from '../views/Mypage.vue'
 import HacksListPage from '../views/hacks/HacksListPage.vue'
+import HacksApplyPage from '../views/hacks/HacksApplyPage'
 import HacksDetailPage from '../views/hacks/HacksDetailPage.vue'
 import HacksIngPage from '../views/hacksIng/HacksIngPage.vue'
 import TeamListPage from '../views/TeamListPage.vue'
@@ -36,6 +37,11 @@ const routes = [
     path: '/hacks/list',
     name: 'HacksListPage',
     component: HacksListPage
+  },
+  {
+    path: '/hacks/apply',
+    name: 'HacksApplyPage',
+    component: HacksApplyPage
   },
   {
     path: '/hacks/:id',
