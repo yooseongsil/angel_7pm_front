@@ -1,19 +1,16 @@
 <template>
   <div id="signUp">
-    <!--아이디 입력-->
-    <!--title-->
     <v-col cols="12">
-      <h1 class="text-h2 white--text mt-12">회원가입</h1>
+      <h1 class="text-h2 white--text mt-12">회원정보 수정</h1>
     </v-col>
     <v-col cols="12">
       <v-text-field
         v-model="email"
         label="이메일"
         filled
-        hint="이메일을 입력하세요"
+        hint="이름을 입력하세요"
       ></v-text-field>
     </v-col>
-    <!--비밀번호 입력-->
     <v-col cols="12">
       <v-text-field
         v-model="password"
@@ -22,7 +19,6 @@
         hint="비밀번호를 입력하세요"
       ></v-text-field>
     </v-col>
-    <!--비밀번호 입력-->
     <v-col cols="12">
       <v-text-field
         v-model="checkPassword"
@@ -61,20 +57,29 @@
             </v-col>
           </v-row>
         </v-col>
+        <v-col cols="12">
+          <v-text-field
+            v-model="portfolio"
+            label="포트폴리오"
+            type="text"
+            hint="포트폴리오 링크를 입력하세요"
+          ></v-text-field>
+        </v-col>
       </v-row>
 
     </v-col>
     <v-col cols="12">
       <v-btn block color="#BB86FC"
-             @click="singIUp"
-      >회원가입
+             @click="updateProfile()"
+      >
+        저장하기
       </v-btn>
     </v-col>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 export default {
   name: 'SignUpPage',
   data: () => ({
@@ -82,35 +87,35 @@ export default {
     password: null,
     checkPassword: null,
     belong: null,
-    role: null
+    role: null,
+    portfolio: null
   }),
   methods: {
-    singIUp () {
-      axios({
-        method: 'POST',
-        url: `${this.$store.state.host}/accounts/sign-up/`,
-        data: {
-          email: this.email,
-          name: this.password,
-          password: this.password,
-          belong: this.belong,
-          role: this.role
-        }
-      }).then(({ data }) => {
-        console.log(data)
-        if (data.message === 'ok') {
-          window.location.href = 'signin'
-        }
-      })
-        .catch(({ error }) => {
-          console.log(error)
-        })
+    updateProfile () {
+      // axios({
+      //   method: 'POST',
+      //   url: `${this.$store.state.host}/accounts/sign-up/`,
+      //   data: {
+      //     email: this.email,
+      //     name: this.password,
+      //     password: this.password,
+      //     belong: this.belong,
+      //     role: this.role,
+      //     portfolio: this.portfolio
+      //   }
+      // }).then(({ data }) => {
+      //   console.log(data)
+      //   if (data.message === 'ok') {
+      //     window.location.href = 'signin'
+      //   }
+      // })
+      //   .catch(({ error }) => {
+      //     console.log(error)
+      //   })
     }
   }
 }
 </script>
-<style scoped lang="less">
-  .v-text-field > .v-input__control > .v-input__slot:after {
-    color: #BB86FC;
-  }
+
+<style lang="less" scoped>
 </style>
