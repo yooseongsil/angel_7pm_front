@@ -19,7 +19,6 @@
         v-model="password"
         label="비밀번호"
         type="password"
-        counter
         hint="비밀번호를 입력하세요"
       ></v-text-field>
     </v-col>
@@ -29,7 +28,6 @@
         v-model="checkPassword"
         label="비밀번호 확인"
         type="password"
-        counter
         hint="비밀번호를 입력하세요"
       ></v-text-field>
     </v-col>

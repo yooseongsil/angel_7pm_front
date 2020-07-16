@@ -33,14 +33,14 @@ const routes = [
     component: SignUpPage
   },
   {
-    path: '/mypage',
-    name: 'Mypage',
-    component: Mypage
-  },
-  {
     path: '/hacks/list',
     name: 'HacksListPage',
     component: HacksListPage
+  },
+  {
+    path: '/hacks/:id',
+    name: 'HacksDetailPage',
+    component: HacksDetailPage
   },
   {
     path: '/hacks/ing',
@@ -51,11 +51,6 @@ const routes = [
     path: '/hacks/ing/switch',
     name: 'HacksSwitchingPage',
     component: HacksSwitchingPage
-  },
-  {
-    path: '/hacks/:id',
-    name: 'HacksDetailPage',
-    component: HacksDetailPage
   },
   {
     path: '/hacks/ing/mission/teamBuilding',
@@ -76,6 +71,11 @@ const routes = [
     path: '/team/list',
     name: 'TeamListPage',
     component: TeamListPage
+  },
+  {
+    path: '/mypage',
+    name: 'Mypage',
+    component: Mypage
   },
   {
     path: '/mypage/updateProfile',

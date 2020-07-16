@@ -6,9 +6,8 @@
     <v-col cols="12">
       <v-text-field
         v-model="email"
-        label="이름"
+        label="이메일"
         filled
-        disabled
         hint="이름을 입력하세요"
       ></v-text-field>
     </v-col>
@@ -17,7 +16,6 @@
         v-model="password"
         label="비밀번호"
         type="password"
-        counter
         hint="비밀번호를 입력하세요"
       ></v-text-field>
     </v-col>
@@ -26,12 +24,19 @@
         v-model="checkPassword"
         label="비밀번호 확인"
         type="password"
-        counter
         hint="비밀번호를 입력하세요"
       ></v-text-field>
     </v-col>
     <v-col cols="12">
       <v-row>
+        <v-col cols="6" >
+          <v-text-field
+            v-model="name"
+            label="이름"
+            filled
+            hint="이름을 입력하세요"
+          ></v-text-field>
+        </v-col>
         <v-col cols="12">
           <v-row>
             <v-col cols="6">
@@ -57,7 +62,6 @@
             v-model="portfolio"
             label="포트폴리오"
             type="text"
-            counter
             hint="포트폴리오 링크를 입력하세요"
           ></v-text-field>
         </v-col>
