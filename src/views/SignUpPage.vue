@@ -10,7 +10,7 @@
         v-model="email"
         label="이메일"
         filled
-        dark
+        hint="이메일을 입력하세요"
       ></v-text-field>
     </v-col>
     <!--비밀번호 입력-->
@@ -20,7 +20,7 @@
         label="비밀번호"
         type="password"
         counter
-        dark
+        hint="비밀번호를 입력하세요"
       ></v-text-field>
     </v-col>
     <!--비밀번호 입력-->
@@ -30,33 +30,44 @@
         label="비밀번호 확인"
         type="password"
         counter
-        dark
+        hint="비밀번호를 입력하세요"
       ></v-text-field>
     </v-col>
     <v-col cols="12">
       <v-row>
-        <v-col cols="6">
+        <v-col cols="6" >
           <v-text-field
-            v-model="belong"
-            label="소속"
+            v-model="name"
+            label="이름"
             filled
-            dark
+            hint="이름을 입력하세요"
           ></v-text-field>
         </v-col>
-        <v-col cols="6">
-          <v-text-field
-            v-model="role"
-            label="직무"
-            filled
-            dark
-          ></v-text-field>
+        <v-col cols="12">
+          <v-row>
+            <v-col cols="6">
+              <v-text-field
+                v-model="belong"
+                label="소속"
+                filled
+                hint="회사/학교를 입려하세요"
+              ></v-text-field>
+            </v-col>
+            <v-col cols="6">
+              <v-text-field
+                v-model="role"
+                label="직무"
+                filled
+                hint="직무를 입력하세요"
+              ></v-text-field>
+            </v-col>
+          </v-row>
         </v-col>
       </v-row>
 
     </v-col>
     <v-col cols="12">
       <v-btn block color="#BB86FC"
-             dark
              @click="singIUp"
       >회원가입
       </v-btn>

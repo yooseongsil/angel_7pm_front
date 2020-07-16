@@ -10,8 +10,8 @@
           <v-text-field
             v-model="email"
             label="이메일"
-            dark
             filled
+            hint="이메일을 입력하세요"
           ></v-text-field>
 
         </v-col>
@@ -21,8 +21,8 @@
             type="password"
             v-model="password"
             label="비밀번호"
-            dark
             counter
+            hint="비밀번호를 입력하세요"
           ></v-text-field>
         </v-col>
         <v-col cols="12">
