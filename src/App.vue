@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="less">
   #hackBasic{
     background: #292929 !important;
   }
@@ -33,5 +33,9 @@ export default {
   #hacksIngPage p,
   #hacksIngPage span {
     font-family: 'DungGeunMo', 'kongtext' !important;
+  }
+
+  .is-dark {
+    color: white;
   }
 </style>
