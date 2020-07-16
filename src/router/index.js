@@ -8,8 +8,10 @@ import HacksListPage from '../views/hacks/HacksListPage.vue'
 import HacksDetailPage from '../views/hacks/HacksDetailPage.vue'
 import HacksIngPage from '../views/hacksIng/HacksIngPage.vue'
 import TeamListPage from '../views/TeamListPage.vue'
-import HacksMissionPage from '../views/hacksIng/misson/HacksMissionPage'
 import HacksSwitchingPage from '../views/hacksIng/HacksSwitchingPage'
+import HacksIngMissionTeamBuildingFormPage from '../views/hacksIng/misson/HacksIngMissionTeamBuildingFormPage'
+import HacksIngMissionTeamIdeationFormPage from '../views/hacksIng/misson/HacksIngMissionTeamIdeationFormPage'
+import HacksIngMissionTeamSubmissionFormPage from '../views/hacksIng/misson/HacksIngMissionTeamSubmissionFormPage'
 
 Vue.use(VueRouter)
 
@@ -55,9 +57,19 @@ const routes = [
     component: HacksDetailPage
   },
   {
-    path: '/hacks/ing/mission/:id',
-    name: 'HacksMissionPage',
-    component: HacksMissionPage
+    path: '/hacks/ing/mission/teamBuilding',
+    name: 'HacksIngMissionTeamBuildingFormPage',
+    component: HacksIngMissionTeamBuildingFormPage
+  },
+  {
+    path: '/hacks/ing/mission/teamIdeation',
+    name: 'HacksIngMissionTeamIdeationFormPage',
+    component: HacksIngMissionTeamIdeationFormPage
+  },
+  {
+    path: '/hacks/ing/mission/teamSubmission',
+    name: 'HacksIngMissionTeamSubmissionFormPage',
+    component: HacksIngMissionTeamSubmissionFormPage
   },
   {
     path: '/team/list',

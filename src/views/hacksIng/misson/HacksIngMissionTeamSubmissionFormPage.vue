@@ -29,7 +29,7 @@
 
 <script>
 export default {
-  name: 'HacksMissionTeamIdeationFormPage',
+  name: 'HacksIngMissionTeamIdeationFormPage',
   data: () => ({
     githubLink: '',
     demoVideoLink: '',
