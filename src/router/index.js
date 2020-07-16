@@ -9,6 +9,7 @@ import HacksDetailPage from '../views/HacksDetailPage.vue'
 import HacksIngPage from '../views/HacksIngPage.vue'
 import TeamListPage from '../views/TeamListPage.vue'
 import HacksMissionPage from '../views/hacks/misson/HacksMissionPage'
+import HacksSwitchingPage from '../views/hacks/HacksSwitchingPage'
 
 Vue.use(VueRouter)
 
@@ -42,6 +43,11 @@ const routes = [
     path: '/hacks/ing',
     name: 'HacksIngPage',
     component: HacksIngPage
+  },
+  {
+    path: '/hacks/ing/switch',
+    name: 'HacksSwitchingPage',
+    component: HacksSwitchingPage
   },
   {
     path: '/hacks/:id',
