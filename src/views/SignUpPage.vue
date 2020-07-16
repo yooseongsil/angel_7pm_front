@@ -37,7 +37,7 @@
           </v-col>
           <v-col cols="6">
             <v-text-field
-              v-model="dep"
+              v-model="role"
               label="직무"
               filled
             ></v-text-field>
@@ -55,7 +55,7 @@
 </template>
 
 <script>
-// import axios from 'axios'
+import axios from 'axios'
 export default {
   name: 'SignUpPage',
   data: () => ({
@@ -63,9 +63,27 @@ export default {
     password: null,
     checkPassword: null,
     belong: null,
-    dep: null
+    role: null
   }),
   methods: {
+    singIUp () {
+      axios({
+        method: 'POST',
+        url: `${this.$store.state.host}/accounts/sign-up/`,
+        data: {
+          email: this.email,
+          name: this.password,
+          password: this.password,
+          belong: this.belong,
+          role: this.role
+        }
+      }).then(({ data }) => {
+        console.log(data)
+      })
+        .catch(({ error }) => {
+          console.log(error)
+        })
+    }
   }
 }
 </script>
