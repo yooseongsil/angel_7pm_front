@@ -1,35 +1,30 @@
 <template>
   <div id="signIn">
-    <!--container-->
-    <v-container>
-      <!--아이디 입력-->
-      <v-col cols="12">
-        <v-text-field
-          v-model="email"
-          label="이메일"
-          filled
-        ></v-text-field>
-      </v-col>
-      <!--비밀번호 입력-->
-      <v-col cols="12">
-        <v-text-field
-          v-model="password"
-          label="비밀번호"
-          counter
-        ></v-text-field>
-        <!--@click:append="show1 = !show1"
-          :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-          :rules="[rules.required, rules.min]"
-          :type="show1 ? 'text' : 'password'"
-          name="input-10-1"-->
-      </v-col>
-      <v-col cols="12">
-        <v-btn block class="deep-purple accent-2"
-               @click="singIn">로그인
-        </v-btn>
-        <v-btn outlined block class="mt-3">회원가입</v-btn>
-      </v-col>
-    </v-container>
+      <v-row>
+        <!--아이디 입력-->
+        <v-col cols="12">
+          <v-text-field
+            v-model="email"
+            label="이메일"
+            filled
+          ></v-text-field>
+        </v-col>
+        <!--비밀번호 입력-->
+        <v-col cols="12">
+          <v-text-field
+            :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+            v-model="password"
+            label="비밀번호"
+            counter
+          ></v-text-field>
+        </v-col>
+        <v-col cols="12">
+          <v-btn block class="deep-purple accent-2"
+                 @click="singIn">로그인
+          </v-btn>
+          <v-btn outlined block class="mt-3">회원가입</v-btn>
+        </v-col>
+      </v-row>
   </div>
 </template>
 
@@ -40,7 +35,8 @@ export default {
   name: 'SignInPage',
   data: () => ({
     email: null,
-    password: null
+    password: null,
+    show: false
   }),
   methods: {
     singIn () {
@@ -63,3 +59,8 @@ export default {
   }
 }
 </script>
+<style lang="less" scoped>
+ #signIn {
+
+ }
+</style>

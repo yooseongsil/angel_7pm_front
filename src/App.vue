@@ -1,7 +1,9 @@
 <template>
-  <v-app :id="isHacksIngPage ? 'hacksIngPage' : ''">
-    <v-main no-gutters class="pa-4">
-      <router-view></router-view>
+  <v-app :id="isHacksIngPage ? 'hacksIngPage' : 'hackBasic'">
+    <v-main no-gutters>
+      <v-container>
+        <router-view></router-view>
+      </v-container>
     </v-main>
   </v-app>
 </template>
@@ -20,6 +22,9 @@ export default {
 </script>
 
 <style lang="css">
+  #hackBasic{
+    background: #292929 !important;
+  }
   #hacksIngPage {
     background: #212529 !important;
     color: white !important;
