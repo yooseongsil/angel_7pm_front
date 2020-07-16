@@ -3,16 +3,20 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import SignInPage from '../views/SignInPage.vue'
 import SignUpPage from '../views/SignUpPage.vue'
-import Mypage from '../views/Mypage.vue'
+
 import HacksListPage from '../views/hacks/HacksListPage.vue'
-import HacksApplyPage from '../views/hacks/HacksApplyPage'
 import HacksDetailPage from '../views/hacks/HacksDetailPage.vue'
-import HacksIngPage from '../views/hacksIng/HacksIngPage.vue'
-import TeamListPage from '../views/TeamListPage.vue'
+import HacksApplyPage from '../views/hacks/HacksApplyPage'
+
 import HacksSwitchingPage from '../views/hacksIng/HacksSwitchingPage'
+import HacksIngPage from '../views/hacksIng/HacksIngPage.vue'
 import HacksIngMissionTeamBuildingFormPage from '../views/hacksIng/misson/HacksIngMissionTeamBuildingFormPage'
 import HacksIngMissionTeamIdeationFormPage from '../views/hacksIng/misson/HacksIngMissionTeamIdeationFormPage'
 import HacksIngMissionTeamSubmissionFormPage from '../views/hacksIng/misson/HacksIngMissionTeamSubmissionFormPage'
+
+import TeamListPage from '../views/TeamListPage.vue'
+
+import Mypage from '../views/Mypage.vue'
 import UpdateProfilePage from '../views/mypage/UpdateProfilePage'
 
 Vue.use(VueRouter)
@@ -47,6 +51,11 @@ const routes = [
     path: '/hacks/:id',
     name: 'HacksDetailPage',
     component: HacksDetailPage
+  },
+  {
+    path: '/hacks/:id/apply',
+    name: 'HacksApplyPage',
+    component: HacksApplyPage
   },
   {
     path: '/hacks/ing',
