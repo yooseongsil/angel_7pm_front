@@ -27,10 +27,11 @@
         </v-col>
         <v-col cols="12">
           <v-btn block
-                 @click="singIn" color="#BB86FC">로그인
+                 @click="singIn"
+          class="deep-purple accent-1">로그인
           </v-btn>
           <v-btn outlined block
-                 class="mt-3" color="#BB86FC"
+                 class="mt-3 deep-purple accent-1"
           onclick="window.location.href = 'signup'">회원가입</v-btn>
         </v-col>
       </v-row>

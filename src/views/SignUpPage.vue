@@ -67,7 +67,8 @@
 
     </v-col>
     <v-col cols="12">
-      <v-btn block color="#BB86FC"
+      <v-btn block
+             class="deep-purple accent-1"
              @click="singIUp"
       >회원가입
       </v-btn>
