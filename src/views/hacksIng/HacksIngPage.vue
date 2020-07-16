@@ -36,8 +36,8 @@
   </v-main>
 </template>
 <script>
-import MissionComponent from '../components/hacks/MissionComponent'
-import TodosComponent from '../components/hacks/TodosComponent'
+import MissionComponent from '../../components/hacks/MissionComponent'
+import TodosComponent from '../../components/hacks/TodosComponent'
 
 export default {
   name: 'HacksIngPage',

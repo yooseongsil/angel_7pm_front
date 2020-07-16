@@ -4,12 +4,12 @@ import Home from '../views/Home.vue'
 import SignInPage from '../views/SignInPage.vue'
 import SignUpPage from '../views/SignUpPage.vue'
 import Mypage from '../views/Mypage.vue'
-import HacksListPage from '../views/HacksListPage.vue'
-import HacksDetailPage from '../views/HacksDetailPage.vue'
-import HacksIngPage from '../views/HacksIngPage.vue'
+import HacksListPage from '../views/hacks/HacksListPage.vue'
+import HacksDetailPage from '../views/hacks/HacksDetailPage.vue'
+import HacksIngPage from '../views/hacksIng/HacksIngPage.vue'
 import TeamListPage from '../views/TeamListPage.vue'
-import HacksMissionPage from '../views/hacks/misson/HacksMissionPage'
-import HacksSwitchingPage from '../views/hacks/HacksSwitchingPage'
+import HacksMissionPage from '../views/hacksIng/misson/HacksMissionPage'
+import HacksSwitchingPage from '../views/hacksIng/HacksSwitchingPage'
 
 Vue.use(VueRouter)
 
