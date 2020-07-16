@@ -58,7 +58,7 @@
 
 <script>
 export default {
-  name: 'HacksMissionTeamFormPage',
+  name: 'HacksIngMissionTeamBuildingFormPage',
   data: () => ({
     teamName: null,
     teamLeaderName: null,
