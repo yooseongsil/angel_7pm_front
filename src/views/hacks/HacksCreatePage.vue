@@ -3,7 +3,7 @@
     <v-row>
       <!--title-->
       <v-col cols="12">
-        <h1 class="text-h2 white--text mt-12">해커톤을 <br/>선택하세요</h1>
+        <h1 class="text-h2 white--text mt-12">해커톤을 <br/>만들기</h1>
       </v-col>
       <v-col cols="12">
 
@@ -15,9 +15,20 @@
 <script>
 import axios from 'axios'
 export default {
-  name: 'HacksApplyPage',
+  name: 'HacksCreatePage',
   data: () => ({
-
+    data: {
+      count: null,
+      next: null,
+      previous: null,
+      results: {
+        id: null,
+        title: null,
+        intro: null,
+        subject: null,
+        rule: null
+      }
+    }
   }),
   methods: {
     getList () {
@@ -32,6 +43,5 @@ export default {
         })
     }
   }
-
 }
 </script>
