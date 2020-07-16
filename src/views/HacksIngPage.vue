@@ -23,10 +23,10 @@
         :missionQuestion="missionText.missionQuestion"
         :missionQuestionLink="missionText.missionQuestionLink"/>
     </section>
-<!--    자기소개-->
-    <TodosComponent todos-title="자기소개" :todos="todoList"/>
-<!--    아이디어-->
-    <TodosComponent todos-title="아이디어" :todos="ideaList"/>
+<!--    Todos checkList-->
+    <section>
+      <TodosComponent v-for="(todos, index) in todosList" :todos-title="todos.title" :todos="todos.todos" :key="`${todos.title}-${index}`"/>
+    </section>
 <!--    팀빌딩 미션-->
     <section class="d-flex flex-column align-center">
       <div>팀빌딩 미션:</div>
@@ -48,49 +48,163 @@ export default {
       // new Date에서 추출
       today: '금요일',
       dayList: ['금요일', '토요일', '일요일'],
-      todoList: [
-        {
-          text: '자기소개를 나누었나요?',
-          checked: true,
-          descriptionList: []
-        },
-        {
-          text: '각자의 역할 및 강점 파악하기',
-          checked: false,
-          descriptionList: []
+      todosListAll: [
+        // 금요일
+        [
+          {
+            title: '자기소개',
+            todos: [
+              {
+                text: '자기소개를 나누었나요?',
+                checked: true,
+                descriptionList: []
+              },
+              {
+                text: '각자의 역할 및 강점 파악하기',
+                checked: false,
+                descriptionList: []
 
-        }
-      ],
-      ideaList: [
-        {
-          text: '가능한 많은 아이디어를 생각하고 리스트화',
-          checked: true,
-          descriptionList: []
-        },
-        {
-          text: '아래 기준에 맞춰 아이디어 선정',
-          checked: false,
-          descriptionList: [
-            '심플하면서 혁신적인지',
-            '문제 해결이 가능한지',
-            '시간 내에 구현 가능한지',
-            '평가 기준에 부합하는지']
-        },
-        {
-          text: '우선순위 정하기',
-          checked: false,
-          descriptionList: [
-            'Critical Path 정하기',
-            '기능별 우선순위 정하기'
-          ]
-        },
-        {
-          text: '종이에 스케치해보기',
-          checked: false,
-          descriptionList: [
-            '요구사항 명세 작성'
-          ]
-        }
+              }
+            ]
+          },
+          {
+            title: '아이디어',
+            todos: [{
+              text: '가능한 많은 아이디어를 생각하고 리스트화',
+              checked: true,
+              descriptionList: []
+            },
+            {
+              text: '아래 기준에 맞춰 아이디어 선정',
+              checked: false,
+              descriptionList: [
+                '심플하면서 혁신적인지',
+                '문제 해결이 가능한지',
+                '시간 내에 구현 가능한지',
+                '평가 기준에 부합하는지']
+            },
+            {
+              text: '우선순위 정하기',
+              checked: false,
+              descriptionList: [
+                'Critical Path 정하기',
+                '기능별 우선순위 정하기'
+              ]
+            },
+            {
+              text: '종이에 스케치해보기',
+              checked: false,
+              descriptionList: [
+                '요구사항 명세 작성'
+              ]
+            }
+            ]
+          }
+        ],
+        // 토요일
+        [
+          {
+            title: '토요토요',
+            todos: [
+              {
+                text: '토요토요토요토요',
+                checked: true,
+                descriptionList: []
+              },
+              {
+                text: '토요토요토요토요',
+                checked: false,
+                descriptionList: []
+
+              }
+            ]
+          },
+          {
+            title: '토요토요2',
+            todos: [{
+              text: '가능한 많은 아이디어를 생각하고 리스트화',
+              checked: true,
+              descriptionList: []
+            },
+            {
+              text: '아래 기준에 맞춰 아이디어 선정',
+              checked: false,
+              descriptionList: [
+                '심플하면서 혁신적인지',
+                '문제 해결이 가능한지',
+                '시간 내에 구현 가능한지',
+                '평가 기준에 부합하는지']
+            },
+            {
+              text: '우선순위 정하기',
+              checked: false,
+              descriptionList: [
+                'Critical Path 정하기',
+                '기능별 우선순위 정하기'
+              ]
+            },
+            {
+              text: '종이에 스케치해보기',
+              checked: false,
+              descriptionList: [
+                '요구사항 명세 작성'
+              ]
+            }
+            ]
+          }
+        ],
+        // 일요일
+        [
+          {
+            title: '일요일',
+            todos: [
+              {
+                text: '일요일',
+                checked: true,
+                descriptionList: []
+              },
+              {
+                text: '일요일일요일일요일',
+                checked: false,
+                descriptionList: []
+
+              }
+            ]
+          },
+          {
+            title: '토요토요2',
+            todos: [{
+              text: '가능한 많은 아이디어를 생각하고 리스트화',
+              checked: true,
+              descriptionList: []
+            },
+            {
+              text: '아래 기준에 맞춰 아이디어 선정',
+              checked: false,
+              descriptionList: [
+                '심플하면서 혁신적인지',
+                '문제 해결이 가능한지',
+                '시간 내에 구현 가능한지',
+                '평가 기준에 부합하는지']
+            },
+            {
+              text: '우선순위 정하기',
+              checked: false,
+              descriptionList: [
+                'Critical Path 정하기',
+                '기능별 우선순위 정하기'
+              ]
+            },
+            {
+              text: '종이에 스케치해보기',
+              checked: false,
+              descriptionList: [
+                '요구사항 명세 작성'
+              ]
+            }
+            ]
+          }
+        ]
       ],
       isMissionSuccess: false,
       missionTextList: [
@@ -128,6 +242,10 @@ export default {
     missionText () {
       const index = this.dayList.indexOf(this.today)
       return this.missionTextList[index]
+    },
+    todosList () {
+      const index = this.dayList.indexOf(this.today)
+      return this.todosListAll[index]
     }
   },
   components: {
