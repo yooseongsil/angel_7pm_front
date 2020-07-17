@@ -1,6 +1,6 @@
 <template>
-  <div class="p-relative">
-    <span style="z-index: 1; position: absolute; left: 24px; top: 22px;">
+  <div style="margin: -15px; position: relative">
+    <span v-if="iconShow" style="z-index: 1; position: absolute; left: 12px; top: 50%; transform: translateY(-50%)" @click="$router.go(-1)">
       <v-icon>mdi-chevron-left</v-icon>
     </span>
       <v-tabs
@@ -9,33 +9,31 @@
         centered
       >
         <v-tab
-          v-for="item in items"
-          :key="item"
+          v-for="(item, index) in items"
+          :key="`${item}-${index}`"
+          @click="clickTab(index)"
         >
           {{ item }}
         </v-tab>
       </v-tabs>
-
-      <v-tabs-items v-model="tab">
-        <v-tab-item
-          v-for="item in items"
-          :key="item.tab"
-        >
-          <v-card flat>
-            <v-card-text>{{ item.content }}</v-card-text>
-          </v-card>
-        </v-tab-item>
-      </v-tabs-items>
   </div>
 </template>
 
 <script>
 export default {
   name: 'TabComponent',
-  props: ['items'],
+  props: ['items', 'iconShow'],
   data () {
     return {
       tab: null
+    }
+  },
+  methods: {
+    clickTab (val) {
+      this.$emit('activeTab', val)
+    },
+    gotoList () {
+      this.$router.push('/hacks/list')
     }
   }
 }

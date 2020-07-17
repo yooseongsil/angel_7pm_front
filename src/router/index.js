@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 import SignInPage from '../views/SignInPage.vue'
 import SignUpPage from '../views/SignUpPage.vue'
 import Mypage from '../views/Mypage.vue'
@@ -15,17 +14,13 @@ import HacksIngMissionTeamBuildingFormPage from '../views/hacksIng/misson/HacksI
 import HacksIngMissionTeamIdeationFormPage from '../views/hacksIng/misson/HacksIngMissionTeamIdeationFormPage'
 import HacksIngMissionTeamSubmissionFormPage from '../views/hacksIng/misson/HacksIngMissionTeamSubmissionFormPage'
 import UpdateProfilePage from '../views/mypage/UpdateProfilePage'
+import MyHacksListPage from '../views/mypage/MyHacksListPage'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/signIn',
     name: 'SignInPage',
     component: SignInPage
   },
@@ -93,6 +88,11 @@ const routes = [
     path: '/mypage/updateProfile',
     name: 'UpdateProfilePage',
     component: UpdateProfilePage
+  },
+  {
+    path: '/mypage/hacks/list',
+    name: 'MyHacksListPage',
+    component: MyHacksListPage
   }
 ]
 

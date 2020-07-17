@@ -3,7 +3,7 @@
       <v-row>
         <!--title-->
         <v-col cols="12">
-          <h1 class="text-h2 white--text mt-12">가슴을 울리는 vp</h1>
+          <h1 class="text-h3 white--text mt-12" v-html="randomTitle"></h1>
         </v-col>
         <!--아이디 입력-->
         <v-col cols="12">
@@ -12,6 +12,7 @@
             label="이메일"
             filled
             hint="이메일을 입력하세요"
+            color="deep-purple accent-1"
           ></v-text-field>
 
         </v-col>
@@ -23,6 +24,7 @@
             label="비밀번호"
             counter
             hint="비밀번호를 입력하세요"
+            color="deep-purple accent-1"
           ></v-text-field>
         </v-col>
         <v-col cols="12">
@@ -30,10 +32,20 @@
                  @click="singIn"
           class="deep-purple accent-1">로그인
           </v-btn>
-          <v-btn outlined block
-                 class="mt-3 deep-purple accent-1"
-          onclick="window.location.href = 'signup'">회원가입</v-btn>
+          <v-btn block outlined
+                 class="mt-3"
+                 color="deep-purple accent-1"
+                 @click="singUp"
+          >회원가입</v-btn>
         </v-col>
+        <v-col cols="12">
+          <v-alert type="error" v-if="nonUser">
+            회원가입 후 이용해주세요.
+          </v-alert>
+        </v-col>
+        <div class="signin_img">
+          <img :src="randomImg" :alt="randomTitle">
+        </div>
       </v-row>
   </div>
 </template>
@@ -46,8 +58,19 @@ export default {
   data: () => ({
     email: null,
     password: null,
-    userInfo: {}
+    nonUser: false,
+    randomNumber: Math.floor(Math.random() * 3)
   }),
+  computed: {
+    randomTitle () {
+      const title = ['누구나 해커톤을<br>쉽고 재밌게 👾', '누구나 즐기는️<br>온라인 해커톤 🎮', '누구나 즐기는<br>온라인 해커톤 💻']
+      return title[this.randomNumber]
+    },
+    randomImg () {
+      return require(`../assets/images/illust/illust_signin_${this.randomNumber + 1}.svg`)
+    }
+
+  },
   methods: {
     singIn () {
       axios({
@@ -58,26 +81,45 @@ export default {
           password: this.password
         }
       }).then(({ data }) => {
-        console.log(data)
-        document.cookie = `accessToken=${data.token}`
-        axios.defaults.headers.common['x-access-token'] = data.token
-        this.userInfo = data
-        this.$store.state.userInfo = this.userInfo
         if (data !== undefined) {
-          window.location.href = '/hacks/list'
+          this.nonUser = false
+          this.$store.state.userInfo = data
+          /* 토큰정보 넣기 & 저장 */
+          document.cookie = `accessToken=${data.token}`
+          axios.defaults.headers.common.Authorization = `jwt ${data.token}`
+          localStorage.setItem('userInfo', JSON.stringify(data))
+          localStorage.setItem('token', data.token)
+          /* 로그인 하면 이동하기 */
+          this.$router.push('/hacks/list')
+        } else {
+          this.nonUser = true
         }
       })
         .catch(({ error }) => {
+          this.nonUser = true
           console.log(error)
         })
+    },
+    singUp () {
+      this.$router.push('/signUp')
     }
   }
 }
 </script>
+
 <style lang="less" scoped>
  #signIn {
    .v-text-field > .v-input__control > .v-input__slot:after {
      color: #BB86FC;
+   }
+   .signin_img{
+     position: fixed;
+     bottom: 0;
+     left: 50%;
+     transform: translateX(-50%);
+     img{
+       display: block;
+     }
    }
  }
 </style>
