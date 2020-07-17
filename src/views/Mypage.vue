@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import Avatar from '../components/base/Avatar'
+import Avatar from '../components/base/main/Avatar'
 export default {
   name: 'Mypage',
   components: { Avatar },

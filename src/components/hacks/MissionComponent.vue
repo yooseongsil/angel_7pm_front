@@ -2,7 +2,7 @@
   <section>
     <div class="d-flex flex-row align-center">
       <i class="nes-icon coin is-small"></i>
-      <span class="nes-text is-warning mission-title">{{missionTitle}}</span>
+      <span class="nes-text is-warning">{{missionTitle}}</span>
     </div>
     <div class="mb-4">{{mission}}</div>
     <div>{{missionShort}}까지 남은 시간:</div>
@@ -19,7 +19,4 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  .mission-title {
-    margin: -2.2rem 0 1rem;
-  }
 </style>

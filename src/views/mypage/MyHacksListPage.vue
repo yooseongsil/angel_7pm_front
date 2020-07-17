@@ -26,7 +26,7 @@
 <script>
 import axios from 'axios'
 import TabComponent from '../hacks/TabComponent'
-import Card from '../../components/base/Card'
+import Card from '../../components/base/main/Card'
 
 export default {
   name: 'MyHacksListPage',

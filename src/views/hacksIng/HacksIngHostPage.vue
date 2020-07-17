@@ -43,25 +43,24 @@
       </div>
     </section>
 
-    <dialog class="nes-dialog is-dark ma-auto" id="dialog-dark">
-      <form method="dialog">
-        <p class="title">복사 완료!</p>
-        <p>링크를 슬랙에 올려주세요.</p>
-        <menu class="dialog-menu text-center">
-          <button class="nes-btn" @click="showHacksIngModal=false">닫기</button>
-        </menu>
-      </form>
-    </dialog>
+    <Modal :show="showHacksIngModal"
+           @close="showHacksIngModal=false"
+           :modalTitle="modalTitle"
+           :modalText="modalText"
+           :buttonText="buttonText"
+    />
   </v-main>
 </template>
 
 <script>
 import Vue from 'vue'
 import VueClipboard from 'vue-clipboard2'
+import Modal from '../../components/base/hacksIng/Modal'
 Vue.use(VueClipboard)
 
 export default {
   name: 'HacksIngHostPage',
+  components: { Modal },
   data () {
     return {
       teamFormLink: {
@@ -70,14 +69,10 @@ export default {
         teamSubmission: './hacks/ing/mission/teamSubmission'
       },
       showHacksIngModal: false,
-      progress: 30
-    }
-  },
-  watch: {
-    showHacksIngModal () {
-      if (this.showHacksIngModal) {
-        document.getElementById('dialog-dark').showModal()
-      }
+      progress: 30,
+      modalTitle: '',
+      modalText: '',
+      buttonText: ''
     }
   },
   created () {
@@ -85,6 +80,9 @@ export default {
   },
   methods: {
     onCopy () {
+      this.modalTitle = '복사 완료!'
+      this.modalText = '링크를 슬랙에 올려주세요.'
+      this.buttonText = '닫기'
       this.showHacksIngModal = true
     },
     getHacksDate () {

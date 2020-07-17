@@ -11,7 +11,7 @@ import HacksIngHostPage from './HacksIngHostPage'
 export default {
   name: 'HacksIngPage',
   data: () => ({
-    userType: 1
+    userType: 2
   }),
   components: { HacksIngHostPage, HacksIngApplicantPage }
 }
