@@ -47,13 +47,13 @@
       <v-col cols="12">
         <v-text-field
           v-model="data.started_at"
-          label="해커톤 시작일"
+          label="해커톤 시작일 (YYYY-MM-DD)"
         ></v-text-field>
       </v-col>
       <v-col cols="12">
         <v-text-field
           v-model="data.ended_at"
-          label="해커톤 예정일"
+          label="해커톤 예정일(YYYY-MM-DD)"
         ></v-text-field>
       </v-col>
       <v-col cols="12">
@@ -65,7 +65,7 @@
       <v-col cols="12">
         <v-text-field
           v-model="data.judge_day"
-          label="해커톤이 끝나고 며칠 후 까지 심사할 지 1은 1일"
+          label="해커톤이 끝나고 며칠 후 까지 심사할 지 1은 1일(숫자)"
         ></v-text-field>
       </v-col>
       <v-col cols="12">

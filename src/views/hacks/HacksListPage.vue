@@ -6,7 +6,7 @@
         @activeTab="getList"></tab-component>
       </v-col>
       <!--title-->
-      <v-col cols="6" :md="12">
+      <v-col cols="12">
         <h1 class="text-h3 white--text mt-12">해커톤을 <br/>선택하세요</h1>
       </v-col>
       <v-col cols="12" :md="4"
@@ -14,19 +14,11 @@
         <v-card>
           <v-list-item three-line>
             <v-list-item-content>
-              <div class="overline mb-4 teal--text accent-3">모인 금액: {{hack.total_fee}}원</div>
+              <div class="overline mb-4 teal--text accent-3">모인 금액: {{hack.awards_count}}원</div>
               <v-list-item-title class="headline mb-1">{{hack.title}}</v-list-item-title>
               <v-list-item-subtitle>현재 {{hack.current_personnel}}명 신청</v-list-item-subtitle>
               <v-list-item-content>(팀별 {{hack.team_personnel}}명)</v-list-item-content>
             </v-list-item-content>
-
-            <v-list-item-avatar
-              tile
-              size="80"
-              color="grey"
-            >
-              <v-img :src="hack.img"/>
-            </v-list-item-avatar>
           </v-list-item>
 
           <v-card-actions>

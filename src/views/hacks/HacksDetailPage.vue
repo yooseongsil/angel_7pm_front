@@ -1,26 +1,24 @@
 <template>
-  <div>
-    <section>
-        <tab-component :items="items" :iconShow="true"></tab-component>
-    </section>
+  <div id="hacksDetail" class="pb-15">
+    <tab-component :items="items" :iconShow="true"></tab-component>
     <v-img :src="`${hack.img}`"/>
     <v-container>
       <div class="d-flex justify-center mt-4">
-        <span class="text-h5 mr-2">{{hack.title}}</span>
-        <v-chip color="deep-purple" class="text-body-2" outlined>{{status}}</v-chip>
+        <span class="text-h5 col-9 text-truncate">{{hack.title}}</span>
+        <v-chip color="deep-purple" class="text-body-2 col-3 mt-3 d-block text-center" outlined>{{status}}</v-chip>
       </div>
-<!--      시간-->
+      <!--시간-->
       <time-component :left-text="`${hack.started_at} 19:00 시작`" :right-text="`${hack.ended_at} 23:59 종료`"></time-component>
-<!--      설명-->
+      <!--설명-->
       <div class="mt-4 text-body-2 grey--text text--lighten-1">
-        {{hack.intro}}
+        "{{hack.intro}}"
       </div>
-<!--      신청자 수, 모인 금액-->
+      <!--신청자 수, 모인 금액-->
       <xaxis-info-component :left-title="`신청자 수 (팀별 ${hack.max_personnel}명)`" :left-info="`1,379`" right-title="모인 금액" :right-info="`12,370,000원`"/>
-<!--도전과제 제목-->
+      <!--도전과제 제목-->
       <detail-section title="도전과제" :description="`${hack.subject}`"/>
       <detail-section title="심사방법 & 기간" :description="`${hack.judge_line}`">
-        <!--      시간-->
+        <!--시간-->
         <!-- 심사시작 + judge_day -->
         <time-component left-text="20.07.13 (월) 심사 시작" right-text="20.07.15 (수) 우승팀 발표"/>
         </detail-section>
@@ -28,7 +26,7 @@
         <xaxis-info-component left-title="우승팀 수" :left-info="`${hack.awards_count}팀`" right-title="상금 책정 방식" right-info="1등 100%"/>
       </detail-section>
       <detail-section title="규칙" :description="`${hack.rule}`"/>
-<!--      주최자-->
+      <!--주최자-->
       <div style="position: relative;">
         <div class="text-caption grey--text text--lighten-1">주최자</div>
           <div>
@@ -64,22 +62,13 @@ export default {
       id: null,
       tab: null,
       items: [],
-      hack: {}
+      hack: {},
+      status: null
     }
   },
   computed: {
     no () {
       return this.$route.params.id
-    },
-    // 해커톤 상태 ('w', '작성(write)'), ('p', '예정(plan)'), ('i', '진행(ing)'), ('c', '완료(complete)')
-    status () {
-      const mapToStatus = {
-        w: '작성중',
-        p: '모집중',
-        i: '작성중',
-        c: '진행완료'
-      }
-      return mapToStatus[this.hack.status]
     }
   },
   created () {
@@ -95,6 +84,21 @@ export default {
       }).then(({ data }) => {
         console.log(data)
         this.hack = data
+        switch (data.status) {
+          case 'w':
+            this.status = '작성중'
+            break
+          case 'p':
+            this.status = '모집중'
+            break
+          case 'i':
+            this.status = '작성중'
+            break
+          case 'c':
+            this.status = '진행완료'
+            break
+          default:
+        }
       })
         .catch(({ error }) => {
           console.log(error)
