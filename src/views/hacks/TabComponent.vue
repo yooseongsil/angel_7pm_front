@@ -9,8 +9,8 @@
         centered
       >
         <v-tab
-          v-for="item in items"
-          :key="item"
+          v-for="(item, index) in items"
+          :key="`${item}-${index}`"
         >
           {{ item }}
         </v-tab>
@@ -18,8 +18,8 @@
 
       <v-tabs-items v-model="tab">
         <v-tab-item
-          v-for="item in items"
-          :key="item.tab"
+          v-for="(item, index) in items"
+          :key="`tab-${index}`"
         >
           <v-card flat>
             <v-card-text>{{ item.content }}</v-card-text>

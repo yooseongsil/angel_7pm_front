@@ -6,28 +6,28 @@
   <v-img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxIREhUSExMWFhMXFRkYFRYYFxcXGRgYGhYYGRgeGhkYICogGBslGxgYIzEiJikuMC4uGCAzODMsNygtLisBCgoKDg0OGxAQGi8lICUrKy0tLy0vLS0tLS0tLy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALcBFAMBIgACEQEDEQH/xAAcAAEAAwEBAQEBAAAAAAAAAAAABAUGAwcCAQj/xAA+EAABAwIEAwYFAgUDAgcAAAABAAIRAyEEEjFBBVFhBhMicYGRMqGxwfBC0QcUUoLhI2LxFZIWQ3KissPS/8QAGAEBAAMBAAAAAAAAAAAAAAAAAAECAwT/xAAmEQEBAAIDAAEDAwUAAAAAAAAAAQIRAyExEjJBUQQTIiNxkaHB/9oADAMBAAIRAxEAPwD3FERAREQEREBERAREQfjnAXNl+grN9rMSczKQMAyfXb7qNgcTUp3BB5i9/SLLO8mrppOO2ba1FB4ZxRlcWIzbj/BupyvLvxSyzqiIilAiIgIiICIiAiKk4r2hbTzNpRUeNbiB5lRbImS3xdovO6najE06rTUcMsyWxYjeLDrudF6GCoxymS2WFx9fqIisoIiICIiAiIgIiICIiAiIgIiICIiAiIgyHbeo5tSgQBeRJ2uP3XWhSluh6nLr5f5Tt1RkUHbNeZPnEfRfFKtmaDdrdBIXNl9ddmE/pyouLZUa4VKR0+Q+U/NX/A+NtriDLag1BET18vJUtZ7AIJMnYXJPkAqXGsqBwewkOFupE7CR4rW1m40sky+N6Vyw+U7emIs3wXjdR9PxgSCIJkB7YmRa245GJ3Xet2hbOVsSdDrtIW37mLD4Veos7wvtMK5flZLWvy5gbEx9NlIq8eDTBA8gZOgP3U/OI+NXSKoZxsRdhHIzAO+6hf8AiphqmkB4g3NB1Ik3Htolzh8K0i+XvDRJMBVNPjYdoBIN7zHpzWW4/wAZfVdkzQNmAOzONwYgg6ae8aKt5J9lpx2rDtB2ll3d0yQJ8TtCTybzP5dVFKkCQTTc6dJfMT0Mx6WXHAvpshrXXuCA1vPQukgegVtRcBLgxjTzN/mVjbuujGfGdM72kw4DBYgg2a6+vIzI0+W69VwrYY0HUNH0XlXGHVX1aVO2V9QDRpsT5L1pX4vap+ompBERbuYREQEREBERAREQEREBERAREQEREBERBVdp8H3uHeBqPEPT/ErEsxjidDbRo+vTqfNeiY8nuqkGDkdB5HKYXnwrik1tV7bvueQHO2gMrl5uso7v0t/hVjRwzy0EANG8gfcyvplJrQ6o8RkEjrb2jS20BS6jmd3mgugTIlro11bZ1o9t1SOxL6oiNHtzTs2XZpy6+HpFzsCoVyy2i1+Lvrub3Ti0S05TsS4EC3xWPzYu7sA92UkhsN8IBiRYgDkJbc7wgflyUg0B03LQbPkOJnSLkwdl+8dccOzMT4m3FzlDZEx6ZY5EFNK7U+Gw1TD1WUA+A57gxpN3BxfHh2gAAXtLd1ZYXDGmXUqrg6SPFHNgLtdpB9hzhcuGYR2IpPxNy9oLmTs43sToJA9brtxOmHFjxpUpsm5sAZaemsJs0kYu+GfUFV2YNLhI8WdojQayWuMbqq4LgQ7/AF8+Z5aIcRt3bW8reIXvoJVj/wBODnU8P4gO4zkyRoA2AOf2VRjg7C1e6BDWvfLempOvIONuQGk3gTsRUrUSYaXE2aGidyfKSbX9dbScLiaeKkkDvdJmCALkNOpGxIte02niMTiA98NHd7SZPwxDR6G/IHVc61bIRlYWF0DltuTycW26ndT8TaW/h5pnxPd7wfMNuY6n/Kj4irltnPnYj1i4U1rGZ85Du8cBcnSbmGmwj7KBxbKT3bXNDjoCTPp/V7bqGuF+z77KUDiMa105mUgXztI+H5x816csR/DVkd+Is0sEwRLocSL7C3ututuD6N/lj+qv9TX4ERFs5hERAREQEREBERAREQEREBERAREQEREH4RNjosRxjDMNYMGYBrY8FojmNxpYfRbWs/KCfZZg4YkumSXmSQNI89ljzd6bcVsUjwX5KTHOaBq5sgReWubHhN7X2G2tjguGOyCXDNu6BJuf0jzmdft2oYcB+aANvh1g9DA/yo3a3tMzA0S4DvKpOVjAYLnGwHMexVOl+6UeGClUhtS0fCdrzYe3lHouHbWk2rTb/Tna146G3oJiSNiV5Vje0WOxGIFL+Yc2o92UUaAaGMPIuddxG5kq+4bxbFYWs3DYx/escWjOYzsLjDS6LOaTAnbqNKZZahLN9vR65azDd20geAg8hIMqhxRbla0icuTL5NiD6X9lIx+CIYQJiPvpdQzRkCbReYsZg+/5uVF2vJImYes1lam7NLoLSeUgEf8AwKhduKAqOpFp8RqNgRM7em1z5brr3EuAby9Rc6eRUbtPiv5WkKrhmeCAxumZ509LSTyBUdxPTUZwKYYD4st3iBeBz/aLDSyr8LwW8h0kbuAHpIv6+a8ownHMfjsQKLMS4PMuDaYYKbA3q4EuiVqOB9rMXg8QKGOIqUnODO8aA3u3m4DwLQbLTf5ZbnkahgfTeRBOv9N5MhuYk2uTAE68wBW4vh4Dm1GiXk+NxMwJ/SRbU6j53WsxtVjm5mFrgRtBF+qiUqYeNztBJgcjrb01SzcWxysq+7N4BtJjnDWo7MfYD7K3UDgr/wDSDbS2xhT10YT+M0587bldiIisqIiICIiAiIgIiICIiAiIgIiICIiAiIgh8TfDZWRp8WAzVXxAkzBHSL21Wi7TA90YjQ66ac15ZxTF4qqO4DMrZALpJt9RPU+y5+T6m/HOm44bVqYgd485ZvliMo9NPVYr+IGENLFYSqLtLnNLts5b/pj3K02Dx/dsDA7xAAEkT7AXPv6rli/5fHUHUK7S5hAdmaYexwNnN3BBE2mVluXppZdP5+ZWqUqjXtJbUYddw4WM9dVd4TiNbEPrVq7y6KDg46R/QBG+sL0jG/w2pVnBzq7S60vLXU3P2GcCQXc3CJ6KRiv4d0MPRAc8VG5gRSaMrCZF3kkuqepA6KOTO5461r8+f6/4zmNt01PZ+sMTgaNUxmfSaXR/VAzed5XGpw/WJiYB6/bXVV/CsU2g00xoAIaNv2m/srjO57eQ6Sq/ufLxv+3p9cLwbQ6DsSR66fRYj+LVUuxFPDs+LuKr2jm8gBo84Do81qamPLDLvQ9PyVSYjhlDGVm1HgzmtUDi1zY0IOkjkQRrIuoyz+UuKMuK6eIYDH1cPVFWi4seNCOR1EHZX2DxlWtSxdWq4vc/uhJ3qZ/CB1AGg2XpfGP4VUnv7xrmXMmHOp5uZIAdBPMKRwjsbQoPZUrPa9tEzRw9NrhSa/d73O8VZ/UwtbncurNf4YSVpOH8O7uhTaHZCGCW2IBi+x+64/zTm03tMEtI5NBGs6fYKPX4sAS7NMzE2nyEAm34VneK4+pTe2uxstcIfla0mOo19bqd/hrr8vRuzuJzgHpy1V6sN2NxxqOaQC0Fvwm0R7/Vblb8fjn5J2IiLRQREQEREBERAREQEREBERAREQEREBERBX8epF1B4GsWPJYfgnDGMa7LmDiZc6xk/n/C9FqszAgrHcX4mzDEh5OsDwj91jyz7tuK/ZBdgHMY4gBxJkgxsduZVNiazcwDQ7OP0Fpv89uo26KQO0b3H/TpPdfdoA9867vbVxAiq5jHawGtB/8Acbhcvvjp/u7cOxJdILcsWMm3OCZg6KyFDvTr4G7A67W3568lBwmELMtJjS4k2y5ckgXm5Gg3U8NxNOHPfRYMpJYQS4GR+ppgjLMgDWLq2uld9sx2j4jToPaHeAEgBzpy6zrEZjECSmB7bAtOQMcAYPi3ESDG8fWVtO7w2JoOpvDKtN4uMsgg3EzvEFeR9ruzjuHvP8syaNV7SAIlrhq2ORCnHism56tOTG5ay8W3Fe19J7iHOYzKPEeROgcOq0/BcE1zJALXnxCxE/cE2XLsB2JoUAMXXpNdinkvk+IU50DZ0MbxrKveLY5n/l1qdOCZzg6RFhI3I8x5plxavyR+7veMRKzJET4wPznA/LKi4jiywy4n+knQeWYDw7K3rYSu1pe6p3lOBBpsgidZaJcGg31OqruK8PzMztqua+Bd0iefhdEg+e6aVlVj+5cAQJfacsxf8NvRXVHBmoyXS0EXA5eoss5U4waJHeNFrOc1sA35/D6K5wPaei4taDrsR+CbqImrv+H/AA9tN1SztfDmItziPuFt1U8Awwa3PHxfT0t7K2XZhNRyZ3dERFZUREQEREBERAREQEREBERAREQEREBERAWU7XcHp1SHFgc4XvNvKCLrVqh4ti2k9B6KnJN4r8d1WWwtMAxGUdQPobKwwdMgw25nkPspNbCD4nGGm8C5d5Da25UCrUfEU4ps1dG/VztT9L6TAXL8deur5bW9SvUAJBbTaIzVHXcbizWt1nqRfYqA1n6msOUOzF9UyXEggw0G1vIfbtwvHB1nCACIJ/UTp5E7Dl6KVisIKhDtRoBNvOPzRaa33Ge9K08Qc0FoLdI8Os7W2t5LD9ruN5HsaXSc7XuEkmA+RbaIWx4rwd7xFN2S9yBceSzHEeyTXOmCSSDO8736q86PWg4FxUljXtd4S0QDJ2EdVY4us94Lgym+126TF9TbWLHzlZXC8EqUiDTcRecv6TptstLRoggSDmEaGD7+w/uUXs8fXB8RTcSWU6lB+bxNfJvpGpA020XPH0O9Ja2MwMwN/JupHQSei++I4zu6Zdq5tnbkj9J9o9PJZOtjalU3BbyM36SQZ+3RZX+PVXxm+4mYum0G7WuOhkT8xou/AOBU6tQBzWBszGXUjqL+6lUMW2o0DEAu5VBGcebv1Do4HXZX/BsPkc0tLXN/q6dRsVOGO6jPLUaWjSDQGgQAvtEXW5BERAREQEREBERAREQEREBERAREQEREBERBzrnwmNdlm8VXa0HRzh6gHrJurbjVfKw3gwsnSqbCLuvy5+p3WWd7a4TpOFc1W3idzO3Xp9VHfTnw6Daen6ndBeBp963E4ktcW04g3FiS517kchoB6akqRTxBYwsqHNVIl/QHQHksttdOmJALHZfh+BnXN8bieZgeUjkFzZiX0nNaHeFpywekD5uLiujMshg/S5rf/wBW53j0CpcZiNXTefnPL5Dqo3paTa9w/aFuYNqCCdh5291ak06gkOH4YWHw+MDyaj2ZXbyRrpp6/XkpbMQZiYPL1VpmrcF3xLiNOkJAzkbBVD+0U5gBDg3N5jOBI/N1Ee6d0y+EkgEnwzF4Mfs0eyi5pmCV/OsFQVNRLqdRpuCAd+drf2FcuJUTSqFrRLfiadZabj8/dccY6m1lVx0a/MeozFv/ANh9l9YTiVOth5YZNGBvmylpLfWA4f2NA1VfVvH1SqDU+Y/xz8ldcFxBaXRb89lkK+MzCQCJ3kj3/p6FWfDa7up2N5jlp+6iZaRlNvS+FYwVWzvvopyy/AXZSL33FwPmVqF14XccuU1RERWVEREBERAREQEREBERAREQEREBERAREQU/HWSNYsszisOWNJ/UfiI1DdQBPOxPkFpeOVspB2Av9vn8pWYxmLz/AA31JJt9lz8nro4/FJ3pbUzZbAZtCTGgA6m2mnWIUjBVM7jUJ8Mlzgf1ZQYmdB4YR9RoBYRLoGaOugny+ZKr8NSc0Ped2gAEkgS4OAHOzPWVjvTbS0w9bK9szqCfMuB+dgoeCc2qM0Scs+XigfJQqdZ/eMeby9gEzpmH2Pv5KHTxxpPaxs7l+nOw87Sq7TpNx+E1edvwfNH12hgqE3IDvK37j6r5xeOBAB/U50nyIAHv9CqzjlGo5ngNhIjoBEet/dTNSpq4wNYVAQTrN/LX1UhssN7gXny0+dvVUHBXFrN9ieh/PsrTFVDEXg2kX9+ib7NOLcQC2rMfBf8A7wfLVcuFuZTBIcGh5aCY+FwNnebZzf2rO1qrmCubgZWsB3LjVa4dT4WP59FY8BqiozKdQfQxp5bKLdap6sMfhiHx3bgTp4vhnVno4OG/wyFe8LoAROp2t+y/Rh+8YHAgGAeoJ8L9bHxNBj/cea4/9RdTOUgkzv4fUbe58lb77Uv4a3AlogDXmNvMLVUHy0FYGvjg1oIGV5AkGJg+Zutrwd+ak0zMhdHHfs5+SJqIi2ZCIiAiIgIiICIiAiIgIiICIiAiIgIiIKPtQD3fkCvO6GOh7g4HKJzX8Mcv9xJgeo5r03ixBIadCCvPO0fDHMa4t3OxGgvfnJj2XLy/Vt08Xmnw2rmfEtgnxO+3mpNctcw/+sRP+1rvbVZhmJDTLpJbfWddbb7D1tpa6pVD3bS8gHNfSWjLpA3tosWyE54z3JJYPbxAn9vIL8rYEd45/NxI/uMj5O+aj1IzuEm5za/pHPnaffyVu/EfCXbCAOugtvADfkq66W2hDAy5ua8Ob7g7fNftcjKXE21PoR/n2XevigWtOjs2oG5Aj6qjrvfL4GZpJkC0Rf7eyjxKTh67Q4tEdOWunuCP7grekWOgHQiZ5fn5ostSw7c3iJacstBt1Bn0CtGVXNcG2zGLbATfN5CZ8lCUzivCmvphosS7Mbf0gtb5H41UYLhPduzCYOu+v2VjT4nncRcNBA6tAsL77X5gqU88iA2ZJ5Gbz0IM35lW1tXellgq+Vsf7oBMEQ9u/KMu6hwQ/wAUi9xcga/9pmf8aL7w+KaC5lsxbLTqDDgfpMjb1Vdj8cHON3Nc4B0gGAYhwMG1wfUTstPsz+6YGzUA+ITsLEHQi1vLXVen8EZlpAcl592fwhkF1/Pfl6wt/wAHqyHDkfstuH1jy+LFERdDAREQEREBERAREQEREBERAREQEREBERBQcbd/qtvoPqqjiYzgAARuSPXTdWPGnjv8pm7R5bwoFY5XXsOZ/Zc/J6342M4pw1zCXjX9Nt9ieosVQ4sk0Hsz+Jr6ZPOPECeehm/JekYqHNMCSOiyDsF4nkfEQR0F2km+ptp7rn8rol3GQxXHnNdvpZh52jMb2AAnrmCvqXE2VBlkyx4edJAJkjrDbenVQcdwIVSXARcwN4bqSeZ/ZRML2bqCpmLsotoD03PKR7+ituaV1dtIMc0Cnm0c+bQYDcoaY8wR6qvfiSHd41xu0yPWYvuJPofML6rcEcxviO1hOm9p9/fkvw0Cx7aQHxB0/wBsD3MLOtI70qpe6HNGaIEbzcaabqVQax+RwIlzcuujQSCfPMWg9J5qFSaGuB0Mm55QC3yI0/dMXgXA52u8BuebTGoPXf8AColibtMcLljQLZiTEkkZZHTMSD5tMLnisSXDNSfoJBO7Ytm3sXQSOYOxVfSoYjnZxBzgwSbCQdAbSepK+m8Aqhxl1sxMA5ZBmYiwH+BsFp0z7T8DjGP8LQRLakzs7IZEeZOmsKzwmAa4s7yDEgG43BEcxJ0ThfChRM1CAAI8WsRAM/L3ViXN1EObOsWJFiCP0mwuPVSjazwgayQBHK1vzor/ALNVsxePvKylPGNOroM6T9J+JX/ZapFQzqfILbjvbHOdNUiIuhgIiICIiAiIgIiICIiAiIgIiICIiAiIgyPHGluJLubRvy/5UXFOEgkxO2v0RFjyNuNGIB535W0VZjsLntYA6xqRv5TCIuat4gdwJbAsCSOuup5SPMkSu2LpwQ10SSLbEGSfn80RVni99fuNcYEgWgxsSIHtmd63Wf4u5zXNrbtc245Ez7kSiKMk4umKltIVW7ta75NO/SB6qbhce3wVR4qDmyJHiaSDII3A8Xv0RFMiLU7DMIGYXpm4aQPCDERvYn2Kl0TbNHhOoJn/ADGnvoiK8UrlWeC7LE3jKf38vso1J5d4GiANjGo+R6fgRFCUljuenKBf5LT9lKrTUECDBEaoi14/WPJ42CIi6nOIiICIiAiIgIiIP//Z"/>
     <v-container>
       <div class="d-flex justify-center mt-4">
-        <span class="text-h5 mr-2">엔젤핵 서울 2020 온라인</span>
-        <v-chip color="deep-purple" class="text-body-2" outlined>모집중</v-chip>
+        <span class="text-h5 mr-2">{{hack.title}}</span>
+        <v-chip color="deep-purple" class="text-body-2" outlined>{{status}}</v-chip>
       </div>
 <!--      시간-->
-      <time-component left-text="20.07.10 (금) 21:00 시작" right-text="20.07.12 (일) 23:59 종료"></time-component>
+      <time-component :left-text="`${hack.started_at} 19:00 시작`" :right-text="`${hack.ended_at} 23:59 종료`"></time-component>
 <!--      설명-->
       <div class="mt-4 text-body-2 grey--text text--lighten-1">
-        “위기 속의 창의성”은 COVID-19으로 인한
-        문제에 대처하기 위한 기술 솔루션을 만드는 것을 목표로 하는 온라인 해커톤입니다.
+        {{hack.intro}}
       </div>
 <!--      신청자 수, 모인 금액-->
-      <xaxis-info-component left-title="신청자 수(팀별 5명)" left-info="1,379" right-title="모인 금액" right-info="12,370,000원"/>
+      <xaxis-info-component :left-title="`신청자 수 (팀별 ${hack.max_personnel}명)`" :left-info="`1,379`" right-title="모인 금액" :right-info="`12,370,000원`"/>
 <!--도전과제 제목-->
-      <detail-section title="도전과제" description="AngelHack Seoul 2020 Online 해커톤은 UN이 제안하는 17가지의 지속 가능한 개발 목표(Sustainable Development Goals)을 바탕으로 설계되었습니다. 5개의 스폰서가 아래 도전 과제를 참가자들에게 제안합니다. 참가자들은 도전 과제를 최소 1개를 선택해야하며, 최대 2개까지의 주제를 중복 선택할 수 있습니다."/>
-      <detail-section title="심사방법 & 기간" description="각 제출물은 최소 점수 0점과 최대 점수 25점으로 다음 기준에 따라 각 라운드에서 채점됩니다. 최종 점수는 심사위원들의 평균 점수입니다.">
+      <detail-section title="도전과제" :description="`${hack.subject}`"/>
+      <detail-section title="심사방법 & 기간" :description="`${hack.judge_line}`">
         <!--      시간-->
+        <!-- 심사시작 + judge_day -->
         <time-component left-text="20.07.13 (월) 심사 시작" right-text="20.07.15 (수) 우승팀 발표"/>
         </detail-section>
-      <detail-section title="심사기준 & 우승팀 수" description="비즈니스 모델, 완성도, UI/UX, 독창성을 모두 고려하여 0~10으로 채점됩니다.">
-        <xaxis-info-component left-title="우승팀 수" left-info="1 팀" right-title="상금 책정 방식" right-info="1등 100%"/>
+      <detail-section title="심사기준 & 우승팀 수" :description="`${hack.judge_line}`">
+        <xaxis-info-component left-title="우승팀 수" :left-info="`${hack.awards_count}팀`" right-title="상금 책정 방식" right-info="1등 100%"/>
       </detail-section>
-      <detail-section title="규칙" description="엔젤핵은 모든 이들에게 열려있는 즐거운 행사를 만들기 위하여, 준수사항에 따라 운영하고 있습니다. 모든 참가자, 멘토, 심사위원, 스폰서, 운영진들은 구분 없이 준수사항을 따라주시길 바랍니다."/>
+      <detail-section title="규칙" :description="`${hack.rule}`"/>
 <!--      주최자-->
       <div style="position: relative;">
         <div class="text-caption grey--text text--lighten-1">주최자</div>
@@ -51,6 +51,7 @@ import TabComponent from './TabComponent'
 import DetailSection from '../DetailSection'
 import TimeComponent from './TimeComponent'
 import XaxisInfoComponent from './XaxisInfoComponent'
+import axios from 'axios'
 
 export default {
   name: 'HacksDetailPage',
@@ -59,30 +60,40 @@ export default {
       id: null,
       tab: null,
       items: ['해커톤 정보', '팀빌딩', '해커톤 정보', '팀빌딩', '해커톤 정보', '팀빌딩'],
-      challengeList: [
-        {
-          subject: '커먼컴퓨터',
-          description: 'Ainize(오픈소스 프로젝트 배포 솔루션)를 활용한 코로나 시대를 헤쳐나갈 수 있는 모든 분야의 솔루션'
-        },
-        {
-          subject: '패스트캠퍼',
-          description: 'Ainize(오픈소스 프로젝트 배포 솔루션)를 활용한 코로나 시대를 헤쳐나갈 수 있는 모든 분야의 솔루션'
-        }, {
-          subject: '커먼컴퓨터',
-          description: 'Ainize(오픈소스 프로젝트 배포 솔루션)를 활용한 코로나 시대를 헤쳐나갈 수 있는 모든 분야의 솔루션'
-        }, {
-          subject: '커먼컴퓨터',
-          description: 'Ainize(오픈소스 프로젝트 배포 솔루션)를 활용한 코로나 시대를 헤쳐나갈 수 있는 모든 분야의 솔루션'
-        }, {
-          subject: '커먼컴퓨터',
-          description: 'Ainize(오픈소스 프로젝트 배포 솔루션)를 활용한 코로나 시대를 헤쳐나갈 수 있는 모든 분야의 솔루션'
-        }
-      ]
+      hack: {}
     }
   },
   computed: {
     no () {
       return this.$route.params.id
+    },
+    // 해커톤 상태 ('w', '작성(write)'), ('p', '예정(plan)'), ('i', '진행(ing)'), ('c', '완료(complete)')
+    status () {
+      const mapToStatus = {
+        w: '작성중',
+        p: '모집중',
+        i: '작성중',
+        c: '진행완료'
+      }
+      return mapToStatus[this.hack.status]
+    }
+  },
+  created () {
+    this.getHackDetail()
+    // console.log(new Date(20.07.12));
+  },
+  methods: {
+    getHackDetail () {
+      axios({
+        method: 'GET',
+        url: `${this.$store.state.host}/hacks/${this.no}`
+      }).then(({ data }) => {
+        console.log(data)
+        this.hack = data
+      })
+        .catch(({ error }) => {
+          console.log(error)
+        })
     }
   },
   components: {
