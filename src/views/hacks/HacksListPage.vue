@@ -28,7 +28,8 @@
               align="center"
               justify="end"
             >
-            <v-btn text class="deep-purple--text accent-1">상세보기</v-btn>
+            <v-btn text class="deep-purple--text accent-1"
+            @click="gotoDetail(list.results.id)">상세보기</v-btn>
             </v-row>
           </v-card-actions>
         </v-card>
@@ -59,6 +60,9 @@ export default {
         .catch(({ error }) => {
           console.log(error)
         })
+    },
+    gotoDetail (id) {
+      window.location.href = '/hacks/' + id
     }
   },
   created () {

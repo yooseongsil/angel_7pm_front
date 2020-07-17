@@ -83,7 +83,8 @@ export default {
     password: null,
     checkPassword: null,
     belong: null,
-    role: null
+    role: null,
+    name: null
   }),
   methods: {
     singIUp () {
@@ -92,7 +93,7 @@ export default {
         url: `${this.$store.state.host}/accounts/sign-up/`,
         data: {
           email: this.email,
-          name: this.password,
+          name: this.name,
           password: this.password,
           belong: this.belong,
           role: this.role

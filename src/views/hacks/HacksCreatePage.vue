@@ -26,7 +26,22 @@ export default {
         title: null,
         intro: null,
         subject: null,
-        rule: null
+        rule: null,
+        img: null,
+        fee: null,
+        status: null,
+        started_at: null,
+        ended_at: null,
+        judge_line: null,
+        judge_day: null,
+        max_personnel: null,
+        team_personnel: null,
+        awards_count: null,
+        awards: null,
+        created_at: null,
+        updated_at: null,
+        chat_url: null,
+        host: null
       }
     }
   }),
@@ -34,7 +49,8 @@ export default {
     getList () {
       axios({
         method: 'POST',
-        url: `${this.$store.state.host}/hacks/`
+        url: `${this.$store.state.host}/hacks/`,
+        data: this.data
       }).then(({ data }) => {
         console.log(data)
       })
