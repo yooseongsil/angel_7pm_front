@@ -12,6 +12,7 @@
             label="이메일"
             filled
             hint="이메일을 입력하세요"
+            color="deep-purple accent-1"
           ></v-text-field>
 
         </v-col>
@@ -23,6 +24,7 @@
             label="비밀번호"
             counter
             hint="비밀번호를 입력하세요"
+            color="deep-purple accent-1"
           ></v-text-field>
         </v-col>
         <v-col cols="12">

@@ -17,7 +17,7 @@
               :subTitle="`현재 ${hack.awards_count}명 신청`"
               :content="`(팀별 ${hack.team_personnel}명)`"
               :captionText="`${hack.started_at} 19:00 시작`"
-              :route="`/hacks/${hack.id}/detail`"
+              :route="`/hacks/${hack.id}`"
               buttonText="상세보기"
         />
       </v-col>

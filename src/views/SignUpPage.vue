@@ -11,6 +11,7 @@
         label="이메일"
         filled
         hint="이메일을 입력하세요"
+        color="deep-purple accent-1"
       ></v-text-field>
     </v-col>
     <!--비밀번호 입력-->
@@ -20,6 +21,7 @@
         label="비밀번호"
         type="password"
         hint="비밀번호를 입력하세요"
+        color="deep-purple accent-1"
       ></v-text-field>
     </v-col>
     <!--비밀번호 입력-->
@@ -29,6 +31,7 @@
         label="비밀번호 확인"
         type="password"
         hint="비밀번호를 입력하세요"
+        color="deep-purple accent-1"
       ></v-text-field>
     </v-col>
     <v-col cols="12">
@@ -39,6 +42,7 @@
             label="이름"
             filled
             hint="이름을 입력하세요"
+            color="deep-purple accent-1"
           ></v-text-field>
         </v-col>
         <v-col cols="12">
@@ -49,6 +53,7 @@
                 label="소속"
                 filled
                 hint="회사/학교를 입력하세요"
+                color="deep-purple accent-1"
               ></v-text-field>
             </v-col>
             <v-col cols="6">
@@ -57,6 +62,7 @@
                 label="직무"
                 filled
                 hint="직무를 입력하세요"
+                color="deep-purple accent-1"
               ></v-text-field>
             </v-col>
           </v-row>
