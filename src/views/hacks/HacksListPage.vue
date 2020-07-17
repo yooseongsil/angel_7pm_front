@@ -6,8 +6,8 @@
         @activeTab="getList"></tab-component>
       </v-col>
       <!--title-->
-      <v-col cols="12">
-        <h1 class="text-h2 white--text mt-12">해커톤을 <br/>선택하세요</h1>
+      <v-col cols="6" :md="12">
+        <h1 class="text-h3 white--text mt-12">해커톤을 <br/>선택하세요</h1>
       </v-col>
       <v-col cols="12" :md="4"
              v-for="(hack, index) in hackLists" :key="'result-'+index">

@@ -1,7 +1,8 @@
 <template>
   <div style="margin: -15px; position: relative">
-    <span v-if="iconShow" style="z-index: 1; position: absolute; left: 12px; top: 50%; transform: translateY(-50%)"
-          onclick="document.getElementsByClassName('v-slide-group__content').style.transform='translate(0)'">
+    <span v-if="iconShow"
+          style="z-index: 1; position: absolute; left: 12px; top: 50%; transform: translateY(-50%)"
+    @click="gotoList">
       <v-icon>mdi-chevron-left</v-icon>
     </span>
       <v-tabs
@@ -32,6 +33,9 @@ export default {
   methods: {
     clickTab (val) {
       this.$emit('activeTab', val)
+    },
+    gotoList () {
+      this.$router.push('/hacks/list')
     }
   }
 }

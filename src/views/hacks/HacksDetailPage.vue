@@ -63,7 +63,7 @@ export default {
     return {
       id: null,
       tab: null,
-      items: ['해커톤 정보', '팀빌딩', '해커톤 정보', '팀빌딩', '해커톤 정보', '팀빌딩'],
+      items: [],
       hack: {}
     }
   },
@@ -84,6 +84,7 @@ export default {
   },
   created () {
     this.getHackDetail()
+    this.items.push(new Date())
     // console.log(new Date(20.07.12));
   },
   methods: {
