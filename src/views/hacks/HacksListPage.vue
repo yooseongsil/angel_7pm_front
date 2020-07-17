@@ -55,10 +55,7 @@ export default {
         url: `${this.$store.state.host}/hacks/`
       }).then(({ data }) => {
         console.log(data)
-        this.count = data.count
-        this.next = data.next
-        this.previous = data.previous
-        this.hackLists = data.results
+        this.hackLists.push(data)
       })
         .catch(({ error }) => {
           console.log(error)
