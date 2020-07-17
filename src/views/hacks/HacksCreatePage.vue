@@ -3,7 +3,7 @@
     <v-row>
       <!--title-->
       <v-col cols="12">
-        <h1 class="text-h2 white--text mt-12">해커톤을 <br/>만들기</h1>
+        <h1 class="text-h2 white--text mt-12">해커톤<br/>만들기</h1>
       </v-col>
       <v-col cols="12">
         <v-text-field
@@ -152,7 +152,11 @@ export default {
       axios({
         method: 'POST',
         url: `${this.$store.state.host}/hacks/`,
-        data: this.data
+        data: this.data,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          token: localStorage.getItem('token')
+        }
       }).then(({ data }) => {
         console.log(data)
       })

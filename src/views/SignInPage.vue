@@ -71,6 +71,7 @@ export default {
           axios.defaults.headers.common['x-access-token'] = data.token
           axios.defaults.headers.common.Authorization = `Bearer ${data.token}`
           localStorage.setItem('userInfo', JSON.stringify(data))
+          localStorage.setItem('token', data.token)
           /* 로그인 하면 이동하기 */
           window.location.href = '/hacks/list'
         } else {
