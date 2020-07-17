@@ -21,7 +21,7 @@
         :missionShort="missionText.missionShort"
         :missionTimeLeft="missionText.missionTimeLeft"
         :missionQuestion="missionText.missionQuestion"
-        :missionQuestionLink="missionText.missionQuestionLink"/>
+      />
     </section>
     <!--    Todos checkList-->
     <section>
@@ -213,22 +213,19 @@ export default {
           mission: '슬랙에서 팀빌딩 양식을 제출하세요.',
           missionShort: '팀빌딩',
           missionTimeLeft: '16시간 46분 22초',
-          missionQuestion: '팀빌딩을 하지 않으면 어떻게 되나요?',
-          missionQuestionLink: 'https://comento.kr'
+          missionQuestion: '팀빌딩을 하지 않으면 어떻게 되나요?'
         }, {
           missionTitle: '두 번째 환급 미션!',
           mission: '슬랙에서 아이디어를 제출하세요.',
           missionShort: '아이디어 제출',
           missionTimeLeft: '16시간 46분 22초',
-          missionQuestion: '아이디어를 제출하지 못하면 어떻게 되나요?',
-          missionQuestionLink: 'https://comento.kr'
+          missionQuestion: '아이디어를 제출하지 못하면 어떻게 되나요?'
         }, {
           missionTitle: '최종 환급 미션!',
           mission: '슬랙에서 최종 결과물을 제출하세요.',
           missionShort: '결과물 제출',
           missionTimeLeft: '16시간 46분 22초',
-          missionQuestion: '결과물을 제출하지 못하면 어떻게 되나요?',
-          missionQuestionLink: 'https://comento.kr'
+          missionQuestion: '결과물을 제출하지 못하면 어떻게 되나요?'
         }
       ]
     }

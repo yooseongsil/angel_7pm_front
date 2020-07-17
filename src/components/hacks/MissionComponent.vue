@@ -6,9 +6,7 @@
     <div>{{mission}}</div>
     <div>{{missionShort}}</div>
     <div>{{missionTimeLeft}}</div>
-    <a :href="missionQuestionLink">
-      <div class="nes-text is-warning" style="text-decoration: underline;">{{missionQuestion}}</div>
-    </a>
+    <div class="nes-text is-warning" style="text-decoration: underline;">{{missionQuestion}}</div>
   </section>
 </template>
 

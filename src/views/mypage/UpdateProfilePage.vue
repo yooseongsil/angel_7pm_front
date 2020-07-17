@@ -86,6 +86,7 @@ export default {
     email: null,
     password: null,
     checkPassword: null,
+    name: null,
     belong: null,
     role: null,
     portfolio: null

@@ -14,6 +14,7 @@ import HacksIngMissionTeamBuildingFormPage from '../views/hacksIng/misson/HacksI
 import HacksIngMissionTeamIdeationFormPage from '../views/hacksIng/misson/HacksIngMissionTeamIdeationFormPage'
 import HacksIngMissionTeamSubmissionFormPage from '../views/hacksIng/misson/HacksIngMissionTeamSubmissionFormPage'
 import UpdateProfilePage from '../views/mypage/UpdateProfilePage'
+import MyHacksListPage from '../views/mypage/MyHacksListPage'
 
 Vue.use(VueRouter)
 
@@ -87,6 +88,11 @@ const routes = [
     path: '/mypage/updateProfile',
     name: 'UpdateProfilePage',
     component: UpdateProfilePage
+  },
+  {
+    path: '/mypage/hacks/list',
+    name: 'MyHacksListPage',
+    component: MyHacksListPage
   }
 ]
 
