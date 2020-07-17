@@ -6,9 +6,9 @@
         @activeTab="getList"></tab-component>
       </v-col>
       <!--title-->
-      <v-col cols="12">
-        <h1 class="text-h3 white--text mt-12" v-html="title[tabActive]"></h1>
-        <img src="" alt="">
+      <v-col cols="12" style="position: relative">
+        <h1 class="text-h3 white--text mt-12 " v-html="title[tabActive]" ></h1>
+        <img :src="imgSrc" :alt="title[tabActive]" class="list_title_img">
       </v-col>
       <v-col cols="12" :md="4"
              v-for="(hack, index) in hackLists" :key="`result-${index}`">
@@ -37,6 +37,16 @@ export default {
     title: ['해커톤을<br/>선택하세요', '우승팀을<br>골라주세요'],
     tabActive: 0
   }),
+  computed: {
+    imgSrc () {
+      if (this.tabActive === 0) {
+        return require('../../assets/images/illust/illust_hacksList.svg')
+      } else {
+        const randomNum = Math.floor(Math.random() * 3)
+        return require(`../../assets/images/illust/illust_hackVote_${randomNum + 1}.svg`)
+      }
+    }
+  },
   methods: {
     getList (activeTab) {
       /*
@@ -66,10 +76,16 @@ export default {
   created () {
     this.getList()
   },
-
   components: {
     TabComponent,
     Card
   }
 }
 </script>
+<style scoped lang="less">
+  .list_title_img{
+position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+</style>
