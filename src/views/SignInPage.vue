@@ -59,7 +59,9 @@ export default {
     nonUser: false,
     randimNumber: Math.floor(Math.random() * 3),
     title: ['누구나 해커톤을<br>쉽고 재밌게 👾', '누구나 즐기는️<br>온라인 해커톤 🎮', '누구나 즐기는<br>온라인 해커톤 💻'],
-    img: ['../../assets/images/signin_1.svg', '../../assets/images/signin_2.svg', '../../assets/images/signin_3.svg']
+    img: ['../../assets/images/hacks/signin_1.svg',
+      '../../assets/images/hacks/signin_2.svg',
+      '../../assets/images/hacks/signin_3.svg']
   }),
   computed: {
     randomTitile () {
