@@ -95,7 +95,8 @@ export default {
     belong: null,
     role: null,
     name: null,
-    nonUser: false
+    nonUser: false,
+    portfolio: null
   }),
   methods: {
     singIUp () {
@@ -115,6 +116,7 @@ export default {
           this.$router.push('/')
           localStorage.setItem('userName', this.name)
           localStorage.setItem('userEmail', this.email)
+          localStorage.setItem('userPortfolio', this.portfolio)
         }
       })
         .catch(({ error }) => {

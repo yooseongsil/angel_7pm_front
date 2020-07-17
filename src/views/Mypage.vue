@@ -60,6 +60,11 @@
           </v-list-item-group>
         </v-list>
       </v-col>
+      <router-link :to="{name: 'UpdateProfilePage'}">
+      <p v-if="isPortfolio" class="isPortfolio pl-2 pr-5 pt-2 pb-2 text-subtitle-1 white--text">
+        포트폴리오를 제출하고 프로필을 완성하세요 <span class="float-right d-inline-block deep-purple--text text--accent-1">제출하기</span>
+      </p>
+      </router-link>
     </v-row>
   </div>
 </template>
@@ -77,7 +82,8 @@ export default {
       id: null,
       belong: null,
       role: null,
-      email: null
+      email: null,
+      portfolio: null
     },
     credit: 0
   }),
@@ -86,16 +92,17 @@ export default {
     this.userInfo.email = localStorage.getItem('userEmail')
     this.userInfo.belong = localStorage.getItem('userBelong')
     this.userInfo.role = localStorage.getItem('userRole')
+    this.userInfo.portfolio = localStorage.getItem('userPortfolio')
   },
-  // computed(){
-  //     isPortfolio{
-  //         if(this.userInfo.portfolio===null){
-  //             return true;
-  //         } else {
-  //             return false
-  //         }
-  //     }
-  // },
+  computed: {
+    isPortfolio () {
+      if (this.userInfo.portfolio === null || this.userInfo.portfolio === 'null') {
+        return true
+      } else {
+        return false
+      }
+    }
+  },
   methods: {
     getApplyList () {
       axios({
@@ -130,6 +137,13 @@ export default {
           }
         }
       }
+    }
+    .isPortfolio{
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #121212;
     }
   }
 </style>
