@@ -15,7 +15,7 @@ export default {
   name: 'App',
   computed: {
     isHacksIngPage () {
-      return this.$route.path.includes('/hacks/ing')
+      return this.$route.path.includes('/hacks/') && this.$route.path.includes('/ing')
     }
   }
 }
