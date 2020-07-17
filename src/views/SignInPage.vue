@@ -87,7 +87,9 @@ export default {
           /* 토큰정보 넣기 & 저장 */
           document.cookie = `accessToken=${data.token}`
           axios.defaults.headers.common.Authorization = `jwt ${data.token}`
-          localStorage.setItem('userInfo', JSON.stringify(data))
+          localStorage.setItem('userId', data.id)
+          localStorage.setItem('userBelong', data.belong)
+          localStorage.setItem('userRole', data.role)
           localStorage.setItem('token', data.token)
           /* 로그인 하면 이동하기 */
           this.$router.push('/hacks/list')

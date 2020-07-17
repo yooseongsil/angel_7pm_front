@@ -82,7 +82,7 @@ export default {
         method: 'GET',
         url: `${this.$store.state.host}/hacks/${this.no}`
       }).then(({ data }) => {
-        console.log(data)
+        // console.log(data)
         this.hack = data
         switch (data.status) {
           case 'w':

@@ -2,7 +2,7 @@
   <div id="hackLists">
     <v-row>
       <v-col cols="12">
-        <tab-component :items="items" :iconShow="false"
+        <tab-component :items="items" :iconShow="false" :isMypage="true"
         @activeTab="getList"></tab-component>
       </v-col>
       <!--title-->
