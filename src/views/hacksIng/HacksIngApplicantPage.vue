@@ -38,6 +38,7 @@
 <script>
 import MissionComponent from '../../components/hacks/MissionComponent'
 import TodosComponent from '../../components/hacks/TodosComponent'
+import moment from 'moment'
 
 export default {
   name: 'HacksIngApplicantPage',
@@ -46,7 +47,7 @@ export default {
       progress: 30,
       totalProgress: 50,
       // new Date에서 추출
-      today: '금요일',
+      today: '',
       dayList: ['금요일', '토요일', '일요일'],
       todosListAll: [
         // 금요일
@@ -229,6 +230,9 @@ export default {
         }
       ]
     }
+  },
+  created () {
+    this.today = moment().format('dddd')
   },
   methods: {
     changeDay (index) {
