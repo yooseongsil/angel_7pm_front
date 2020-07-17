@@ -29,6 +29,10 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="less" scoped>
+  @media (max-width: 480px) {
+    .nes-dialog.is-dark {
+      width: calc(100vw - 30px);
+    }
+  }
 </style>
