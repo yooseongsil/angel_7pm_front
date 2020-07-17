@@ -7,140 +7,104 @@
       </v-col>
       <v-col cols="12">
         <v-text-field
-          v-model="data.count"
-          label="data.count"
+          v-model="data.title"
+          label="해커톤 이름"
         ></v-text-field>
       </v-col>
       <v-col cols="12">
         <v-text-field
-          v-model="data.next"
-          label="data.next"
+          v-model="data.intro"
+          label="해커톤 소개"
         ></v-text-field>
       </v-col>
       <v-col cols="12">
         <v-text-field
-          v-model="data.previous"
-          label="data.previous"
+          v-model="data.subject"
+          label="해커톤 주제"
         ></v-text-field>
       </v-col>
       <v-col cols="12">
         <v-text-field
-          v-model="data.results.id"
-          label="data.results.id"
+          v-model="data.rule"
+          label="해커톤 규칙"
         ></v-text-field>
       </v-col>
       <v-col cols="12">
         <v-text-field
-          v-model="data.results.title"
-          label="data.results.title"
+          v-model="data.img"
+          label="해커톤 썸네일"
         ></v-text-field>
       </v-col>
       <v-col cols="12">
         <v-text-field
-          v-model="data.results.intro"
-          label="data.results.intro"
+          v-model="data.fee"
+          label="참가 비용"
         ></v-text-field>
       </v-col>
       <v-col cols="12">
         <v-text-field
-          v-model="data.results.subject"
-          label="data.results.subject"
+          v-model="data.status"
+          label="해커톤 상태(w,p,i,c)"
         ></v-text-field>
       </v-col>
       <v-col cols="12">
         <v-text-field
-          v-model="data.results.rule"
-          label="data.results.rule"
+          v-model="data.started_at"
+          label="해커톤 시작일"
         ></v-text-field>
       </v-col>
       <v-col cols="12">
         <v-text-field
-          v-model="data.results.img"
-          label="data.results.img"
+          v-model="data.ended_at"
+          label="해커톤 예정일"
         ></v-text-field>
       </v-col>
       <v-col cols="12">
         <v-text-field
-          v-model="data.results.fee"
-          label="data.results.fee"
+          v-model="data.judge_line"
+          label="해커톤 판단 기준"
         ></v-text-field>
       </v-col>
       <v-col cols="12">
         <v-text-field
-          v-model="data.results.status"
-          label="data.results.status"
+          v-model="data.judge_day"
+          label="해커톤이 끝나고 며칠 후 까지 심사할 지 1은 1일"
         ></v-text-field>
       </v-col>
       <v-col cols="12">
         <v-text-field
-          v-model="data.results.started_at"
-          label="data.results.started_at"
+          v-model="data.max_personnel"
+          label="최대 참가 인원"
         ></v-text-field>
       </v-col>
       <v-col cols="12">
         <v-text-field
-          v-model="data.results.ended_at"
-          label="data.results.ended_at"
+          v-model="data.team_personnel"
+          label="팀당 권장 인원"
         ></v-text-field>
       </v-col>
       <v-col cols="12">
         <v-text-field
-          v-model="data.results.judge_line"
-          label="data.results.judge_line"
+          v-model="data.awards_count"
+          label="상의 갯수"
         ></v-text-field>
       </v-col>
       <v-col cols="12">
         <v-text-field
-          v-model="data.results.judge_day"
-          label="data.results.judge_day"
+          v-model="data.awards"
+          label="상을 받는 팀(팀의 PK를넘겨주세요 ex) 1,2,3,4 )"
         ></v-text-field>
       </v-col>
       <v-col cols="12">
         <v-text-field
-          v-model="data.results.max_personnel"
-          label="data.results.max_personnel"
+          v-model="data.chat_url"
+          label="슬랙 URL"
         ></v-text-field>
       </v-col>
       <v-col cols="12">
         <v-text-field
-          v-model="data.results.team_personnel"
-          label="data.results.team_personnel"
-        ></v-text-field>
-      </v-col>
-      <v-col cols="12">
-        <v-text-field
-          v-model="data.results.awards_count"
-          label="data.results.awards_count"
-        ></v-text-field>
-      </v-col>
-      <v-col cols="12">
-        <v-text-field
-          v-model="data.results.awards"
-          label="data.results.awards"
-        ></v-text-field>
-      </v-col>
-      <v-col cols="12">
-        <v-text-field
-          v-model="data.results.created_at"
-          label="data.results.created_at"
-        ></v-text-field>
-      </v-col>
-      <v-col cols="12">
-        <v-text-field
-          v-model="data.results.updated_at"
-          label="data.results.updated_at"
-        ></v-text-field>
-      </v-col>
-      <v-col cols="12">
-        <v-text-field
-          v-model="data.results.chat_url"
-          label="data.results.chat_url"
-        ></v-text-field>
-      </v-col>
-      <v-col cols="12">
-        <v-text-field
-          v-model="data.results.host"
-          label="data.results.host"
+          v-model="data.host"
+          label="개최자"
         ></v-text-field>
       </v-col>
       <v-col cols="12">
@@ -160,31 +124,24 @@ export default {
   name: 'HacksCreatePage',
   data: () => ({
     data: {
-      count: null,
-      next: null,
-      previous: null,
-      results: {
-        id: null,
-        title: null,
-        intro: null,
-        subject: null,
-        rule: null,
-        img: null,
-        fee: null,
-        status: null,
-        started_at: null,
-        ended_at: null,
-        judge_line: null,
-        judge_day: null,
-        max_personnel: null,
-        team_personnel: null,
-        awards_count: null,
-        awards: null,
-        created_at: null,
-        updated_at: null,
-        chat_url: null,
-        host: null
-      }
+      id: null,
+      title: null,
+      intro: null,
+      subject: null,
+      rule: null,
+      img: null,
+      fee: null,
+      status: null,
+      started_at: null,
+      ended_at: null,
+      judge_line: null,
+      judge_day: null,
+      max_personnel: null,
+      team_personnel: null,
+      awards_count: null,
+      awards: null,
+      chat_url: null,
+      host: null
     }
   }),
   methods: {

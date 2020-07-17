@@ -34,6 +34,11 @@
                  class="mt-3 deep-purple accent-1"
           onclick="window.location.href = 'signup'">회원가입</v-btn>
         </v-col>
+        <v-col cols="12">
+          <v-alert type="error" v-if="nonUser">
+            회원가입 후 이용해주세요.
+          </v-alert>
+        </v-col>
       </v-row>
   </div>
 </template>
@@ -46,7 +51,7 @@ export default {
   data: () => ({
     email: null,
     password: null,
-    userInfo: {}
+    nonUser: false
   }),
   methods: {
     singIn () {
@@ -58,16 +63,21 @@ export default {
           password: this.password
         }
       }).then(({ data }) => {
-        console.log(data)
-        document.cookie = `accessToken=${data.token}`
-        axios.defaults.headers.common['x-access-token'] = data.token
-        this.userInfo = data
-        this.$store.state.userInfo = this.userInfo
         if (data !== undefined) {
+          this.nonUser = false
+          this.$store.state.userInfo = data
+          /* 토큰정보 넣기 & 저장 */
+          document.cookie = `accessToken=${data.token}`
+          axios.defaults.headers.common['x-access-token'] = data.token
+          localStorage.setItem('userInfo', JSON.stringify(data))
+          /* 로그인 하면 이동하기 */
           window.location.href = '/hacks/list'
+        } else {
+          this.nonUser = true
         }
       })
         .catch(({ error }) => {
+          this.nonUser = true
           console.log(error)
         })
     }
