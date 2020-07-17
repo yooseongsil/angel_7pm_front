@@ -115,7 +115,7 @@ export default {
      color: #BB86FC;
    }
    .signin_img{
-     position: fixed;
+     position: relative;
      bottom: 0;
      left: 50%;
      transform: translateX(-50%);

@@ -6,7 +6,7 @@
       </v-col>
       <v-col cols="12" class="d-flex flex-row" style="background: #1E1E1E">
         <div>
-          <Avatar :email="userInfo.id" class="mb-2"/>
+          <Avatar :email="userInfo.name" class="mb-2"/>
           <p class="text-caption grey--text text--lighten-1 mb-0">{{userInfo.belong}} / {{userInfo.role}}</p>
           <p class="text-h5 mb-0">
             {{ userInfo.name }}
@@ -14,7 +14,7 @@
             <i class="nes-icon coin is-small" style="position: relative; top: 3px;"></i>
             </span>
           </p>
-          <p class="text-subtitle-2 grey--text mb-0">{{userInfo.id}}</p>
+          <p class="text-subtitle-2 grey--text mb-0">{{userInfo.email}}</p>
         </div>
       </v-col>
       <v-divider/>
@@ -76,15 +76,26 @@ export default {
     userInfo: {
       id: null,
       belong: null,
-      role: null
+      role: null,
+      email: null
     },
     credit: 0
   }),
   created () {
-    this.userInfo.id = localStorage.getItem('userId')
+    this.userInfo.name = localStorage.getItem('userName')
+    this.userInfo.email = localStorage.getItem('userEmail')
     this.userInfo.belong = localStorage.getItem('userBelong')
     this.userInfo.role = localStorage.getItem('userRole')
   },
+  // computed(){
+  //     isPortfolio{
+  //         if(this.userInfo.portfolio===null){
+  //             return true;
+  //         } else {
+  //             return false
+  //         }
+  //     }
+  // },
   methods: {
     getApplyList () {
       axios({
