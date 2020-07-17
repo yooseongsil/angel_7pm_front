@@ -61,8 +61,12 @@
             </v-col>
           </v-row>
         </v-col>
+        <v-col cols="12">
+          <v-alert type="error" v-if="nonUser">
+            정보를 모두 입력해주세요
+          </v-alert>
+        </v-col>
       </v-row>
-
     </v-col>
     <v-col cols="12">
       <v-btn block
@@ -84,7 +88,8 @@ export default {
     checkPassword: null,
     belong: null,
     role: null,
-    name: null
+    name: null,
+    nonUser: false
   }),
   methods: {
     singIUp () {
@@ -101,11 +106,12 @@ export default {
       }).then(({ data }) => {
         console.log(data)
         if (data.message === 'ok') {
-          window.location.href = 'signin'
+          this.$router.push('/')
         }
       })
         .catch(({ error }) => {
           console.log(error)
+          this.nonUser = true
         })
     }
   }

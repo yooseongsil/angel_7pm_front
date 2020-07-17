@@ -3,7 +3,7 @@
       <v-row>
         <!--title-->
         <v-col cols="12">
-          <h1 class="text-h2 white--text mt-12">가슴을 울리는 vp</h1>
+          <h1 class="text-h3 white--text mt-12" v-html="randomTitile"></h1>
         </v-col>
         <!--아이디 입력-->
         <v-col cols="12">
@@ -30,15 +30,20 @@
                  @click="singIn"
           class="deep-purple accent-1">로그인
           </v-btn>
-          <v-btn outlined block
-                 class="mt-3 deep-purple accent-1"
-          onclick="window.location.href = 'signup'">회원가입</v-btn>
+          <v-btn block outlined
+                 class="mt-3"
+                 color="deep-purple accent-1"
+                 @click="singUp"
+          >회원가입</v-btn>
         </v-col>
         <v-col cols="12">
           <v-alert type="error" v-if="nonUser">
             회원가입 후 이용해주세요.
           </v-alert>
         </v-col>
+        <div class="signin_img">
+          <img :src="randomImg" :alt="randomTitile">
+        </div>
       </v-row>
   </div>
 </template>
@@ -51,8 +56,20 @@ export default {
   data: () => ({
     email: null,
     password: null,
-    nonUser: false
+    nonUser: false,
+    randimNumber: Math.floor(Math.random() * 3),
+    title: ['누구나 해커톤을<br>쉽고 재밌게 👾', '누구나 즐기는️<br>온라인 해커톤 🎮', '누구나 즐기는<br>온라인 해커톤 💻'],
+    img: ['../../assets/images/signin_1.svg', '../../assets/images/signin_2.svg', '../../assets/images/signin_3.svg']
   }),
+  computed: {
+    randomTitile () {
+      return this.title[this.randimNumber]
+    },
+    randomImg () {
+      return this.img[this.randimNumber]
+    }
+
+  },
   methods: {
     singIn () {
       axios({
@@ -81,6 +98,9 @@ export default {
           this.nonUser = true
           console.log(error)
         })
+    },
+    singUp () {
+      this.$router.push('/signUp')
     }
   }
 }
@@ -89,6 +109,16 @@ export default {
  #signIn {
    .v-text-field > .v-input__control > .v-input__slot:after {
      color: #BB86FC;
+   }
+   .signin_img{
+     position: fixed;
+     bottom: 0;
+     left: 50%;
+     transform: translateX(-50%);
+     img{
+       display: block;
+       width: 100%;
+     }
    }
  }
 </style>
