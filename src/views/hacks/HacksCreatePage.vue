@@ -31,12 +31,6 @@
       </v-col>
       <v-col cols="12">
         <v-text-field
-          v-model="data.img"
-          label="해커톤 썸네일"
-        ></v-text-field>
-      </v-col>
-      <v-col cols="12">
-        <v-text-field
           v-model="data.fee"
           label="참가 비용"
         ></v-text-field>
@@ -132,7 +126,6 @@ export default {
       intro: null,
       subject: null,
       rule: null,
-      img: null,
       fee: null,
       status: null,
       started_at: null,
