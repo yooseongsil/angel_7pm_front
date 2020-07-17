@@ -1,32 +1,41 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app :id="isHacksIngPage ? 'hacksIngPage' : 'hackBasic'">
+    <v-main no-gutters>
+      <v-container>
+        <router-view></router-view>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import '@/assets/css/main.css'
 
-#nav {
-  padding: 30px;
+export default {
+  name: 'App',
+  computed: {
+    isHacksIngPage () {
+      return this.$route.path.includes('/hacks/') && this.$route.path.includes('/ing')
+    }
+  }
 }
+</script>
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+<style lang="less">
+  #hackBasic{
+    background: #292929 !important;
+  }
+  #hacksIngPage {
+    background: #212529 !important;
+    color: white !important;
+  }
+  #hacksIngPage div,
+  #hacksIngPage p,
+  #hacksIngPage span {
+    font-family: 'DungGeunMo', 'kongtext' !important;
+  }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  .is-dark {
+    color: white;
+  }
 </style>
