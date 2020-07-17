@@ -55,27 +55,27 @@ const routes = [
     component: HacksApplyPage
   },
   {
-    path: '/hacks/ing',
+    path: '/hacks/:id/ing',
     name: 'HacksIngPage',
     component: HacksIngPage
   },
   {
-    path: '/hacks/ing/switch',
+    path: '/hacks/:id/ing/switch',
     name: 'HacksSwitchingPage',
     component: HacksSwitchingPage
   },
   {
-    path: '/hacks/ing/mission/teamBuilding',
+    path: '/hacks/:id/ing/mission/teamBuilding',
     name: 'HacksIngMissionTeamBuildingFormPage',
     component: HacksIngMissionTeamBuildingFormPage
   },
   {
-    path: '/hacks/ing/mission/teamIdeation',
+    path: '/hacks/:id/ing/mission/teamIdeation',
     name: 'HacksIngMissionTeamIdeationFormPage',
     component: HacksIngMissionTeamIdeationFormPage
   },
   {
-    path: '/hacks/ing/mission/teamSubmission',
+    path: '/hacks/:id/ing/mission/teamSubmission',
     name: 'HacksIngMissionTeamSubmissionFormPage',
     component: HacksIngMissionTeamSubmissionFormPage
   },
