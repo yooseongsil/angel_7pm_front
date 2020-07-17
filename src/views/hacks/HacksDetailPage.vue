@@ -1,7 +1,7 @@
 <template>
   <div>
     <section>
-        <tab-component :items="items"></tab-component>
+        <tab-component :items="items" :iconShow="true"></tab-component>
     </section>
     <v-img :src="`${hack.img}`"/>
     <v-container>

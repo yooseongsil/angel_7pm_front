@@ -1,6 +1,10 @@
 <template>
   <div id="hackLists">
     <v-row>
+      <v-col cols="12">
+        <tab-component :items="items" :iconShow="false"
+        @activeTab="getList"></tab-component>
+      </v-col>
       <!--title-->
       <v-col cols="12">
         <h1 class="text-h2 white--text mt-12">해커톤을 <br/>선택하세요</h1>
@@ -43,13 +47,19 @@
 
 <script>
 import axios from 'axios'
+import TabComponent from './TabComponent'
 export default {
   name: 'HacksListPage',
   data: () => ({
-    hackLists: []
+    hackLists: [],
+    items: ['모집중', '투표중']
   }),
   methods: {
-    getList () {
+    getList (activeTab) {
+      /*
+      * activeTab 0 - 모집중
+      * activeTab 1 - 투표중
+      * */
       axios({
         method: 'GET',
         url: `${this.$store.state.host}/hacks/`
@@ -94,6 +104,9 @@ export default {
         chat_url: 'test0.test.test'
       }
     }]
+  },
+  components: {
+    TabComponent
   }
 }
 </script>
