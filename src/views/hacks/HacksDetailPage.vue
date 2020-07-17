@@ -42,6 +42,10 @@
             >
           </v-avatar>
       </div>
+      <v-chip class="px-4" color="#BB86FC" rounded text-color="black" large style="position: fixed; bottom: 20px; right: 20px;">
+        <v-icon left class="mr-2">mdi-plus</v-icon>
+        <span>신청하기</span>
+      </v-chip>
     </v-container>
   </div>
 </template>
