@@ -49,7 +49,11 @@ export default {
       }).then(({ data }) => {
         console.log(data)
         this.hackLists = data.results
-        this.tabActive = activeTab
+        if (activeTab === undefined) {
+          this.tabActive = 0
+        } else {
+          this.tabActive = activeTab
+        }
       })
         .catch(({ error }) => {
           console.log(error)
@@ -61,34 +65,8 @@ export default {
   },
   created () {
     this.getList()
-    this.hackLists = [{
-      count: 0,
-      next: 'test0',
-      previous: 'test0',
-      results: {
-        id: 0,
-        title: 'test0',
-        intro: 'test0 intro',
-        subject: 'test0 subject',
-        rule: 'test0',
-        img: 'test0',
-        fee: 'test0',
-        status: 'test0',
-        Enum: [0, 1, 2, 3],
-        ended_at: '2020.20.20',
-        judge_line: '2020.220220',
-        judge_day: 20,
-        max_personnel: 201,
-        team_personnel: 5,
-        awards_count: 202,
-        awards: 'test000',
-        started_at: '2020.20.20',
-        created_at: '2020.20.20',
-        updated_at: '2020.200.200',
-        chat_url: 'test0.test.test'
-      }
-    }]
   },
+
   components: {
     TabComponent,
     Card
