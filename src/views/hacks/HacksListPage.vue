@@ -33,9 +33,9 @@ export default {
   name: 'HacksListPage',
   data: () => ({
     hackLists: [],
-    tabActive: 0,
     items: ['모집중', '투표중'],
-    title: ['해커톤을<br/>선택하세요', '우승팀을<br>골라주세요']
+    title: ['해커톤을<br/>선택하세요', '우승팀을<br>골라주세요'],
+    tabActive: 0
   }),
   methods: {
     getList (activeTab) {
