@@ -1,11 +1,14 @@
 <template>
   <v-main>
     <v-row>
-      <v-col cols="12" class="d-flex flex-row">
-        <Avatar email="test@test.com" class="mr-4" />
+      <v-col cols="12">
+        <tab-component  :iconShow="true"></tab-component>
+      </v-col>
+      <v-col cols="12" class="d-flex flex-row" style="background: #1E1E1E">
         <div>
+          <Avatar email="test@test.com" class="mb-2" />
           <div>
-            {{ email }}
+            {{ userInfo.id }}
           </div>
           <div>
             크레딧: {{ credit }}원
@@ -41,13 +44,18 @@
 </template>
 
 <script>
+import TabComponent from './hacks/TabComponent'
 import Avatar from '../components/base/main/Avatar'
 export default {
   name: 'Mypage',
-  components: { Avatar },
+  components: { Avatar, TabComponent },
   data: () => ({
-    email: 'test@test.com',
+    userInfo: {},
     credit: 0
-  })
+  }),
+  created () {
+    this.userInfo = localStorage.getItem('userInfo')
+    console.log(this.userInfo)
+  }
 }
 </script>
