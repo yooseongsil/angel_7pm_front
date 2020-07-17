@@ -43,7 +43,7 @@ export default {
     hacksImg () {
       const max = 10
       const randomNo = Math.floor(Math.random() * (max + 1))
-      return require(`../../assets/images/hacks/hacks_thumbnail_${randomNo}.jpg`)
+      return require(`../../assets/images/thumbnail/thumbnail_hacks_${randomNo}.jpg`)
     }
   },
   methods: {

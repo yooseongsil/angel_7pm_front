@@ -3,7 +3,7 @@
       <v-row>
         <!--title-->
         <v-col cols="12">
-          <h1 class="text-h3 white--text mt-12" v-html="randomTitile"></h1>
+          <h1 class="text-h3 white--text mt-12" v-html="randomTitle"></h1>
         </v-col>
         <!--아이디 입력-->
         <v-col cols="12">
@@ -44,7 +44,7 @@
           </v-alert>
         </v-col>
         <div class="signin_img">
-          <img :src="randomImg" :alt="randomTitile">
+          <img :src="randomImg" :alt="randomTitle">
         </div>
       </v-row>
   </div>
@@ -59,18 +59,15 @@ export default {
     email: null,
     password: null,
     nonUser: false,
-    randimNumber: Math.floor(Math.random() * 3),
-    title: ['누구나 해커톤을<br>쉽고 재밌게 👾', '누구나 즐기는️<br>온라인 해커톤 🎮', '누구나 즐기는<br>온라인 해커톤 💻'],
-    img: ['../../assets/images/hacks/signin_1.svg',
-      '../../assets/images/hacks/signin_2.svg',
-      '../../assets/images/hacks/signin_3.svg']
+    randomNumber: Math.floor(Math.random() * 3)
   }),
   computed: {
-    randomTitile () {
-      return this.title[this.randimNumber]
+    randomTitle () {
+      const title = ['누구나 해커톤을<br>쉽고 재밌게 👾', '누구나 즐기는️<br>온라인 해커톤 🎮', '누구나 즐기는<br>온라인 해커톤 💻']
+      return title[this.randomNumber]
     },
     randomImg () {
-      return this.img[this.randimNumber]
+      return require(`../assets/images/illust/illust_signin_${this.randomNumber + 1}.svg`)
     }
 
   },
@@ -109,6 +106,7 @@ export default {
   }
 }
 </script>
+
 <style lang="less" scoped>
  #signIn {
    .v-text-field > .v-input__control > .v-input__slot:after {
@@ -121,7 +119,6 @@ export default {
      transform: translateX(-50%);
      img{
        display: block;
-       width: 100%;
      }
    }
  }
