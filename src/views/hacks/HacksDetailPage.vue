@@ -32,8 +32,8 @@
       <div style="position: relative;">
         <div class="text-caption grey--text text--lighten-1">주최자</div>
           <div>
-            <div class="text-subtitle-1">김민섭 (코멘토/디자인팀)</div>
-            <div class="text-caption grey--text text--lighten-1">minseop.kim@comento.kr</div>
+            <div class="text-subtitle-1">{{`${hack.host_name} (${hack.belong}/${hack.role})`}}</div>
+            <div class="text-caption grey--text text--lighten-1">{{hack.email}}</div>
           </div>
           <v-avatar style="position: absolute; top: 20px; right: 0px;">
             <img
@@ -42,7 +42,7 @@
             >
           </v-avatar>
       </div>
-      <v-chip class="px-4" color="#BB86FC" rounded text-color="black" large style="position: fixed; bottom: 20px; right: 20px;">
+      <v-chip class="px-4" color="#BB86FC" rounded text-color="black" large style="position: fixed; bottom: 20px; right: 20px;" @click="goToCreateHack">
         <v-icon left class="mr-2">mdi-plus</v-icon>
         <span>신청하기</span>
       </v-chip>
@@ -98,6 +98,9 @@ export default {
         .catch(({ error }) => {
           console.log(error)
         })
+    },
+    goToCreateHack () {
+      this.$router.push('/hacks/create')
     }
   },
   components: {
