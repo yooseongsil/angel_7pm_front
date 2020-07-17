@@ -69,6 +69,7 @@ export default {
           /* 토큰정보 넣기 & 저장 */
           document.cookie = `accessToken=${data.token}`
           axios.defaults.headers.common['x-access-token'] = data.token
+          axios.defaults.headers.common.Authorization = `Bearer ${data.token}`
           localStorage.setItem('userInfo', JSON.stringify(data))
           /* 로그인 하면 이동하기 */
           window.location.href = '/hacks/list'

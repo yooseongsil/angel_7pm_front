@@ -42,10 +42,13 @@
         ></v-text-field>
       </v-col>
       <v-col cols="12">
-        <v-text-field
-          v-model="data.status"
-          label="해커톤 상태(w,p,i,c)"
-        ></v-text-field>
+        <header>진행상황</header>
+        <v-radio-group v-model="data.status" row>
+          <v-radio label="작성" value="w"></v-radio>
+          <v-radio label="예정" value="p"></v-radio>
+          <v-radio label="진행" value="i"></v-radio>
+          <v-radio label="완료" value="c"></v-radio>
+        </v-radio-group>
       </v-col>
       <v-col cols="12">
         <v-text-field
