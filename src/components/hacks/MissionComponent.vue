@@ -1,12 +1,13 @@
 <template>
   <section>
-    <!-- coin -->
-    <i class="nes-icon coin is-small"></i>
-    <span class="nes-text is-warning">{{missionTitle}}</span>
-    <div>{{mission}}</div>
-    <div>{{missionShort}}</div>
+    <div class="d-flex flex-row align-center">
+      <i class="nes-icon coin is-small"></i>
+      <span class="nes-text is-warning mission-title">{{missionTitle}}</span>
+    </div>
+    <div class="mb-4">{{mission}}</div>
+    <div>{{missionShort}}까지 남은 시간:</div>
     <div>{{missionTimeLeft}}</div>
-    <div class="nes-text is-warning" style="text-decoration: underline;">{{missionQuestion}}</div>
+    <div class="nes-text is-warning mt-4 mb-6" style="text-decoration: underline;">{{missionQuestion}}</div>
   </section>
 </template>
 
@@ -17,6 +18,8 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="less" scoped>
+  .mission-title {
+    margin: -2.2rem 0 1rem;
+  }
 </style>

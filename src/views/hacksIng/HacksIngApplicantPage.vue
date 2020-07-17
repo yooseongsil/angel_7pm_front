@@ -2,14 +2,15 @@
   <v-main>
     <!--    진행상황-->
     <section>
-      <div class="is-dark">진행상황: {{progress}}% / {{totalProgress}}% (권장)</div>
-      <progress class="nes-progress is-pattern is-dark" :value="progress" max="100"></progress>
+      <div class="is-dark">진행상황: {{progress}}% / <span class="nes-text is-error">{{totalProgress}}% (권장)</span></div>
+      <progress class="nes-progress is-error" value="80" max="100"></progress>
+      <progress class="nes-progress is-pattern is-dark mission-progress" :value="progress" max="100"></progress>
     </section>
     <!--    요일 리스트-->
-    <section class="d-flex">
+    <section class="d-flex mb-2">
       <template v-for="(day, index) in dayList">
         <a href="#" class="nes-badge" :key="index" style="display: inline-block;" @click="changeDay(index)">
-          <span :class="day === today ? 'is-success' : 'is-dark'">{{day}}</span>
+          <span :class="day === today ? 'is-success' : 'is-dark'" style="letter-spacing: 0.3rem;">{{day}}</span>
         </a>
       </template>
     </section>
@@ -25,7 +26,12 @@
     </section>
     <!--    Todos checkList-->
     <section>
-      <TodosComponent v-for="(todos, index) in todosList" :todos-title="todos.title" :todos="todos.todos" :key="`${todos.title}-${index}`"/>
+      <TodosComponent v-for="(todos, index) in todosList"
+                      :key="`${todos.title}-${index}`"
+                      :todos-title="todos.title"
+                      :todos="todos.todos"
+                      class="mb-6"
+      />
     </section>
     <!--    팀빌딩 미션-->
     <section class="d-flex flex-column align-center">
@@ -46,7 +52,6 @@ export default {
     return {
       progress: 30,
       totalProgress: 50,
-      // new Date에서 추출
       today: '',
       dayList: ['금요일', '토요일', '일요일'],
       todosListAll: [
@@ -255,12 +260,26 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
   .nes-title {
     display: table;
     padding: 0 .5rem;
     margin: -1.8rem 0 1rem;
     font-size: 1rem;
     background-color: #fff;
+  }
+
+  .mission-progress {
+    background: transparent;
+    z-index: 1;
+    position: absolute;
+    margin-top: -59px;
+
+    &::-webkit-progress-bar {
+      background-color: transparent !important;
+    }
+    &::-moz-progress-bar {
+      background-color: transparent !important;
+    }
   }
 </style>
