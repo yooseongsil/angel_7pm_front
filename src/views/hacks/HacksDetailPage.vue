@@ -42,7 +42,7 @@
             >
           </v-avatar>
       </div>
-      <v-chip class="px-4" color="#BB86FC" rounded text-color="black" large style="position: fixed; bottom: 20px; right: 20px;" @click="goToCreateHack">
+      <v-chip class="px-4" color="#BB86FC" rounded text-color="black" large style="position: fixed; bottom: 20px; right: 20px;" @click="goToApplyHack">
         <v-icon left class="mr-2">mdi-plus</v-icon>
         <span>신청하기</span>
       </v-chip>
@@ -99,8 +99,8 @@ export default {
           console.log(error)
         })
     },
-    goToCreateHack () {
-      this.$router.push('/hacks/create')
+    goToApplyHack () {
+      this.$router.push(`/hacks/${this.no}/apply`)
     }
   },
   components: {
