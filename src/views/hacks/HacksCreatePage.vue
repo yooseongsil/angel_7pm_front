@@ -147,8 +147,8 @@ export default {
         url: `${this.$store.state.host}/hacks/`,
         data: this.data,
         headers: {
-          Authorization: `jwt ${localStorage.getItem('token')}`,
-          token: localStorage.getItem('token')
+          Authorization: `jwt ${localStorage.getItem('token')}`
+
         }
       }).then(({ data }) => {
         console.log(data)
