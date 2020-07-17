@@ -73,7 +73,7 @@ export default {
           localStorage.setItem('userInfo', JSON.stringify(data))
           localStorage.setItem('token', data.token)
           /* 로그인 하면 이동하기 */
-          window.location.href = '/hacks/list'
+          this.$router.push('/hacks/list')
         } else {
           this.nonUser = true
         }
