@@ -22,7 +22,6 @@
             type="password"
             v-model="password"
             label="비밀번호"
-            counter
             hint="비밀번호를 입력하세요"
             color="deep-purple accent-1"
           ></v-text-field>

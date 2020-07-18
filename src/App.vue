@@ -38,4 +38,10 @@ export default {
   .is-dark {
     color: white;
   }
+
+  .list_title_img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
 </style>

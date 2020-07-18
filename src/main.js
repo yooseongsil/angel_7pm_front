@@ -6,6 +6,7 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 import axios from 'axios'
 import 'moment/locale/ko'
+import './plugins/validate/index'
 
 // baseURL 기본값
 // develop , production baseURL
