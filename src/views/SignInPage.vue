@@ -83,7 +83,7 @@ export default {
       }).then(({ data }) => {
         if (data !== undefined) {
           this.nonUser = false
-          this.$store.state.userInfo = data
+          this.$store.commit('setUserInfo', data)
           /* 토큰정보 넣기 & 저장 */
           document.cookie = `accessToken=${data.token}`
           axios.defaults.headers.common.Authorization = `jwt ${data.token}`
