@@ -40,10 +40,36 @@
             >
           </v-avatar>
       </div>
-      <v-chip class="px-4" color="#BB86FC" rounded text-color="black" large style="position: fixed; bottom: 20px; right: 20px;" @click="goToApplyHack">
+      <v-chip class="px-4" color="#BB86FC" rounded text-color="black" large style="position: fixed; bottom: 20px; right: 20px;" @click="goToApplyHack" :disabled="userInfo && userInfo.portfolio_link === null" >
         <v-icon left class="mr-2">mdi-plus</v-icon>
         <span>신청하기</span>
       </v-chip>
+      <v-snackbar
+        v-model="snackbar"
+        :vertical="vertical"
+        timeout="-1"
+      >
+        포트폴리오를 제출하지 않으시면, 해커톤에 신청하실 수 없습니다.
+
+        <template v-slot:action="{ attrs }">
+          <v-btn
+            color="indigo"
+            text
+            v-bind="attrs"
+            @click="goToSubmitPortfolio"
+          >
+            포트폴리오 제출하러 가기
+          </v-btn>
+          <v-btn
+            color="indigo"
+            text
+            v-bind="attrs"
+            @click="snackbar = false"
+          >
+            Close
+          </v-btn>
+        </template>
+      </v-snackbar>
     </v-container>
   </div>
 </template>
@@ -63,12 +89,19 @@ export default {
       tab: null,
       items: [],
       hack: {},
-      status: null
+      status: null,
+      vertical: true
     }
   },
   computed: {
     no () {
       return this.$route.params.id
+    },
+    snackbar () {
+      return this.$store.getters.getUserInfo.portfolio_link === null
+    },
+    userInfo () {
+      return this.$store.getters.getUserInfo
     }
   },
   created () {
@@ -106,6 +139,9 @@ export default {
     },
     goToApplyHack () {
       this.$router.push(`/hacks/${this.no}/apply`)
+    },
+    goToSubmitPortfolio () {
+      this.$router.push('/mypage/updateProfile')
     }
   },
   components: {
