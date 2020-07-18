@@ -75,139 +75,130 @@ export default {
           },
           {
             title: '아이디어',
-            todos: [{
-              text: '가능한 많은 아이디어를 생각하고 리스트화',
-              checked: true,
-              descriptionList: []
-            },
-            {
-              text: '아래 기준에 맞춰 아이디어 선정',
-              checked: false,
-              descriptionList: [
-                '심플하면서 혁신적인지',
-                '문제 해결이 가능한지',
-                '시간 내에 구현 가능한지',
-                '평가 기준에 부합하는지']
-            },
-            {
-              text: '우선순위 정하기',
-              checked: false,
-              descriptionList: [
-                'Critical Path 정하기',
-                '기능별 우선순위 정하기'
-              ]
-            },
-            {
-              text: '종이에 스케치해보기',
-              checked: false,
-              descriptionList: [
-                '요구사항 명세 작성'
-              ]
-            }
+            todos: [
+              {
+                text: '가능한 많은 아이디어를 생각하고 리스트화',
+                checked: true,
+                descriptionList: []
+              },
+              {
+                text: '아래 기준에 맞춰 아이디어 선정',
+                checked: false,
+                descriptionList: [
+                  '심플하면서 혁신적인지',
+                  '문제 해결이 가능한지',
+                  '시간 내에 구현 가능한지',
+                  '평가 기준에 부합하는지'
+                ]
+              },
+              {
+                text: '우선순위 정하기',
+                checked: false,
+                descriptionList: [
+                  'Critical Path 정하기',
+                  '기능별 우선순위 정하기'
+                ]
+              },
+              {
+                text: '종이에 스케치해보기',
+                checked: false,
+                descriptionList: [
+                  '요구사항 명세 작성'
+                ]
+              }
             ]
           }
         ],
         // 토요일
         [
           {
-            title: '토요토요',
+            title: '기획 & 디자인',
             todos: [
               {
-                text: '토요토요토요토요',
+                text: '플로우 차트 & 상세 기획',
                 checked: true,
                 descriptionList: []
               },
               {
-                text: '토요토요토요토요',
+                text: '와이어프레임',
                 checked: false,
                 descriptionList: []
 
+              },
+              {
+                text: '벤치마크 / 프레임웤 참고',
+                checked: true,
+                descriptionList: []
+              }, {
+                text: '디자인',
+                checked: true,
+                descriptionList: []
               }
             ]
           },
           {
-            title: '토요토요2',
-            todos: [{
-              text: '가능한 많은 아이디어를 생각하고 리스트화',
-              checked: true,
-              descriptionList: []
-            },
-            {
-              text: '아래 기준에 맞춰 아이디어 선정',
-              checked: false,
-              descriptionList: [
-                '심플하면서 혁신적인지',
-                '문제 해결이 가능한지',
-                '시간 내에 구현 가능한지',
-                '평가 기준에 부합하는지']
-            },
-            {
-              text: '우선순위 정하기',
-              checked: false,
-              descriptionList: [
-                'Critical Path 정하기',
-                '기능별 우선순위 정하기'
-              ]
-            },
-            {
-              text: '종이에 스케치해보기',
-              checked: false,
-              descriptionList: [
-                '요구사항 명세 작성'
-              ]
-            }
+            title: '개발',
+            todos: [
+              {
+                text: '개발 환경 초기 세팅, 기술 스택 선정',
+                checked: true,
+                descriptionList: []
+              },
+              {
+                text: '개발 기간 산정',
+                checked: false,
+                descriptionList: []
+
+              },
+              {
+                text: '개발',
+                checked: false,
+                descriptionList: [
+                  '퍼블리싱',
+                  '연동'
+                ]
+
+              }
             ]
           }
         ],
         // 일요일
         [
           {
-            title: '일요일',
+            title: '기획 & 디자인',
             todos: [
               {
-                text: '일요일',
+                text: '발표 자료 준비',
                 checked: true,
                 descriptionList: []
               },
               {
-                text: '일요일일요일일요일',
+                text: '발표 준비',
                 checked: false,
                 descriptionList: []
-
               }
             ]
           },
           {
-            title: '토요토요2',
-            todos: [{
-              text: '가능한 많은 아이디어를 생각하고 리스트화',
-              checked: true,
-              descriptionList: []
-            },
-            {
-              text: '아래 기준에 맞춰 아이디어 선정',
-              checked: false,
-              descriptionList: [
-                '심플하면서 혁신적인지',
-                '문제 해결이 가능한지',
-                '시간 내에 구현 가능한지',
-                '평가 기준에 부합하는지']
-            },
-            {
-              text: '우선순위 정하기',
-              checked: false,
-              descriptionList: [
-                'Critical Path 정하기',
-                '기능별 우선순위 정하기'
-              ]
-            },
-            {
-              text: '종이에 스케치해보기',
-              checked: false,
-              descriptionList: [
-                '요구사항 명세 작성'
-              ]
-            }
+            title: '개발',
+            todos: [
+              {
+                text: '개발 문서화',
+                checked: true,
+                descriptionList: []
+              },
+              {
+                text: 'QA',
+                checked: false,
+                descriptionList: []
+
+              },
+              {
+                text: '데모',
+                checked: false,
+                descriptionList: []
+
+              }
             ]
           }
         ]
