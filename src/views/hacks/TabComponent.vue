@@ -19,7 +19,7 @@
     </v-tabs>
     <span v-if="isMypage" class="mypage_icon">
         <router-link :to="{name: 'Mypage'}">
-          <Avatar :email="$store.state.userInfo.name" class="mb-2" v-if="userInfo.name" />
+          <Avatar :email="userInfo.name" class="mb-2" v-if="userInfo.name" />
         </router-link>
     </span>
   </div>
@@ -33,15 +33,16 @@ export default {
   props: ['items', 'iconShow', 'isMypage'],
   data () {
     return {
-      tab: null,
-      userInfo: null
+      tab: null
+    }
+  },
+  computed: {
+    userInfo () {
+      return this.$store.getters.getUserInfo
     }
   },
   components: {
     Avatar
-  },
-  created () {
-    this.userInfo = this.$store.state.userInfo
   },
   methods: {
     clickTab (val) {

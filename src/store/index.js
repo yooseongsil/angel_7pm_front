@@ -10,7 +10,7 @@ export default new Vuex.Store({
   },
   mutations: {
     setUserInfo: function (state, payload) {
-      if (state.userInfo) {
+      if (payload && state.userInfo) {
         state.userInfo = payload
       } else {
         state.userInfo = JSON.parse(localStorage.getItem('userInfo'))

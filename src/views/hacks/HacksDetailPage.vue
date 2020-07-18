@@ -93,7 +93,7 @@ export default {
       return this.$route.params.id
     },
     snackbar () {
-      return this.$store.getters.getUserInfo.portfolio_link === null
+      return this.userInfo.portfolio_link === null
     },
     userInfo () {
       return this.$store.getters.getUserInfo

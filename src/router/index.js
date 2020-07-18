@@ -21,6 +21,15 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    redirect: {
+      name: 'HacksListPage'
+    },
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/signIn',
     name: 'SignInPage',
     component: SignInPage
   },
@@ -32,67 +41,106 @@ const routes = [
   {
     path: '/hacks/list',
     name: 'HacksListPage',
-    component: HacksListPage
+    component: HacksListPage,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/hacks/create',
     name: 'HacksCreatePage',
-    component: HacksCreatePage
+    component: HacksCreatePage,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/hacks/:id',
     name: 'HacksDetailPage',
-    component: HacksDetailPage
+    component: HacksDetailPage,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/hacks/:id/apply',
     name: 'HacksApplyPage',
-    component: HacksApplyPage
+    component: HacksApplyPage,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/hacks/:id/ing',
     name: 'HacksIngPage',
-    component: HacksIngPage
+    component: HacksIngPage,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/hacks/:id/ing/switch',
     name: 'HacksSwitchingPage',
-    component: HacksSwitchingPage
+    component: HacksSwitchingPage,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/hacks/:id/ing/mission/teamBuilding',
     name: 'HacksIngMissionTeamBuildingFormPage',
-    component: HacksIngMissionTeamBuildingFormPage
+    component: HacksIngMissionTeamBuildingFormPage,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/hacks/:id/ing/mission/teamIdeation',
     name: 'HacksIngMissionTeamIdeationFormPage',
-    component: HacksIngMissionTeamIdeationFormPage
+    component: HacksIngMissionTeamIdeationFormPage,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/hacks/:id/ing/mission/teamSubmission',
     name: 'HacksIngMissionTeamSubmissionFormPage',
-    component: HacksIngMissionTeamSubmissionFormPage
+    component: HacksIngMissionTeamSubmissionFormPage,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/team/list',
     name: 'TeamListPage',
-    component: TeamListPage
+    component: TeamListPage,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/mypage',
     name: 'Mypage',
-    component: Mypage
+    component: Mypage,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/mypage/updateProfile',
     name: 'UpdateProfilePage',
-    component: UpdateProfilePage
+    component: UpdateProfilePage,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/mypage/hacks/list',
     name: 'MyHacksListPage',
-    component: MyHacksListPage
+    component: MyHacksListPage,
+    meta: {
+      requiresAuth: true
+    }
   }
 ]
 
