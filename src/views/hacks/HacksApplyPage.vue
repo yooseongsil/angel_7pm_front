@@ -4,67 +4,87 @@
       <h1 class="text-h2 white--text mt-12">해커톤 신청</h1>
     </v-col>
     <v-col cols="12">
-      <v-text-field
-        v-model="email"
-        label="이메일"
-        filled
-        hint="이메일을 입력하세요"
-      ></v-text-field>
-    </v-col>
+      <ValidationObserver ref="validObserver">
+        <form>
+          <ValidationProvider v-slot="{ errors, validate }" name="이메일" rules="required">
+            <v-text-field
+              v-model="email"
+              label="이메일"
+              filled
+              hint="이메일을 입력하세요"
+              color="deep-purple accent-1"
+              :error-messages="errors"
+              required
+            />
+          </ValidationProvider>
 
-    <v-col cols="12">
-      <v-row>
-        <v-col cols="6" >
-          <v-text-field
-            v-model="name"
-            label="이름"
-            filled
-            hint="이름을 입력하세요"
-          ></v-text-field>
-        </v-col>
-        <v-col cols="12">
-          <v-row>
-            <v-col cols="6">
+          <ValidationProvider v-slot="{ errors, validate }" name="이름" rules="required">
+            <v-text-field
+              v-model="name"
+              label="이름"
+              filled
+              hint="이름을 입력하세요"
+              color="deep-purple accent-1"
+              :error-messages="errors"
+              required
+            ></v-text-field>
+          </ValidationProvider>
+
+          <v-col cols="12" class="pa-0">
+            <v-row>
+              <v-col cols="6" class="pb-0">
+                <ValidationProvider v-slot="{ errors, validate }" name="소속" rules="required">
+                  <v-text-field
+                    v-model="belong"
+                    label="소속"
+                    filled
+                    hint="회사/학교를 입력하세요"
+                    color="deep-purple accent-1"
+                    :error-messages="errors"
+                    required
+                  ></v-text-field>
+                </ValidationProvider>
+              </v-col>
+              <v-col cols="6" class="pb-0">
+                <ValidationProvider v-slot="{ errors, validate }" name="직무" rules="required">
+                  <v-text-field
+                    v-model="role"
+                    label="직무"
+                    filled
+                    hint="직무를 입력하세요"
+                    color="deep-purple accent-1"
+                    :error-messages="errors"
+                    required
+                  ></v-text-field>
+                </ValidationProvider>
+              </v-col>
+            </v-row>
+            <ValidationProvider v-slot="{ errors, validate }" name="참가비" rules="required|min_value:10000|max_value:100000">
               <v-text-field
-                v-model="belong"
-                label="소속"
+                v-model="fee"
+                label="참가비(최소 1만원 ~ 최대 10만원)"
                 filled
-                hint="회사/학교를 입력하세요"
+                hint="참가비를 입력하세요"
+                color="deep-purple accent-1"
+                :error-messages="errors"
+                required
               ></v-text-field>
-            </v-col>
-            <v-col cols="6">
-              <v-text-field
-                v-model="role"
-                label="직무"
-                filled
-                hint="직무를 입력하세요"
-              ></v-text-field>
-            </v-col>
-          </v-row>
-        </v-col>
-      </v-row>
-    </v-col>
-
-    <v-col cols="12">
-      <v-text-field
-        v-model="fee"
-        label="참가비(최소 1만원 ~ 최대 10만원)"
-        filled
-        hint="참가비를 입력하세요"
-      ></v-text-field>
-    </v-col>
-
-    <v-col cols="12">
-      <v-btn block color="#BB86FC"
-             @click="applyHacks()"
-      >
-        신청하기
-      </v-btn>
+            </ValidationProvider>
+            <v-btn block color="#BB86FC"
+                   @click="validCheck()"
+            >
+              신청하기
+            </v-btn>
+          </v-col>
+        </form>
+      </ValidationObserver>
     </v-col>
   </v-main>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'HacksApplyPage',
   data: () => ({
@@ -75,8 +95,35 @@ export default {
     fee: 10000
   }),
   methods: {
+    async validCheck () {
+      await this.$refs.validObserver.validate().then(isValid => {
+        if (isValid) {
+          this.applyHacks()
+        }
+      })
+    },
     applyHacks () {
-
+      axios({
+        method: 'POST',
+        url: `${this.$store.state.host}/hacks/apply/`,
+        data: {
+          is_leader: true,
+          is_paid: true,
+          is_joined: true,
+          mission_level: 'string',
+          role: 'string',
+          hacks: 0,
+          team: 0,
+          user: 0
+        }
+      }).then(({ data }) => {
+        console.log(data)
+        this.count = data.count
+        this.hackLists = data.results
+      })
+        .catch(({ error }) => {
+          console.log(error)
+        })
     }
   },
   computed: {
