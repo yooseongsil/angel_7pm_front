@@ -19,7 +19,7 @@
     </v-tabs>
     <span v-if="isMypage" class="mypage_icon">
         <router-link :to="{name: 'Mypage'}">
-          <Avatar :email="userInfo.name" class="mb-2"/>
+          <Avatar :email="$store.state.userInfo.name" class="mb-2" v-if="userInfo.name" />
         </router-link>
     </span>
   </div>
@@ -34,20 +34,14 @@ export default {
   data () {
     return {
       tab: null,
-      userInfo: {
-        name: null,
-        belong: null,
-        role: null
-      }
+      userInfo: null
     }
   },
   components: {
     Avatar
   },
   created () {
-    this.userInfo.name = localStorage.getItem('userName')
-    this.userInfo.belong = localStorage.getItem('userBelong')
-    this.userInfo.role = localStorage.getItem('userRole')
+    this.userInfo = this.$store.state.userInfo
   },
   methods: {
     clickTab (val) {

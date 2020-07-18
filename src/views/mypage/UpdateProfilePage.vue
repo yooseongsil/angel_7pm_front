@@ -89,21 +89,10 @@ import axios from 'axios'
 export default {
   name: 'SignUpPage',
   data: () => ({
-    userInfo: {
-      email: null,
-      password: null,
-      checkPassword: null,
-      name: null,
-      belong: null,
-      role: null,
-      portfolio: null
-    }
+    userInfo: null
   }),
   created () {
-    this.userInfo.name = localStorage.getItem('userName')
-    this.userInfo.email = localStorage.getItem('userEmail')
-    this.userInfo.belong = localStorage.getItem('userBelong')
-    this.userInfo.role = localStorage.getItem('userRole')
+    this.userInfo = this.$store.state.userInfo
   },
   methods: {
     updateProfile () {
@@ -121,7 +110,7 @@ export default {
       }).then(({ data }) => {
         console.log(data)
         if (data.message === 'ok') {
-          localStorage.setItem('userportfolio', this.userInfo.portfolio)
+          localStorage.setItem('userInfo', this.userInfo)
         }
       })
         .catch(({ error }) => {

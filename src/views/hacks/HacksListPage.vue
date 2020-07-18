@@ -2,24 +2,25 @@
   <div id="hackLists">
     <v-row>
       <v-col cols="12">
-        <tab-component :items="items" :iconShow="false" :isMypage="true"
-        @activeTab="getList"></tab-component>
+        <tab-component :items="items" :iconShow="false" :isMypage="true" @activeTab="getList" />
       </v-col>
       <!--title-->
       <v-col cols="12" style="position: relative">
-        <h1 class="text-h3 white--text mt-12 " v-html="title[tabActive]" ></h1>
+        <h1 class="text-h3 white--text mt-12" v-html="title[tabActive]" ></h1>
         <img :src="imgSrc" :alt="title[tabActive]" class="list_title_img">
       </v-col>
       <v-col cols="12" :md="4"
              v-for="(hack, index) in hackLists" :key="`result-${index}`">
 
-        <Card :title="hack.title"
-              :subTitle="`현재 ${hack.awards_count}명 신청`"
-              :content="`(팀별 ${hack.team_personnel}명)`"
-              :captionText="`${hack.started_at} 19:00 시작`"
-              :route="`/hacks/${hack.id}`"
-              buttonText="상세보기"
-        />
+        <router-link :to="`/hacks/${hack.id}`">
+          <Card :title="hack.title"
+                :subTitle="`현재 ${hack.awards_count}명 신청`"
+                :content="`(팀별 ${hack.team_personnel}명)`"
+                :captionText="`${hack.started_at} 19:00 시작`"
+                :route="`/hacks/${hack.id}`"
+                buttonText="상세보기"
+          />
+        </router-link>
       </v-col>
     </v-row>
   </div>
@@ -29,11 +30,12 @@
 import axios from 'axios'
 import TabComponent from './TabComponent'
 import Card from '../../components/base/main/Card'
+
 export default {
   name: 'HacksListPage',
   data: () => ({
     hackLists: [],
-    items: ['모집중', '투표중'],
+    items: ['모집중'], // '투표중'
     title: ['해커톤을<br/>선택하세요', '우승팀을<br>골라주세요'],
     tabActive: 0
   }),
@@ -83,9 +85,9 @@ export default {
 }
 </script>
 <style scoped lang="less">
-  .list_title_img{
-position: absolute;
-    bottom: 0;
-    right: 0;
+  a {
+    &:hover {
+      text-decoration: none;
+    }
   }
 </style>

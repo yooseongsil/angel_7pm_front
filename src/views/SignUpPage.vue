@@ -114,9 +114,6 @@ export default {
         console.log(data)
         if (data.message === 'ok') {
           this.$router.push('/')
-          localStorage.setItem('userName', this.name)
-          localStorage.setItem('userEmail', this.email)
-          localStorage.setItem('userPortfolio', this.portfolio)
         }
       })
         .catch(({ error }) => {

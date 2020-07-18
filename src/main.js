@@ -21,5 +21,8 @@ new Vue({
   router,
   store,
   vuetify,
+  beforeCreate () {
+    this.$store.commit('setUserInfo')
+  },
   render: h => h(App)
 }).$mount('#app')

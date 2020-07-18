@@ -66,7 +66,7 @@ export default {
       teamFormLink: {
         teamBuilding: '/hacks/ing/mission/teamBuilding',
         teamIdeation: '/hacks/ing/mission/teamIdeation',
-        teamSubmission: './hacks/ing/mission/teamSubmission'
+        teamSubmission: '/hacks/ing/mission/teamSubmission'
       },
       showHacksIngModal: false,
       progress: 30,

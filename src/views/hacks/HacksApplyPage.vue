@@ -94,6 +94,14 @@ export default {
     role: null,
     fee: 10000
   }),
+  created () {
+    const userInfo = this.$store.state.userInfo
+
+    this.email = userInfo.id
+    this.name = userInfo.name
+    this.belong = userInfo.belong
+    this.role = userInfo.role
+  },
   methods: {
     async validCheck () {
       await this.$refs.validObserver.validate().then(isValid => {
@@ -107,14 +115,14 @@ export default {
         method: 'POST',
         url: `${this.$store.state.host}/hacks/apply/`,
         data: {
-          is_leader: true,
-          is_paid: true,
+          is_leader: false,
+          is_paid: false,
           is_joined: true,
-          mission_level: 'string',
-          role: 'string',
-          hacks: 0,
+          mission_level: '',
+          role: `${this.belong}/${this.role}`,
+          hacks: this.$route.params.id,
           team: 0,
-          user: 0
+          user: this.userInfo.id
         }
       }).then(({ data }) => {
         console.log(data)
@@ -130,13 +138,6 @@ export default {
     userInfo () {
       return this.$store.getters.getUserInfo
     }
-  },
-  mounted () {
-    const { id, name, belong, role } = this.userInfo
-    this.email = id
-    this.name = name
-    this.belong = belong
-    this.role = role
   }
 }
 </script>

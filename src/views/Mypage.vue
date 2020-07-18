@@ -78,21 +78,11 @@ export default {
   name: 'Mypage',
   components: { Avatar, TabComponent },
   data: () => ({
-    userInfo: {
-      id: null,
-      belong: null,
-      role: null,
-      email: null,
-      portfolio: null
-    },
+    userInfo: null,
     credit: 0
   }),
   created () {
-    this.userInfo.name = localStorage.getItem('userName')
-    this.userInfo.email = localStorage.getItem('userEmail')
-    this.userInfo.belong = localStorage.getItem('userBelong')
-    this.userInfo.role = localStorage.getItem('userRole')
-    this.userInfo.portfolio = localStorage.getItem('userPortfolio')
+    this.userInfo = this.$store.state.userInfo
   },
   computed: {
     isPortfolio () {
