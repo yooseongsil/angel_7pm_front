@@ -78,6 +78,18 @@ export default {
     applyHacks () {
 
     }
+  },
+  computed: {
+    userInfo () {
+      return this.$store.getters.getUserInfo
+    }
+  },
+  mounted () {
+    const { id, name, belong, role } = this.userInfo
+    this.email = id
+    this.name = name
+    this.belong = belong
+    this.role = role
   }
 }
 </script>
