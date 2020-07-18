@@ -9,10 +9,21 @@ export default new Vuex.Store({
     userInfo: {}
   },
   mutations: {
+    setUserInfo: function (state, payload) {
+      state.userInfo = payload
+    }
   },
   actions: {
   },
   modules: {
 
+  },
+  getters: {
+    getHost: function (state) {
+      return state.host
+    },
+    getUserInfo: function (state) {
+      return state.userInfo
+    }
   }
 })
