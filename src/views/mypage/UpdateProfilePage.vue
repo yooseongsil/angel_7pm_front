@@ -94,9 +94,9 @@
           color="pink"
           text
           v-bind="attrs"
-          @click="snackbar = false"
+          @click="(snackbar = false), ($router.go(-1))"
         >
-          Close
+          확인
         </v-btn>
       </template>
     </v-snackbar>
