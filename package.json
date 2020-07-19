@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "aws s3 sync dist/ s3://7hacks-front&aws cloudfront create-invalidation —distribution-id EXSRYOEP5JRX7  —paths \"/*\""
+    "deploy": "aws s3 sync dist/ s3://7hacks-front",
+    "clean": "aws cloudfront create-invalidation —distribution-id EXSRYOEP5JRX7  —paths \"/*\""
   },
   "dependencies": {
     "axios": "^0.19.2",

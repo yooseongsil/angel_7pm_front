@@ -18,6 +18,7 @@
                 :content="`(팀별 ${hack.team_personnel}명)`"
                 :captionText="startDateTime(hack.started_at)"
                 :route="`/hacks/${hack.id}`"
+                :fee="hack.total_fee"
                 buttonText="상세보기"
           />
         </router-link>

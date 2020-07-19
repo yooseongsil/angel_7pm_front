@@ -61,9 +61,10 @@
           </v-row>
           <ValidationProvider v-slot="{ errors, validate }" name="포트폴리오" rules="required">
             <v-text-field
-              v-model="userInfo.portfolio"
+              v-model="userInfo.portfolio_link"
               label="포트폴리오"
               type="text"
+              filled
               hint="포트폴리오 링크를 입력하세요"
               color="deep-purple accent-1"
               :error-messages="errors"
@@ -94,6 +95,7 @@ export default {
   }),
   created () {
     this.userInfo = this.getUserInfo
+    this.getAccountsProfile()
   },
   computed: {
     getUserInfo () {
@@ -101,6 +103,12 @@ export default {
     }
   },
   methods: {
+    getAccountsProfile () {
+      this.$http.get(`/accounts/profile/${this.$store.state.userInfo.id}`)
+        .then(({ data }) => {
+          this.userInfo = data
+        })
+    },
     async validCheck () {
       await this.$refs.validObserver.validate().then(isValid => {
         if (isValid) {

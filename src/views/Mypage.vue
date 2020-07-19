@@ -10,7 +10,7 @@
           <p class="text-caption grey--text text--lighten-1 mb-0">{{userInfo.belong}} / {{userInfo.role}}</p>
           <p class="text-h5 mb-0">
             {{ userInfo.name }}
-            <span class="text-subtitle-1 yellow--text">(크레딧: {{credit}})
+            <span class="text-subtitle-1 yellow--text">(크레딧: {{userInfo.credits}})
             <i class="nes-icon coin is-small" style="position: relative; top: 3px;"></i>
             </span>
           </p>
@@ -77,8 +77,7 @@ export default {
   name: 'Mypage',
   components: { Avatar, TabComponent },
   data: () => ({
-    userInfo: null,
-    credit: 0
+    userInfo: null
   }),
   created () {
     this.userInfo = this.$store.state.userInfo
