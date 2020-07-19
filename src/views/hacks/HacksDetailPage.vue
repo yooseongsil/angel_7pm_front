@@ -54,10 +54,10 @@
       <span>신청하기</span>
     </v-chip>
 
-    <Modal modalTitle="포트폴리오가 없으면 신청할 수 없습니다"
-           modalText="포트폴리오를 제출하러 가볼까요?"
-           modalButtonText="제출하기"
-           :function="goUpdateProfile"
+    <Modal :modalTitle="isApplied ? '중복 신청 불가' : '포트폴리오가 없으면 신청할 수 없습니다'"
+           :modalText="isApplied ? '다른 해커톤에 신청한 경우 신청할 수 없습니다.' : '포트폴리오를 제출하러 가볼까요?'"
+           :modalButtonText="isApplied ? '확인' : '제출하기'"
+           :function="isApplied ? closeModal : goUpdateProfile"
            :show="showModal"
            @close="showModal=false"
     />
@@ -100,7 +100,15 @@ export default {
       this.showModal = true
     }
   },
+  watch: {
+    isApplied (val) {
+      if (val) { this.showModal = true }
+    }
+  },
   methods: {
+    closeModal () {
+      this.showModal = false
+    },
     goUpdateProfile () {
       this.$router.push('/mypage/updateProfile')
     },
