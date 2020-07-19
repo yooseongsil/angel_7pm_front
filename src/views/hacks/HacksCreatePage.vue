@@ -174,12 +174,22 @@
         </ValidationObserver>
       </v-col>
     </v-row>
+
+    <Modal
+      :show="showModal"
+      @close="showModal=false"
+      :modalTitle="modalTitle"
+      :modalText="modalText"
+      :modalButtonText="modalButtonText"
+      :function="goMyHacksList"
+    />
   </div>
 </template>
 
 <script>
 import TabComponent from './TabComponent'
 import moment from 'moment'
+import Modal from '../../components/base/main/Modal'
 
 export default {
   name: 'HacksCreatePage',
@@ -191,7 +201,7 @@ export default {
       subject: null,
       rule: null,
       fee: null,
-      status: null,
+      status: 'p',
       started_at: null,
       ended_at: null,
       judge_line: null,
@@ -203,13 +213,17 @@ export default {
       chat_url: null,
       host: null
     },
-    startDateMenu: false
+    startDateMenu: false,
+    showModal: false,
+    modalTitle: '',
+    modalText: '',
+    modalButtonText: ''
   }),
   methods: {
     async validCheck () {
       await this.$refs.validObserver.validate().then(isValid => {
-        if (!isValid) {
-
+        if (isValid) {
+          this.createHack()
         }
       })
     },
@@ -217,13 +231,16 @@ export default {
       await this.$http({
         method: 'POST',
         url: '/hacks/',
-        data: this.data,
-        headers: {
-          Authorization: `jwt ${this.$store.state.userInfo.token}`
-
-        }
-      }).then(({ data }) => {
+        data: this.data
+      }).then((res) => {
+        const data = res.data
         console.log(data)
+        if (res.status === 201) {
+          this.modalTitle = '개최 완료'
+          this.modalText = '해커톤을 개최하신 것을 축하드려요!'
+          this.modalButtonText = '개최한 해커톤 보러 가기'
+          this.showModal = true
+        }
       })
         .catch(({ error }) => {
           console.log(error)
@@ -231,9 +248,13 @@ export default {
     },
     allowedDates (value) {
       return moment(value).format('ddd') === '금' && moment(value).isAfter()
+    },
+    goMyHacksList () {
+      this.$router.push('/mypage/hacks/list')
     }
   },
   components: {
+    Modal,
     'tab-component': TabComponent
   }
 }

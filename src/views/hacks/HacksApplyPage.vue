@@ -115,8 +115,8 @@ export default {
           user: this.userInfo.id
         }
       }).then((res) => {
-        const data = res.data
-        console.log(data)
+        // const data = res.data
+        // console.log(data)
         if (res.status === 201) {
           this.modalTitle = '참가 신청 완료'
           this.modalText = '해커톤에 참가신청되었습니다.'

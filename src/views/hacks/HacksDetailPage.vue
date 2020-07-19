@@ -38,7 +38,7 @@
           <div class="text-subtitle-1">{{`${hack.host_name} (${hack.belong}/${hack.role})`}}</div>
           <div class="text-caption grey--text text--lighten-1">{{hack.email}}</div>
         </div>
-        <Avatar v-if="hack.email" :email="hack.email" style="position: absolute; top: 20px; right: 0" />
+        <Avatar v-if="hack.host_name" :email="hack.host_name" style="position: absolute; top: 20px; right: 0" />
     </div>
     <v-chip
       class="px-4"
