@@ -1,11 +1,5 @@
 <template>
   <v-main>
-    <!--    진행상황-->
-    <section class="mb-10">
-      <div class="is-dark">해커톤 진행상황: {{progress}}% / 100%</div>
-      <progress class="nes-progress is-pattern is-dark" :value="progress" max="100"></progress>
-    </section>
-
     <section class="d-flex mb-6">
       <template v-for="(day, index) in dayList">
         <a href="#" class="nes-badge" :key="index" style="display: inline-block;" @click="changeDay(index)">

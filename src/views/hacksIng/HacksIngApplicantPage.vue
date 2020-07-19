@@ -2,8 +2,8 @@
   <v-main>
     <!--    진행상황-->
     <section>
-      <div class="is-dark">진행상황: {{progress}}% / <span class="nes-text is-error">{{totalProgress}}% (권장)</span></div>
-      <progress class="nes-progress is-error" value="80" max="100"></progress>
+      <div class="is-dark">진행상황: {{progress}}% / <span class="nes-text" :class="colorClass">{{totalProgress}}% (권장)</span></div>
+      <progress class="nes-progress" :class="colorClass" :value="totalProgress" max="100"></progress>
       <progress class="nes-progress is-pattern is-dark mission-progress" :value="progress" max="100"></progress>
     </section>
     <!--    요일 리스트-->
@@ -34,11 +34,11 @@
       />
     </section>
     <!--    팀빌딩 미션-->
-    <section class="d-flex flex-column align-center">
-      <div>팀빌딩 미션:</div>
-      <div>{{isMissionSuccess ? 'Success' : 'Fail'}}</div>
-      <a class="nes-btn" href="#">팀빌딩 수정하기</a>
-    </section>
+<!--    <section class="d-flex flex-column align-center">-->
+<!--      <div>팀빌딩 미션:</div>-->
+<!--      <div class="nes-text" :class="isMissionSuccess === 'Success'? 'is-success' : ''">{{isMissionSuccess}}</div>-->
+<!--      <a class="nes-btn" href="#">팀빌딩 수정하기</a>-->
+<!--    </section>-->
   </v-main>
 </template>
 <script>
@@ -52,7 +52,7 @@ export default {
   data () {
     return {
       progress: 30,
-      totalProgress: 50,
+      totalProgress: 40,
       hackInfo: {},
       hackApplyInfo: {},
       today: '',
@@ -60,10 +60,12 @@ export default {
       teamBuildingEndAt: null,
       ideaEndAt: null,
       resultEndAt: null,
+      colorClass: 'is-success',
       teamBuildingStartAt: null,
       ideaStartAt: null,
       resultStartAt: null,
       dayList: ['금요일', '토요일', '일요일'],
+      missionTrueFalse: ['Fail', 'Fail', 'Fail'],
       todosListAll: [
         // 금요일
         [
@@ -212,7 +214,6 @@ export default {
           }
         ]
       ],
-      isMissionSuccess: false,
       missionTextList: [
         {
           missionTitle: '첫 번째 환급 미션!',
@@ -241,21 +242,37 @@ export default {
   async created () {
     this.today = moment().format('dddd')
     await this.getHackInfo()
-    await this.getHackApplyInfo()
-    console.log(this.missionEnds)
+    await this.getApplyInfo()
   },
   methods: {
     changeDay (index) {
       this.today = this.dayList[index]
     },
-    getHackApplyInfo () {
+    getApplyInfo () {
       this.$http({
         method: 'GET',
-        url: `/hacks/apply/${this.$store.getters.getUserInfo.id}`
-        // url: `/hacks/apply/${this.$route.params.id}`
+        url: '/hacks/apply'
       }).then(({ data }) => {
-        this.hackApplyInfo = data
-        console.log(data)
+        // [미션 완료 여부] t:팀 생성 완료 i:아이디어 완료 s:제출 완료
+        this.hackApplyInfo = data.results[0]
+        const missionLevel = data.results[0].mission_level
+        if (missionLevel.indexOf('t') !== -1) {
+          this.missionTrueFalse[0] = 'Success'
+          this.progress = 40
+          this.totalProgress = 60
+          this.colorClass = 'is-warning'
+        }
+        if (missionLevel.indexOf('i') !== -1) {
+          this.missionTrueFalse[1] = 'Success'
+          this.progress = 50
+          this.totalProgress = 90
+          this.colorClass = 'is-error'
+        }
+        if (missionLevel.indexOf('s') !== -1) {
+          this.missionTrueFalse[2] = 'Success'
+          this.progress = 100
+          this.totalProgress = 100
+        }
       })
         .catch(({ error }) => {
           console.log(error)
@@ -290,6 +307,10 @@ export default {
     todosList () {
       const index = this.dayList.indexOf(this.today)
       return this.todosListAll[index]
+    },
+    isMissionSuccess () {
+      const index = this.dayList.indexOf(this.today)
+      return this.missionTrueFalse[index]
     }
   },
   mounted () {
