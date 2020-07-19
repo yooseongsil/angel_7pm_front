@@ -124,7 +124,7 @@ export default {
   },
   methods: {
     getAccountsProfile () {
-      this.$http.patch(`/accounts/profile/${this.$store.state.userInfo.id}`)
+      this.$http.get(`/accounts/profile/${this.$store.state.userInfo.id}`)
         .then(({ data }) => {
           this.userInfo = data
           console.log(this.userInfo)
