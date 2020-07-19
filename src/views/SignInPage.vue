@@ -23,6 +23,7 @@
             v-model="password"
             label="비밀번호"
             hint="비밀번호를 입력하세요"
+            filled
             color="deep-purple accent-1"
           ></v-text-field>
         </v-col>
@@ -61,11 +62,13 @@ export default {
   }),
   computed: {
     randomTitle () {
-      const title = ['누구나 해커톤을<br>쉽고 재밌게 👾', '누구나 즐기는️<br>온라인 해커톤 🎮', '누구나 즐기는<br>온라인 해커톤 💻']
-      return title[this.randomNumber]
+      const title = ['누구나 해커톤을<br>쉽고 재밌게 👾', '누구나 즐기는️<br>온라인 해커톤 🎮', '가슴 뛰는 해커톤들이<br>기다리고 있어요! 💻']
+      // return title[this.randomNumber]
+      return title[1]
     },
     randomImg () {
-      return require(`../assets/images/illust/illust_signin_${this.randomNumber + 1}.svg`)
+      // this.randomNumber + 1
+      return require('../assets/images/illust/illust_signin_1.svg')
     }
 
   },

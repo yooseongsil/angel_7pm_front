@@ -1,9 +1,14 @@
 <template>
   <div id="signUp">
+    <tab-component items=""
+                   :showHistory="true"
+                   :isMypage="false"
+    />
     <!--아이디 입력-->
     <!--title-->
-    <v-col cols="12">
-      <h1 class="text-h2 white--text mt-12">회원가입</h1>
+    <v-col cols="12" style="position: relative">
+      <h1 class="text-h3 white--text mt-12">회원가입</h1>
+      <img :src="require('../assets/images/illust/illust_hacksList.svg')" alt="" class="list_title_img">
     </v-col>
     <v-col cols="12">
       <v-text-field
@@ -21,6 +26,7 @@
         label="비밀번호"
         type="password"
         hint="비밀번호를 입력하세요"
+        filled
         color="deep-purple accent-1"
       ></v-text-field>
     </v-col>
@@ -31,6 +37,7 @@
         label="비밀번호 확인"
         type="password"
         hint="비밀번호를 입력하세요"
+        filled
         color="deep-purple accent-1"
       ></v-text-field>
     </v-col>
@@ -85,6 +92,8 @@
 </template>
 
 <script>
+import TabComponent from './hacks/TabComponent'
+
 export default {
   name: 'SignUpPage',
   data: () => ({
@@ -109,10 +118,11 @@ export default {
           belong: this.belong,
           role: this.role
         }
-      }).then(({ data }) => {
-        console.log(data)
-        if (data.message === 'ok') {
-          this.$router.push('/')
+      }).then((res) => {
+        // const data = res.data
+        // console.log(data)
+        if (res.status === 200) {
+          this.$router.push('/signIn')
         }
       })
         .catch(({ error }) => {
@@ -120,6 +130,9 @@ export default {
           this.nonUser = true
         })
     }
+  },
+  components: {
+    'tab-component': TabComponent
   }
 }
 </script>
