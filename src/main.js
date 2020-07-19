@@ -8,7 +8,9 @@ import 'moment/locale/ko'
 import './plugins/validate/index'
 import dotenv from 'dotenv'
 import instance from './api'
+import commonMixins from './mixins'
 dotenv.config()
+Vue.mixin(commonMixins)
 
 Vue.prototype.$http = instance
 

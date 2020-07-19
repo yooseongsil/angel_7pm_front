@@ -17,7 +17,7 @@
 
         <router-link :to="`/hacks/${hack.id}`">
           <Card :title="hack.title"
-                :subTitle="`현재 ${hack.awards_count}명 신청`"
+                :subTitle="`현재 ${hack.current_personnel}명 신청`"
                 :content="`(팀별 ${hack.team_personnel}명)`"
                 :captionText="startDateTime(hack.started_at)"
                 :route="`/hacks/${hack.id}`"
@@ -32,14 +32,14 @@
       v-model="showHacksIngSnackbar"
       timeout="-1"
       light
-      @click="goHacksIngDetail()"
       class="mx-0"
+      v-if="hacksIngList"
     >
-      <v-col cols="12" class="pa-0 ma-0">
+      <v-col cols="12" class="pa-0 ma-0" @click="goHacksIngDetail(hacksIngList.id)">
         <v-row class="d-flex align-center justify-space-between">
           <div class="pl-4">
             <div class="grey--text lighten-3">진행중인 해커톤이 있습니다.</div>
-            <strong class="black--text">해커톤명</strong>
+            <strong class="black--text">{{ hacksIngList.title }}</strong>
           </div>
           <strong class="text-button font-weight-bold teal--text">이어하기</strong>
         </v-row>
@@ -60,7 +60,8 @@ export default {
     items: [], // '모집중', '투표중'
     // title: ['해커톤을<br/>선택하세요', '우승팀을<br>골라주세요'],
     // tabActive: 0,
-    showHacksIngSnackbar: true
+    showHacksIngSnackbar: true,
+    hacksIngList: null
   }),
   computed: {
     imgSrc () {
@@ -72,9 +73,29 @@ export default {
       // }
     }
   },
+  created () {
+    this.getHacksIngList()
+    this.getList()
+  },
   methods: {
-    goHacksIngDetail () {
-      // this.$router.push(`/hacks/${}/ing`)
+    goHacksIngDetail (hacksId) {
+      this.$router.push(`/hacks/${hacksId}/ing`)
+    },
+    getHacksIngList () {
+      this.$http({
+        method: 'GET',
+        url: '/hacks',
+        params: {
+          is_mine: true
+        }
+      })
+        .then(({ data }) => {
+          console.log(data)
+          this.hacksIngList = data.results[0]
+        })
+        .catch(error => {
+          console.log(error)
+        })
     },
     getList (activeTab) {
       /*
@@ -103,9 +124,6 @@ export default {
     startDateTime (startDate) {
       return `${moment(startDate).format('YY.MM.DD (ddd)')} 19:00 시작`
     }
-  },
-  created () {
-    this.getList()
   },
   components: {
     TabComponent,

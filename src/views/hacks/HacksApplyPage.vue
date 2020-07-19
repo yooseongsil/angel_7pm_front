@@ -63,6 +63,7 @@
             color="#BB86FC"
             class="mt-8"
             @click="validCheck()"
+            :disabled="isApplied"
           >
             신청하기
           </v-btn>

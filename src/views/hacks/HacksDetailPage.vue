@@ -48,7 +48,7 @@
       large
       style="height: 48px; position: fixed; bottom: 20px; right: 20px;"
       @click="goToApplyHack"
-      :disabled="userInfo && userInfo.portfolio_link === null"
+      :disabled="(userInfo && userInfo.portfolio_link === null) || isApplied"
     >
       <v-icon left class="mr-2">mdi-clipboard-check</v-icon>
       <span>신청하기</span>
