@@ -1,6 +1,9 @@
 <template>
   <HacksSwitchingPage v-if="!isLoaded" />
-  <div v-else-if="isLoaded && hacksIngList && userInfo">
+  <div v-else-if="isLoaded && hacksIngList && userInfo" class="pt-6">
+    <router-link :to="'/hacks/list'">
+      <i class="nes-icon close is-small"></i>
+    </router-link>
     <HacksIngHostPage v-if="isHost" />
     <HacksIngApplicantPage v-else />
   </div>
@@ -37,3 +40,15 @@ export default {
   components: { HacksSwitchingPage, HacksIngHostPage, HacksIngApplicantPage }
 }
 </script>
+
+<style lang="less" scoped>
+  .nes-icon.close {
+    &:before {
+      color: white;
+    }
+
+    position: fixed;
+    top: 12px;
+    right: 12px;
+  }
+</style>
