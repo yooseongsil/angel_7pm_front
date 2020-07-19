@@ -1,7 +1,7 @@
 <template>
   <div id="signUp">
     <section>
-      <tab-component :iconShow="true" :isMypage="false"></tab-component>
+      <tab-component :showHistory="true" :isMypage="false"></tab-component>
     </section>
     <v-col cols="12">
       <h1 class="text-h3 white--text mt-12 mb-6">회원정보 수정</h1>

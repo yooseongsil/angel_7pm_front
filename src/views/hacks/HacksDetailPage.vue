@@ -1,6 +1,6 @@
 <template>
   <div id="hacksDetail" class="pb-15">
-    <tab-component items="" :iconShow="true"></tab-component>
+    <tab-component items="" :showHistory="true"></tab-component>
     <v-img :src="`${hack.img}`"/>
     <div class="d-flex justify-center mt-4">
       <span class="text-h5 col-9 text-truncate pl-0">{{hack.title}}</span>

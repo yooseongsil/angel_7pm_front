@@ -2,7 +2,7 @@
   <div id="mypage">
     <v-row>
       <v-col cols="12">
-        <tab-component :iconShow="true" :isMypage="false"></tab-component>
+        <tab-component :showHistory="true" :isMypage="false"></tab-component>
       </v-col>
       <v-col cols="12" class="d-flex flex-row" style="background: #1E1E1E">
         <div>

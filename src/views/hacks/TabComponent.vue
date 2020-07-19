@@ -1,8 +1,20 @@
 <template>
   <div style="margin: -15px;position: relative">
-    <span v-if="iconShow" style="z-index: 1; position: absolute; left: 12px; top: 50%; transform: translateY(-50%)"
-          @click="$router.go(-1)">
+    <span
+      v-if="showHistory"
+      style="z-index: 1; position: absolute; left: 12px; top: 50%; transform: translateY(-50%)"
+      @click="$router.go(-1)"
+    >
       <v-icon>mdi-chevron-left</v-icon>
+    </span>
+    <span
+      v-if="showHacksCreate"
+      style="z-index: 1; position: absolute; left: 0; top: 50%; transform: translateY(-50%)"
+      class="ml-4"
+    >
+      <router-link :to="{ name: 'HacksCreatePage' }">
+         <v-icon class="deep-purple--text accent-1">mdi-plus</v-icon>
+      </router-link>
     </span>
     <v-tabs
       v-model="tab"
@@ -30,7 +42,7 @@ import Avatar from '../../components/base/main/Avatar'
 
 export default {
   name: 'TabComponent',
-  props: ['items', 'iconShow', 'isMypage'],
+  props: ['items', 'showHistory', 'isMypage', 'showHacksCreate'],
   data () {
     return {
       tab: null
@@ -71,6 +83,9 @@ export default {
       border-radius: 100%;
       min-width: 100% !important;
     }
+  }
 
+  a:hover {
+    text-decoration: none;
   }
 </style>

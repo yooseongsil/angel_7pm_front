@@ -1,6 +1,6 @@
 <template>
   <div id="hackApply">
-    <tab-component :items="[]" :iconShow="true"></tab-component>
+    <tab-component :items="[]" :showHistory="true"></tab-component>
     <v-row>
       <!--title-->
       <v-col cols="12" style="position: relative">

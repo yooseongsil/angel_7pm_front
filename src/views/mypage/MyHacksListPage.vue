@@ -1,7 +1,7 @@
 <template>
   <div id="hackLists">
     <section>
-      <tab-component :iconShow="true" :isMypage="false"></tab-component>
+      <tab-component :showHistory="true" :isMypage="false"></tab-component>
     </section>
     <v-row class="mt-4">
       <template v-if="hackLists.length > 0">

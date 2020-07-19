@@ -25,7 +25,7 @@
         align="center"
         justify="end"
       >
-        <v-btn text class="deep-purple--text accent-1"
+        <v-btn text class="deep-purple--text accent-1 mr-2"
                @click="goDetail()"
         >
           {{ buttonText }}
