@@ -50,14 +50,14 @@
 </template>
 
 <script>
-
 export default {
   name: 'SignInPage',
   data: () => ({
     email: null,
     password: null,
     nonUser: false,
-    randomNumber: Math.floor(Math.random() * 3)
+    randomNumber: Math.floor(Math.random() * 3),
+    userId: null
   }),
   computed: {
     randomTitle () {
@@ -78,16 +78,16 @@ export default {
           email: this.email,
           password: this.password
         }
-      }).then(({ data }) => {
-        if (data !== undefined) {
-          console.log(data)
+      }).then((res) => {
+        if (res.status === 200) {
+          const data = res.data
+          // console.log(data)
           this.nonUser = false
-          this.$store.commit('setUserInfo', data)
+          this.userId = data.id
           /* 토큰정보 넣기 & 저장 */
           document.cookie = `accessToken=${data.token}`
-          this.$http.defaults.headers.common.Authorization = `jwt ${data.token}`
           localStorage.setItem('userInfo', JSON.stringify(data))
-          /* 로그인 하면 이동하기 */
+          this.$store.commit('setUserInfo', data)
           this.$router.push('/hacks/list')
         } else {
           this.nonUser = true
@@ -95,6 +95,22 @@ export default {
       })
         .catch(({ error }) => {
           this.nonUser = true
+          console.log(error)
+        })
+        .then(() => {
+          this.getAccountsProfile()
+        })
+    },
+    getAccountsProfile () {
+      this.$http.get(`/accounts/profile/${this.userId}`)
+        .then(({ data }) => {
+          // console.log(data)
+          let userInfo = JSON.parse(localStorage.getItem('userInfo'))
+          userInfo = { ...userInfo, ...data }
+          localStorage.setItem('userInfo', JSON.stringify(userInfo))
+          this.$store.commit('setUserInfo', userInfo)
+        })
+        .catch(error => {
           console.log(error)
         })
     },

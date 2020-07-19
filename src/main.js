@@ -16,6 +16,9 @@ Vue.prototype.$http = instance
 router.beforeEach((to, from, next) => {
   store.commit('setUserInfo')
   const isLogin = store.state.userInfo
+  if (isLogin) {
+    instance.defaults.headers.common.Authorization = `jwt ${store.state.userInfo.token}`
+  }
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth)
 
   if (requiresAuth && !isLogin) {
