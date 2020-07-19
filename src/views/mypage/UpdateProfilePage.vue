@@ -61,7 +61,7 @@
           </v-row>
           <ValidationProvider v-slot="{ errors, validate }" name="포트폴리오" rules="required">
             <v-text-field
-              v-model="userInfo.portfolio_link"
+              v-model="portfolio_link"
               label="포트폴리오"
               type="text"
               filled
@@ -111,7 +111,8 @@ export default {
   data: () => ({
     userInfo: null,
     responseMessage: null,
-    snackbar: false
+    snackbar: false,
+    portfolio_link: null
   }),
   created () {
     this.userInfo = this.getUserInfo
@@ -124,7 +125,7 @@ export default {
   },
   methods: {
     getAccountsProfile () {
-      this.$http.get(`/accounts/profile/${this.$store.state.userInfo.id}`)
+      this.$http.patch(`/accounts/profile/${this.$store.state.userInfo.id}`)
         .then(({ data }) => {
           this.userInfo = data
           console.log(this.userInfo)
@@ -144,19 +145,19 @@ export default {
         name: this.userInfo.name,
         belong: this.userInfo.belong,
         role: this.userInfo.role,
-        portfolio_link: this.userInfo.portfolio
+        portfolio_link: this.portfolio_link
       }
       this.$http.patch(`/accounts/profile/${this.userInfo.id}`, params)
         .then(({ data }) => {
           console.log(data)
-          // localStorage.setItem('userInfo', this.userInfo)
-          // this.responseMessage = '회원 정보가 정상적으로 업데이트되었습니다.'
-          // this.snackbar = true
+          localStorage.setItem('userInfo', this.userInfo)
+          this.responseMessage = '회원 정보가 정상적으로 업데이트되었습니다.'
+          this.snackbar = true
         }
         )
         .catch(({ error }) => {
-          // this.responseMessage = '회원 정보를 업데이트 하는데 에러가 발생했습니다.'
-          // this.snackbar = true
+          this.responseMessage = '회원 정보를 업데이트 하는데 에러가 발생했습니다.'
+          this.snackbar = true
           console.log(error)
         })
     }
