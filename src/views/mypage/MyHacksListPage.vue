@@ -10,13 +10,15 @@
                v-for="(hack, index) in hackLists"
                :key="`result-${index}`"
         >
-          <Card :title="hack.results.title"
-                :subTitle="`현재 ${hack.results.current_personnel}명 신청`"
-                :content="`(팀별 ${hack.results.team_personnel}명)`"
-                :captionText="`${hack.results.started_at} 19:00 시작`"
-                :route="`/hacks/${hack.results.id}/detail`"
-                buttonText="상세보기"
-          />
+          <router-link :to="`/hacks/${hack.id}`">
+            <Card :title="hack.title"
+                  :subTitle="`현재 ${hack.current_personnel}명 신청`"
+                  :content="`(팀별 ${hack.team_personnel}명)`"
+                  :captionText="`${hack.started_at} 19:00 시작`"
+                  :route="`/hacks/${hack.id}`"
+                  buttonText="상세보기"
+            />
+          </router-link>
         </v-col>
       </template>
     </v-row>
@@ -39,24 +41,27 @@ export default {
     'tab-component': TabComponent
   },
   methods: {
-    getList () {
+    getMyHacksList () {
       this.$http({
         method: 'GET',
-        url: '/hacks/'
+        url: '/hacks?status=my&is_mine=true'
       }).then(({ data }) => {
         console.log(data)
-        this.count = data.count
         this.hackLists = data.results
       })
         .catch(({ error }) => {
           console.log(error)
         })
-    },
-    gotoDetail (id) {
-      window.location.href = '/hacks/' + id
     }
   },
   created () {
+    this.getMyHacksList()
   }
 }
 </script>
+
+<style lang="less" scoped>
+  a:hover {
+    text-decoration: none;
+  }
+</style>

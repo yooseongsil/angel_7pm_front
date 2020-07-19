@@ -81,22 +81,6 @@ export default {
     goHacksIngDetail (hacksId) {
       this.$router.push(`/hacks/${hacksId}/ing`)
     },
-    getHacksIngList () {
-      this.$http({
-        method: 'GET',
-        url: '/hacks',
-        params: {
-          is_mine: true
-        }
-      })
-        .then(({ data }) => {
-          console.log(data)
-          this.hacksIngList = data.results[0]
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    },
     getList (activeTab) {
       /*
       * activeTab 0 - 모집중
