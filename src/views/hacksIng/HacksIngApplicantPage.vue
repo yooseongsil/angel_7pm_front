@@ -20,7 +20,7 @@
         :missionTitle="missionText.missionTitle"
         :mission="missionText.mission"
         :missionShort="missionText.missionShort"
-        :missionTimeLeft="missionText.missionTimeLeft"
+        :missionTimeLeft="missionEndAt"
         :missionQuestion="missionText.missionQuestion"
       />
     </section>
@@ -44,6 +44,7 @@
 <script>
 import MissionComponent from '../../components/hacks/MissionComponent'
 import TodosComponent from '../../components/hacks/TodosComponent'
+import timer from '../../filters/timer'
 import moment from 'moment'
 
 export default {
@@ -52,7 +53,16 @@ export default {
     return {
       progress: 30,
       totalProgress: 50,
+      hackInfo: {},
+      hackApplyInfo: {},
       today: '',
+      startedAt: null,
+      teamBuildingEndAt: null,
+      ideaEndAt: null,
+      resultEndAt: null,
+      teamBuildingStartAt: null,
+      ideaStartAt: null,
+      resultStartAt: null,
       dayList: ['금요일', '토요일', '일요일'],
       todosListAll: [
         // 금요일
@@ -157,7 +167,6 @@ export default {
                   '퍼블리싱',
                   '연동'
                 ]
-
               }
             ]
           }
@@ -209,30 +218,61 @@ export default {
           missionTitle: '첫 번째 환급 미션!',
           mission: '슬랙에서 팀빌딩 양식을 제출하세요.',
           missionShort: '팀빌딩',
-          missionTimeLeft: '16시간 46분 22초',
+          missionTimeLeft: this.teamBuildingEndAt,
           missionQuestion: '팀빌딩을 하지 않으면 어떻게 되나요?'
         }, {
           missionTitle: '두 번째 환급 미션!',
           mission: '슬랙에서 아이디어를 제출하세요.',
           missionShort: '아이디어 제출',
-          missionTimeLeft: '16시간 46분 22초',
+          missionTimeLeft: this.ideaEndAt,
           missionQuestion: '아이디어를 제출하지 못하면 어떻게 되나요?'
         }, {
           missionTitle: '최종 환급 미션!',
           mission: '슬랙에서 최종 결과물을 제출하세요.',
           missionShort: '결과물 제출',
-          missionTimeLeft: '16시간 46분 22초',
+          missionTimeLeft: this.resultEndAt,
           missionQuestion: '결과물을 제출하지 못하면 어떻게 되나요?'
         }
       ]
     }
   },
-  created () {
+  // [미션 완료 여부] t:팀 생성 완료 i:아이디어 완료 s:제출 완료
+  // 해커톤 상태 ('w', '작성(write)'), ('p', '예정(plan)'), ('i', '진행(ing)'), ('c', '완료(complete)')
+  async created () {
     this.today = moment().format('dddd')
+    await this.getHackInfo()
+    await this.getHackApplyInfo()
+    console.log(this.missionEnds)
   },
   methods: {
     changeDay (index) {
       this.today = this.dayList[index]
+    },
+    getHackApplyInfo () {
+      this.$http({
+        method: 'GET',
+        // url: `/hacks/apply/${this.$store.getters.getUserInfo.id}`
+        url: `/hacks/apply/${this.$route.params.id}`
+      }).then(({ data }) => {
+        this.hackApplyInfo = data
+        console.log(data)
+      })
+        .catch(({ error }) => {
+          console.log(error)
+        })
+    },
+    getHackInfo () {
+      this.$http({
+        method: 'GET',
+        url: `/hacks/${this.$route.params.id}`
+      }).then(({ data }) => {
+        this.startedAt = data.started_at
+        this.hackInfo = data
+        console.log(data)
+      })
+        .catch(({ error }) => {
+          console.log(error)
+        })
     }
   },
   computed: {
@@ -240,10 +280,38 @@ export default {
       const index = this.dayList.indexOf(this.today)
       return this.missionTextList[index]
     },
+    missionEndAt () {
+      const index = this.dayList.indexOf(this.today)
+      const map = [
+        'teamBuildingEndAt', 'ideaEndAt', 'resultEndAt'
+      ]
+      return this[`${map[index]}`]
+    },
     todosList () {
       const index = this.dayList.indexOf(this.today)
       return this.todosListAll[index]
     }
+  },
+  mounted () {
+    this.teamBuildingStartAt = moment(moment(this.hackInfo.started_at).format('YYYY-MM-DD')).add(1, 'days').add(12, 'hours').format('YYYY-MM-DD HH:mm:ss')
+    this.ideaStartAt = moment(moment(this.hackInfo.started_at).format('YYYY-MM-DD')).add(1, 'days').add(23, 'hours').add(59, 'minutes').format('YYYY-MM-DD HH:mm:ss')
+    this.resultStartAt = moment(moment(this.hackInfo.started_at).format('YYYY-MM-DD')).add(2, 'days').add(23, 'hours').add(59, 'minutes').format('YYYY-MM-DD HH:mm:ss')
+    this.teamBuildingEndAt = timer(this.teamBuildingStartAt.toDate())
+    this.ideaEndAt = timer(this.ideaStartAt.toDate())
+    this.resultEndAt = timer(this.resultStartAt.toDate())
+  },
+  updated () {
+    this.$nextTick(() => {
+      setTimeout(() => {
+        // 남은 시간
+        this.teamBuildingEndAt = timer(this.teamBuildingStartAt)
+        this.ideaEndAt = timer(this.ideaStartAt)
+        this.resultEndAt = timer(this.resultStartAt)
+      }, 1000)
+    })
+  },
+  filters: {
+    timer
   },
   components: {
     MissionComponent, TodosComponent
