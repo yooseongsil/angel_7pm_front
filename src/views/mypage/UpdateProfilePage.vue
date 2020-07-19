@@ -10,7 +10,7 @@
         <form>
           <ValidationProvider v-slot="{ errors, validate }" name="이메일" rules="required">
             <v-text-field
-              v-model="userInfo.email"
+              v-model="email"
               label="이메일"
               filled
               hint="이메일을 입력하세요"
@@ -22,7 +22,7 @@
 
           <ValidationProvider v-slot="{ errors, validate }" name="이름" rules="required">
             <v-text-field
-              v-model="userInfo.name"
+              v-model="name"
               label="이름"
               filled
               hint="이름을 입력하세요"
@@ -35,7 +35,7 @@
             <v-col cols="6" class="pb-0">
               <ValidationProvider v-slot="{ errors, validate }" name="소속" rules="required">
                 <v-text-field
-                  v-model="userInfo.belong"
+                  v-model="belong"
                   label="소속"
                   filled
                   hint="회사/학교를 입력하세요"
@@ -48,7 +48,7 @@
             <v-col cols="6" class="pb-0">
               <ValidationProvider v-slot="{ errors, validate }" name="직무" rules="required">
                 <v-text-field
-                  v-model="userInfo.role"
+                  v-model="role"
                   label="직무"
                   filled
                   hint="직무를 입력하세요"
@@ -61,7 +61,7 @@
           </v-row>
           <ValidationProvider v-slot="{ errors, validate }" name="포트폴리오" rules="required">
             <v-text-field
-              v-model="portfolio_link"
+              v-model="portfolioLink"
               label="포트폴리오"
               type="text"
               filled
@@ -110,18 +110,16 @@ export default {
   name: 'SignUpPage',
   data: () => ({
     userInfo: null,
+    email: '',
+    name: '',
+    belong: '',
+    role: '',
     responseMessage: null,
     snackbar: false,
-    portfolio_link: null
+    portfolioLink: null
   }),
-  created () {
-    this.userInfo = this.getUserInfo
-    this.getAccountsProfile()
-  },
-  computed: {
-    getUserInfo () {
-      return this.$store.getters.getUserInfo
-    }
+  async created () {
+    await this.getAccountsProfile()
   },
   methods: {
     getAccountsProfile () {
@@ -129,6 +127,11 @@ export default {
         .then(({ data }) => {
           this.userInfo = data
           console.log(this.userInfo)
+          this.portfolioLink = data.portfolio_link
+          this.email = data.email
+          this.name = data.name
+          this.belong = this.$store.state.userInfo.belong
+          this.role = data.role
         })
     },
     validCheck () {
