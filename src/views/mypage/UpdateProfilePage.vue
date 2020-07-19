@@ -128,7 +128,7 @@ export default {
         .then(({ data }) => {
           console.log(data)
           if (data.message === 'ok') {
-            localStorage.setItem('userInfo', this.userInfo)
+            localStorage.setItem('userInfo', JSON.stringify(this.userInfo))
           }
         })
         .catch(({ error }) => {
