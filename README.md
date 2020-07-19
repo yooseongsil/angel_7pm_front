@@ -1,24 +1,26 @@
-# angel_7pm_front
+# 엔젤핵 서울 2020 해커톤
 
-## Project setup
+## 팀 소개
+- 오후 7시팀
+  - 유성실(팀장, 기획, 프론트 개발)
+  - 김민섭(UI/UX 디자인, 발표)
+  - 김하나(프론트 개발, 기록)
+  - 백경준(백엔드 개발, 데브옵스)
+  - 송동훈(프론트 개발, 콘텐츠)
+
+## 서비스 소개 
+- 끝장개발대회(누구나 쉽게 즐길 수 있는 온라인 해커톤 플랫폼)
+- https://7hacks.co
+
+
+***
+
+## 프로젝트 설치
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 로컬 프로젝트 실행
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
