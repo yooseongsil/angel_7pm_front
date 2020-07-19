@@ -251,8 +251,8 @@ export default {
     getHackApplyInfo () {
       this.$http({
         method: 'GET',
-        // url: `/hacks/apply/${this.$store.getters.getUserInfo.id}`
-        url: `/hacks/apply/${this.$route.params.id}`
+        url: `/hacks/apply/${this.$store.getters.getUserInfo.id}`
+        // url: `/hacks/apply/${this.$route.params.id}`
       }).then(({ data }) => {
         this.hackApplyInfo = data
         console.log(data)
@@ -296,11 +296,14 @@ export default {
     this.teamBuildingStartAt = moment(moment(this.hackInfo.started_at).format('YYYY-MM-DD')).add(1, 'days').add(12, 'hours').format('YYYY-MM-DD HH:mm:ss')
     this.ideaStartAt = moment(moment(this.hackInfo.started_at).format('YYYY-MM-DD')).add(1, 'days').add(23, 'hours').add(59, 'minutes').format('YYYY-MM-DD HH:mm:ss')
     this.resultStartAt = moment(moment(this.hackInfo.started_at).format('YYYY-MM-DD')).add(2, 'days').add(23, 'hours').add(59, 'minutes').format('YYYY-MM-DD HH:mm:ss')
-    this.teamBuildingEndAt = timer(this.teamBuildingStartAt.toDate())
-    this.ideaEndAt = timer(this.ideaStartAt.toDate())
-    this.resultEndAt = timer(this.resultStartAt.toDate())
+    this.teamBuildingEndAt = timer(this.teamBuildingStartAt)
+    this.ideaEndAt = timer(this.ideaStartAt)
+    this.resultEndAt = timer(this.resultStartAt)
   },
   updated () {
+    this.teamBuildingEndAt = timer(this.teamBuildingStartAt)
+    this.ideaEndAt = timer(this.ideaStartAt)
+    this.resultEndAt = timer(this.resultStartAt)
     this.$nextTick(() => {
       setTimeout(() => {
         // 남은 시간
