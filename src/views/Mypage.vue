@@ -10,7 +10,7 @@
           <p class="text-caption grey--text text--lighten-1 mb-0">{{userInfo.belong}} / {{userInfo.role}}</p>
           <p class="text-h5 mb-0">
             {{ userInfo.name }}
-            <span class="text-subtitle-1 yellow--text">(크레딧: {{userInfo.credits}})
+            <span class="text-subtitle-1 yellow--text">(크레딧: {{userInfo.credits || 0 }})
             <i class="nes-icon coin is-small" style="position: relative; top: 3px;"></i>
             </span>
           </p>
@@ -55,6 +55,17 @@
                   </v-list-item-icon>
                   <v-list-item-title class="text-subtitle-2 float-left ml-3 ">크레딧 환급 받기</v-list-item-title>
                 </a>
+              </v-list-item-content>
+            </v-list>
+            <!--menu4-->
+            <v-list class="pl-2">
+              <v-list-item-content @click="logout()">
+                <router-link :to="{name: 'MyHacksListPage'}" class="deep-purple&#45;&#45;text accent-1">
+                  <v-list-item-icon class="float-left ma-0">
+                    <v-icon v-text="'mdi-exit-to-app'" class=" "></v-icon>
+                  </v-list-item-icon>
+                  <v-list-item-title class="text-subtitle-2 float-left ml-3 ">로그아웃</v-list-item-title>
+                </router-link>
               </v-list-item-content>
             </v-list>
           </v-list-item-group>
@@ -102,8 +113,11 @@ export default {
         .catch(({ error }) => {
           console.log(error)
         })
+    },
+    logout () {
+      localStorage.removeItem('userInfo')
+      this.$router.replace('/signIn')
     }
-
   }
 }
 </script>

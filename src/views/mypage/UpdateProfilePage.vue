@@ -61,7 +61,7 @@
           </v-row>
           <ValidationProvider v-slot="{ errors, validate }" name="포트폴리오" rules="required">
             <v-text-field
-              v-model="userInfo.portfolio_link"
+              v-model="portfolio_link"
               label="포트폴리오"
               type="text"
               filled
@@ -94,9 +94,9 @@
           color="pink"
           text
           v-bind="attrs"
-          @click="snackbar = false"
+          @click="(snackbar = false), ($router.go(-1))"
         >
-          Close
+          확인
         </v-btn>
       </template>
     </v-snackbar>
@@ -111,7 +111,8 @@ export default {
   data: () => ({
     userInfo: null,
     responseMessage: null,
-    snackbar: false
+    snackbar: false,
+    portfolio_link: null
   }),
   created () {
     this.userInfo = this.getUserInfo
@@ -124,14 +125,14 @@ export default {
   },
   methods: {
     getAccountsProfile () {
-      this.$http.get(`/accounts/profile/${this.$store.state.userInfo.id}`)
+      this.$http.patch(`/accounts/profile/${this.$store.state.userInfo.id}`)
         .then(({ data }) => {
           this.userInfo = data
           console.log(this.userInfo)
         })
     },
-    async validCheck () {
-      await this.$refs.validObserver.validate().then(isValid => {
+    validCheck () {
+      this.$refs.validObserver.validate().then(isValid => {
         if (isValid) {
           this.updateProfile()
         }
@@ -144,7 +145,7 @@ export default {
         name: this.userInfo.name,
         belong: this.userInfo.belong,
         role: this.userInfo.role,
-        portfolio_link: this.userInfo.portfolio
+        portfolio_link: this.portfolio_link
       }
       this.$http.patch(`/accounts/profile/${this.userInfo.id}`, params)
         .then(({ data }) => {

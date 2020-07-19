@@ -8,7 +8,7 @@
       <v-icon>mdi-chevron-left</v-icon>
     </span>
     <span
-      v-if="showHacksCreate"
+      v-if="showHacksCreate && !isApplied"
       style="z-index: 1; position: absolute; left: 0; top: 50%; transform: translateY(-50%)"
       class="ml-4"
     >
