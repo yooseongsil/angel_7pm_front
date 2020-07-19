@@ -121,7 +121,7 @@ export default {
       }).then((res) => {
         // const data = res.data
         // console.log(data)
-        if (res.status === 200) {
+        if (res.status === 201) {
           this.$router.push('/signIn')
         }
       })
