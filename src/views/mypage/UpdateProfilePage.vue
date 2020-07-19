@@ -82,6 +82,24 @@
         </form>
       </ValidationObserver>
     </v-col>
+    <v-snackbar
+      v-model="snackbar"
+      centered
+      vertical
+    >
+      {{ responseMessage }}
+
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          color="pink"
+          text
+          v-bind="attrs"
+          @click="snackbar = false"
+        >
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </div>
 </template>
 
@@ -91,7 +109,9 @@ import TabComponent from '../hacks/TabComponent'
 export default {
   name: 'SignUpPage',
   data: () => ({
-    userInfo: null
+    userInfo: null,
+    responseMessage: null,
+    snackbar: false
   }),
   created () {
     this.userInfo = this.getUserInfo
@@ -127,11 +147,14 @@ export default {
       this.$http.patch(`/accounts/profile/${this.userInfo.id}`, params)
         .then(({ data }) => {
           console.log(data)
-          if (data.message === 'ok') {
-            localStorage.setItem('userInfo', this.userInfo)
-          }
-        })
+          localStorage.setItem('userInfo', this.userInfo)
+          this.responseMessage = '회원 정보가 정상적으로 업데이트되었습니다.'
+          this.snackbar = true
+        }
+        )
         .catch(({ error }) => {
+          this.responseMessage = '회원 정보를 업데이트 하는데 에러가 발생했습니다.'
+          this.snackbar = true
           console.log(error)
         })
     }
