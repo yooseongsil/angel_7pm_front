@@ -115,14 +115,11 @@ export default {
         console.log(data)
         this.hack = data
         switch (data.status) {
-          case 'w':
-            this.status = '작성중'
-            break
           case 'p':
             this.status = '모집중'
             break
           case 'i':
-            this.status = '작성중'
+            this.status = '진행중'
             break
           case 'c':
             this.status = '진행 완료'
