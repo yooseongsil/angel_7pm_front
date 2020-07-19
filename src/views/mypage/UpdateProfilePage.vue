@@ -130,7 +130,7 @@ export default {
           this.portfolioLink = data.portfolio_link
           this.email = data.email
           this.name = data.name
-          this.belong = this.$store.state.userInfo.belong
+          this.belong = data.belong
           this.role = data.role
         })
     },
@@ -144,16 +144,18 @@ export default {
     updateProfile () {
       console.log(this.userInfo.portfolio)
       const params = {
+        id: this.userInfo.id,
         email: this.userInfo.email,
         name: this.userInfo.name,
         belong: this.userInfo.belong,
         role: this.userInfo.role,
-        portfolio_link: this.portfolio_link
+        portfolio_link: this.portfolioLink
       }
       this.$http.patch(`/accounts/profile/${this.userInfo.id}`, params)
         .then(({ data }) => {
           console.log(data)
           localStorage.setItem('userInfo', JSON.stringify(this.userInfo))
+          this.$store.commit('setUserInfo', this.userInfo)
           this.responseMessage = '회원 정보가 정상적으로 업데이트되었습니다.'
           this.snackbar = true
         }
