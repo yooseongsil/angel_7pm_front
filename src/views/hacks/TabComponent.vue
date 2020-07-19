@@ -42,7 +42,23 @@ import Avatar from '../../components/base/main/Avatar'
 
 export default {
   name: 'TabComponent',
-  props: ['items', 'showHistory', 'isMypage', 'showHacksCreate'],
+  props: {
+    items: {
+      type: [Array, String]
+    },
+    showHistory: {
+      type: Boolean,
+      default: false
+    },
+    isMypage: {
+      type: Boolean,
+      default: false
+    },
+    showHacksCreate: {
+      type: [Boolean, undefined],
+      default: false
+    }
+  },
   data () {
     return {
       tab: null

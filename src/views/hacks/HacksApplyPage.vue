@@ -1,5 +1,9 @@
 <template>
   <v-main>
+    <tab-component items=""
+                   :showHistory="true"
+                   :isMypage="false"
+    />
     <v-col cols="12" style="position: relative;">
       <h1 class="text-h3 white--text mt-12">해커톤 <br class="only-mobile">신청</h1>
       <img :src="require('../../assets/images/illust/illust_hackVote_3.svg')" alt="" class="list_title_img">
@@ -79,9 +83,10 @@
 
 <script>
 import Modal from '../../components/base/main/Modal'
+import TabComponent from './TabComponent'
+
 export default {
   name: 'HacksApplyPage',
-  components: { Modal },
   data: () => ({
     userInfo: null,
     fee: 10000,
@@ -133,6 +138,10 @@ export default {
     getUserInfo () {
       return this.$store.getters.getUserInfo
     }
+  },
+  components: {
+    Modal,
+    'tab-component': TabComponent
   }
 }
 </script>

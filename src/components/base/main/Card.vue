@@ -41,7 +41,7 @@ export default {
   props: ['fee', 'title', 'subTitle', 'content', 'captionText', 'buttonText', 'route'],
   computed: {
     hacksImg () {
-      const max = 10
+      const max = 9
       const randomNo = Math.floor(Math.random() * (max + 1))
       return require('../../../assets/images/thumbnail/thumbnail_hacks_' + randomNo + '.jpg')
     }
