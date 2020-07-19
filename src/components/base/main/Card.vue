@@ -15,7 +15,7 @@
         size="80"
         color="grey"
       >
-        <v-img :src="hacksImg"/>
+        <v-img :src="hacksImg" alt="" />
       </v-list-item-avatar>
     </v-list-item>
 
@@ -43,7 +43,7 @@ export default {
     hacksImg () {
       const max = 10
       const randomNo = Math.floor(Math.random() * (max + 1))
-      return require(`../../../assets/images/thumbnail/thumbnail_hacks_${randomNo}.jpg`)
+      return require('../../../assets/images/thumbnail/thumbnail_hacks_' + randomNo + '.jpg')
     }
   },
   methods: {

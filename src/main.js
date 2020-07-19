@@ -4,9 +4,13 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
-import axios from 'axios'
 import 'moment/locale/ko'
 import './plugins/validate/index'
+import dotenv from 'dotenv'
+import instance from './api'
+dotenv.config()
+
+Vue.prototype.$http = instance
 
 // router guard
 router.beforeEach((to, from, next) => {
@@ -25,11 +29,11 @@ router.beforeEach((to, from, next) => {
 
 // baseURL 기본값
 // develop , production baseURL
-if (process.env.NODE_ENV === 'development') {
-  axios.defaults.baseURL = 'http://localhost:8000'
-} else if (process.env.NODE_ENV === 'production') {
-  axios.defaults.baseURL = process.env.VUE_APP_PRODUCTION_SERVER_URL
-}
+// if (process.env.NODE_ENV === 'development') {
+//   axios.defaults.baseURL = 'http://localhost:8000'
+// } else if (process.env.NODE_ENV === 'production') {
+//   axios.defaults.baseURL = process.env.VUE_APP_PRODUCTION_SERVER_URL
+// }
 Vue.config.productionTip = false
 
 new Vue({

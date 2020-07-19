@@ -85,7 +85,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   name: 'SignUpPage',
   data: () => ({
@@ -100,9 +99,9 @@ export default {
   }),
   methods: {
     singIUp () {
-      axios({
+      this.$http({
         method: 'POST',
-        url: `${this.$store.state.host}/accounts/sign-up/`,
+        url: '/accounts/sign-up/',
         data: {
           email: this.email,
           name: this.name,

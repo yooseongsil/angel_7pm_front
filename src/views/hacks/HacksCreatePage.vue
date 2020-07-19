@@ -178,7 +178,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import TabComponent from './TabComponent'
 import moment from 'moment'
 
@@ -215,9 +214,9 @@ export default {
       })
     },
     async createHack () {
-      await axios({
+      await this.$http({
         method: 'POST',
-        url: `${this.$store.state.host}/hacks/`,
+        url: '/hacks/',
         data: this.data,
         headers: {
           Authorization: `jwt ${this.$store.state.userInfo.token}`

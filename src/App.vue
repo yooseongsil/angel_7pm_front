@@ -44,4 +44,11 @@ export default {
     bottom: 0;
     right: 0;
   }
+
+  .only-mobile {
+    display: none;
+    @media (max-width: 480px) {
+      display: block;
+    }
+  }
 </style>

@@ -22,7 +22,7 @@
         <v-list dense>
           <v-list-item-group>
             <!--menu1-->
-            <v-list class="pl-7">
+            <v-list class="pl-2">
               <v-list-item-content>
                 <router-link :to="{name: 'UpdateProfilePage'}">
                   <v-list-item-icon class="float-left ma-0">
@@ -35,7 +35,7 @@
               </v-list-item-content>
             </v-list>
             <!--menu2-->
-            <v-list class="pl-7">
+            <v-list class="pl-2">
               <v-list-item-content>
                 <router-link :to="{name: 'MyHacksListPage'}" class="deep-purple&#45;&#45;text accent-1">
                   <v-list-item-icon class="float-left ma-0">
@@ -46,7 +46,7 @@
               </v-list-item-content>
             </v-list>
             <!--menu3-->
-            <v-list class="pl-7">
+            <v-list class="pl-2">
               <v-list-item-content>
                 <a href="https://forms.gle/vykpMXa2sca3CoVA6" target="_blank"
                    class="deep-purple&#45;&#45;text accent-1">
@@ -70,7 +70,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import TabComponent from './hacks/TabComponent'
 import Avatar from '../components/base/main/Avatar'
 
@@ -95,9 +94,9 @@ export default {
   },
   methods: {
     getApplyList () {
-      axios({
+      this.$http({
         method: 'GET',
-        url: `${this.$store.state.host}/hacks/apply/`
+        url: '/hacks/apply/'
       }).then(({ data }) => {
         console.log(data)
       })

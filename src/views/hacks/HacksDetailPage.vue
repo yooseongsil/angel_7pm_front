@@ -39,32 +39,14 @@
         <v-icon left class="mr-2">mdi-plus</v-icon>
         <span>신청하기</span>
       </v-chip>
-      <v-snackbar
-        v-model="snackbar"
-        :vertical="vertical"
-        timeout="-1"
-      >
-        포트폴리오를 제출하지 않으시면, 해커톤에 신청하실 수 없습니다.
 
-        <template v-slot:action="{ attrs }">
-          <v-btn
-            color="indigo"
-            text
-            v-bind="attrs"
-            @click="goToSubmitPortfolio"
-          >
-            포트폴리오 제출하러 가기
-          </v-btn>
-          <v-btn
-            color="indigo"
-            text
-            v-bind="attrs"
-            @click="snackbar = false"
-          >
-            Close
-          </v-btn>
-        </template>
-      </v-snackbar>
+      <Modal modalTitle="포트폴리오가 없으면 신청할 수 없습니다"
+             modalText="포트폴리오를 제출하러 가볼까요?"
+             modalButtonText="제출하기"
+             :function="goUpdateProfile"
+             :show="showModal"
+             @close="showModal=false"
+      />
     </v-container>
   </div>
 </template>
@@ -74,8 +56,8 @@ import TabComponent from './TabComponent'
 import DetailSection from '../DetailSection'
 import TimeComponent from './TimeComponent'
 import XaxisInfoComponent from './XaxisInfoComponent'
-import axios from 'axios'
 import Avatar from '../../components/base/main/Avatar'
+import Modal from '../../components/base/main/Modal'
 
 export default {
   name: 'HacksDetailPage',
@@ -85,15 +67,13 @@ export default {
       tab: null,
       hack: {},
       status: null,
-      vertical: true
+      vertical: true,
+      showModal: false
     }
   },
   computed: {
     no () {
       return this.$route.params.id
-    },
-    snackbar () {
-      return this.userInfo.portfolio_link === null
     },
     userInfo () {
       return this.$store.getters.getUserInfo
@@ -101,13 +81,18 @@ export default {
   },
   created () {
     this.getHackDetail()
-    // console.log(new Date(20.07.12));
+    if (!this.userInfo.portfolio_link) {
+      this.showModal = true
+    }
   },
   methods: {
+    goUpdateProfile () {
+      this.$router.push('/mypage/updateProfile')
+    },
     getHackDetail () {
-      axios({
+      this.$http({
         method: 'GET',
-        url: `${this.$store.state.host}/hacks/${this.no}`
+        url: `/hacks/${this.no}`
       }).then(({ data }) => {
         console.log(data)
         this.hack = data
@@ -139,6 +124,7 @@ export default {
     }
   },
   components: {
+    Modal,
     DetailSection,
     TabComponent,
     TimeComponent,

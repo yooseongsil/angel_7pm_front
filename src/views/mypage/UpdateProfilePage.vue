@@ -1,122 +1,135 @@
 <template>
   <div id="signUp">
+    <section>
+      <tab-component :iconShow="true" :isMypage="false"></tab-component>
+    </section>
     <v-col cols="12">
-      <h1 class="text-h2 white--text mt-12">회원정보 수정</h1>
-    </v-col>
-    <v-col cols="12">
-      <v-text-field
-        v-model="userInfo.email"
-        label="이메일"
-        filled
-        hint="이름을 입력하세요"
-        color="deep-purple accent-1"
-      ></v-text-field>
-    </v-col>
-    <v-col cols="12">
-      <v-text-field
-        v-model="userInfo.password"
-        label="비밀번호"
-        type="password"
-        hint="비밀번호를 입력하세요"
-        color="deep-purple accent-1"
-      ></v-text-field>
-    </v-col>
-    <v-col cols="12">
-      <v-text-field
-        v-model="userInfo.checkPassword"
-        label="비밀번호 확인"
-        type="password"
-        hint="비밀번호를 입력하세요"
-        color="deep-purple accent-1"
-      ></v-text-field>
-    </v-col>
-    <v-col cols="12">
-      <v-row>
-        <v-col cols="6" >
-          <v-text-field
-            v-model="userInfo.name"
-            label="이름"
-            filled
-            hint="이름을 입력하세요"
-            color="deep-purple accent-1"
-          ></v-text-field>
-        </v-col>
-        <v-col cols="12">
+      <h1 class="text-h3 white--text mt-12 mb-6">회원정보 수정</h1>
+
+      <ValidationObserver ref="validObserver">
+        <form>
+          <ValidationProvider v-slot="{ errors, validate }" name="이메일" rules="required">
+            <v-text-field
+              v-model="userInfo.email"
+              label="이메일"
+              filled
+              hint="이메일을 입력하세요"
+              color="deep-purple accent-1"
+              :error-messages="errors"
+              required
+            />
+          </ValidationProvider>
+
+          <ValidationProvider v-slot="{ errors, validate }" name="이름" rules="required">
+            <v-text-field
+              v-model="userInfo.name"
+              label="이름"
+              filled
+              hint="이름을 입력하세요"
+              color="deep-purple accent-1"
+              :error-messages="errors"
+              required
+            />
+          </ValidationProvider>
           <v-row>
-            <v-col cols="6">
-              <v-text-field
-                v-model="userInfo.belong"
-                label="소속"
-                filled
-                hint="회사/학교를 입력하세요"
-                color="deep-purple accent-1"
-              ></v-text-field>
+            <v-col cols="6" class="pb-0">
+              <ValidationProvider v-slot="{ errors, validate }" name="소속" rules="required">
+                <v-text-field
+                  v-model="userInfo.belong"
+                  label="소속"
+                  filled
+                  hint="회사/학교를 입력하세요"
+                  color="deep-purple accent-1"
+                  :error-messages="errors"
+                  required
+                />
+              </ValidationProvider>
             </v-col>
-            <v-col cols="6">
-              <v-text-field
-                v-model="userInfo.role"
-                label="직무"
-                filled
-                hint="직무를 입력하세요"
-                color="deep-purple accent-1"
-              ></v-text-field>
+            <v-col cols="6" class="pb-0">
+              <ValidationProvider v-slot="{ errors, validate }" name="직무" rules="required">
+                <v-text-field
+                  v-model="userInfo.role"
+                  label="직무"
+                  filled
+                  hint="직무를 입력하세요"
+                  color="deep-purple accent-1"
+                  :error-messages="errors"
+                  required
+                />
+              </ValidationProvider>
             </v-col>
           </v-row>
-        </v-col>
-        <v-col cols="12">
-          <v-text-field
-            v-model="userInfo.portfolio"
-            label="포트폴리오"
-            type="text"
-            hint="포트폴리오 링크를 입력하세요"
-            color="deep-purple accent-1"
-          ></v-text-field>
-        </v-col>
-      </v-row>
-    </v-col>
-    <v-col cols="12">
-      <v-btn block color="#BB86FC"
-             @click="updateProfile()"
-      >
-        저장하기
-      </v-btn>
+          <ValidationProvider v-slot="{ errors, validate }" name="포트폴리오" rules="required">
+            <v-text-field
+              v-model="userInfo.portfolio"
+              label="포트폴리오"
+              type="text"
+              hint="포트폴리오 링크를 입력하세요"
+              color="deep-purple accent-1"
+              :error-messages="errors"
+              required
+            />
+          </ValidationProvider>
+          <v-btn
+            block
+            color="#BB86FC"
+            @click="validCheck()"
+            class="mt-8"
+          >
+            저장하기
+          </v-btn>
+        </form>
+      </ValidationObserver>
     </v-col>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+import TabComponent from '../hacks/TabComponent'
+
 export default {
   name: 'SignUpPage',
   data: () => ({
     userInfo: null
   }),
   created () {
-    this.userInfo = this.$store.state.userInfo
+    this.userInfo = this.getUserInfo
+  },
+  computed: {
+    getUserInfo () {
+      return this.$store.getters.getUserInfo
+    }
   },
   methods: {
-    updateProfile () {
-      axios({
-        method: 'POST',
-        url: `${this.$store.state.host}/accounts/sign-up/`,
-        data: {
-          email: this.userInfo.email,
-          name: this.userInfo.name,
-          password: this.userInfo.password,
-          belong: this.userInfo.belong,
-          role: this.userInfo.role,
-          portfolio: this.userInfo.portfolio
-        }
-      }).then(({ data }) => {
-        console.log(data)
-        if (data.message === 'ok') {
-          localStorage.setItem('userInfo', this.userInfo)
+    async validCheck () {
+      await this.$refs.validObserver.validate().then(isValid => {
+        if (isValid) {
+          this.updateProfile()
         }
       })
+    },
+    updateProfile () {
+      const params = {
+        email: this.userInfo.email,
+        name: this.userInfo.name,
+        belong: this.userInfo.belong,
+        role: this.userInfo.role,
+        portfolio_link: this.userInfo.portfolio
+      }
+      this.$http.patch(`/accounts/profile/${this.userInfo.id}`, params)
+        .then(({ data }) => {
+          console.log(data)
+          if (data.message === 'ok') {
+            localStorage.setItem('userInfo', this.userInfo)
+          }
+        })
         .catch(({ error }) => {
           console.log(error)
         })
     }
+  },
+  components: {
+    'tab-component': TabComponent
   }
 }
 </script>

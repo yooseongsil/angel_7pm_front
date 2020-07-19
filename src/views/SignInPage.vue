@@ -50,7 +50,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 
 export default {
   name: 'SignInPage',
@@ -72,9 +71,9 @@ export default {
   },
   methods: {
     singIn () {
-      axios({
+      this.$http({
         method: 'POST',
-        url: `${this.$store.state.host}/accounts/sign-in/`,
+        url: '/accounts/sign-in/',
         data: {
           email: this.email,
           password: this.password
@@ -86,7 +85,7 @@ export default {
           this.$store.commit('setUserInfo', data)
           /* 토큰정보 넣기 & 저장 */
           document.cookie = `accessToken=${data.token}`
-          axios.defaults.headers.common.Authorization = `jwt ${data.token}`
+          this.$http.defaults.headers.common.Authorization = `jwt ${data.token}`
           localStorage.setItem('userInfo', JSON.stringify(data))
           /* 로그인 하면 이동하기 */
           this.$router.push('/hacks/list')

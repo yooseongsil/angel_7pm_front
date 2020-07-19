@@ -83,24 +83,14 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   name: 'HacksApplyPage',
   data: () => ({
-    email: null,
-    name: null,
-    belong: null,
-    role: null,
+    userInfo: null,
     fee: 10000
   }),
   created () {
-    const userInfo = this.$store.state.userInfo
-
-    this.email = userInfo.id
-    this.name = userInfo.name
-    this.belong = userInfo.belong
-    this.role = userInfo.role
+    this.userInfo = this.getUserInfo
   },
   methods: {
     async validCheck () {
@@ -111,9 +101,9 @@ export default {
       })
     },
     applyHacks () {
-      axios({
+      this.$http({
         method: 'POST',
-        url: `${this.$store.state.host}/hacks/apply/`,
+        url: '/hacks/apply/',
         data: {
           is_leader: false,
           is_paid: false,
@@ -135,7 +125,7 @@ export default {
     }
   },
   computed: {
-    userInfo () {
+    getUserInfo () {
       return this.$store.getters.getUserInfo
     }
   }

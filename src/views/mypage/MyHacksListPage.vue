@@ -24,7 +24,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import TabComponent from '../hacks/TabComponent'
 import Card from '../../components/base/main/Card'
 
@@ -41,9 +40,9 @@ export default {
   },
   methods: {
     getList () {
-      axios({
+      this.$http({
         method: 'GET',
-        url: `${this.$store.state.host}/hacks/`
+        url: '/hacks/'
       }).then(({ data }) => {
         console.log(data)
         this.count = data.count
