@@ -3,8 +3,8 @@ const commonMixins = {
     isApplied: false,
     hacksIngList: null
   }),
-  created () {
-    this.getHacksIngList()
+  async created () {
+    await this.getHacksIngList()
   },
   methods: {
     getHacksIngList () {
