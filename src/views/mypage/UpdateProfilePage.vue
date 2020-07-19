@@ -130,8 +130,8 @@ export default {
           console.log(this.userInfo)
         })
     },
-    async validCheck () {
-      await this.$refs.validObserver.validate().then(isValid => {
+    validCheck () {
+      this.$refs.validObserver.validate().then(isValid => {
         if (isValid) {
           this.updateProfile()
         }
@@ -149,14 +149,14 @@ export default {
       this.$http.patch(`/accounts/profile/${this.userInfo.id}`, params)
         .then(({ data }) => {
           console.log(data)
-          localStorage.setItem('userInfo', JSON.stringify(this.userInfo))
-          this.responseMessage = '회원 정보가 정상적으로 업데이트되었습니다.'
-          this.snackbar = true
+          // localStorage.setItem('userInfo', this.userInfo)
+          // this.responseMessage = '회원 정보가 정상적으로 업데이트되었습니다.'
+          // this.snackbar = true
         }
         )
         .catch(({ error }) => {
-          this.responseMessage = '회원 정보를 업데이트 하는데 에러가 발생했습니다.'
-          this.snackbar = true
+          // this.responseMessage = '회원 정보를 업데이트 하는데 에러가 발생했습니다.'
+          // this.snackbar = true
           console.log(error)
         })
     }
