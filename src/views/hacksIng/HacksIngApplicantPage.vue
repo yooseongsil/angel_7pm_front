@@ -34,11 +34,11 @@
       />
     </section>
     <!--    팀빌딩 미션-->
-    <section class="d-flex flex-column align-center">
-      <div>팀빌딩 미션:</div>
-      <div class="nes-text" :class="isMissionSuccess === 'Success'? 'is-success' : ''">{{isMissionSuccess}}</div>
-      <a class="nes-btn" href="#">팀빌딩 수정하기</a>
-    </section>
+<!--    <section class="d-flex flex-column align-center">-->
+<!--      <div>팀빌딩 미션:</div>-->
+<!--      <div class="nes-text" :class="isMissionSuccess === 'Success'? 'is-success' : ''">{{isMissionSuccess}}</div>-->
+<!--      <a class="nes-btn" href="#">팀빌딩 수정하기</a>-->
+<!--    </section>-->
   </v-main>
 </template>
 <script>
