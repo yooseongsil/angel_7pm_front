@@ -1,5 +1,5 @@
 <template>
-  <div class="text-caption d-flex justify-space-between px-4 mt-5">
+  <div class="text-caption d-flex justify-space-between mt-2">
     <span>{{leftText}}</span>
     <span>{{rightText}}</span>
   </div>
