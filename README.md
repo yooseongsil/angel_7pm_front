@@ -10,8 +10,9 @@
 
 ## 서비스 소개 
 - 끝장개발대회(누구나 쉽게 즐길 수 있는 온라인 해커톤 플랫폼)
-- https://7hacks.co
+- 홈페이지: https://7hacks.co
 - 데모영상: https://youtu.be/fQG3gBL86Cg
+- 발표영상: https://www.youtube.com/watch?v=iYi8GFCP5rg&feature=youtu.be
 
 ***
 
