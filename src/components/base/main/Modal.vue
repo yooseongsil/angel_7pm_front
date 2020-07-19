@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center">
     <v-dialog
-      v-model="dialog"
+      v-model="show"
       persistent
       max-width="290"
     >
@@ -24,9 +24,9 @@
           <v-btn
             color="deep-purple accent-1"
             text
-            @click="close()"
+            @click="callbackFunc()"
           >
-            확인
+            {{modalButtonText}}
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -37,10 +37,28 @@
 <script>
 export default {
   name: 'Modal',
-  props: ['dialog', 'modalTitle', 'modalText'],
+  props: {
+    show: Boolean,
+    modalTitle: String,
+    modalText: String,
+    modalButtonText: {
+      type: String,
+      default: '확인'
+    },
+    function: {
+      type: Function
+    }
+  },
   methods: {
     close () {
       this.$emit('close')
+    },
+    callbackFunc () {
+      if (this.function) {
+        this.function()
+      } else {
+        this.close()
+      }
     }
   }
 }

@@ -15,7 +15,7 @@
         size="80"
         color="grey"
       >
-        <v-img :src="hacksImg"/>
+        <v-img :src="hacksImg" alt="" />
       </v-list-item-avatar>
     </v-list-item>
 
@@ -25,7 +25,7 @@
         align="center"
         justify="end"
       >
-        <v-btn text class="deep-purple--text accent-1"
+        <v-btn text class="deep-purple--text accent-1 mr-2"
                @click="goDetail()"
         >
           {{ buttonText }}
@@ -41,9 +41,9 @@ export default {
   props: ['fee', 'title', 'subTitle', 'content', 'captionText', 'buttonText', 'route'],
   computed: {
     hacksImg () {
-      const max = 10
+      const max = 9
       const randomNo = Math.floor(Math.random() * (max + 1))
-      return require(`../../assets/images/thumbnail/thumbnail_hacks_${randomNo}.jpg`)
+      return require('../../../assets/images/thumbnail/thumbnail_hacks_' + randomNo + '.jpg')
     }
   },
   methods: {

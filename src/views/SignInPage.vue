@@ -22,8 +22,8 @@
             type="password"
             v-model="password"
             label="비밀번호"
-            counter
             hint="비밀번호를 입력하세요"
+            filled
             color="deep-purple accent-1"
           ></v-text-field>
         </v-col>
@@ -51,45 +51,48 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   name: 'SignInPage',
   data: () => ({
     email: null,
     password: null,
     nonUser: false,
-    randomNumber: Math.floor(Math.random() * 3)
+    randomNumber: Math.floor(Math.random() * 3),
+    userId: null
   }),
   computed: {
     randomTitle () {
-      const title = ['누구나 해커톤을<br>쉽고 재밌게 👾', '누구나 즐기는️<br>온라인 해커톤 🎮', '누구나 즐기는<br>온라인 해커톤 💻']
-      return title[this.randomNumber]
+      const title = ['누구나 해커톤을<br>쉽고 재밌게 👾', '누구나 즐기는️<br>온라인 해커톤 🎮', '가슴 뛰는 해커톤들이<br>기다리고 있어요! 💻']
+      // return title[this.randomNumber]
+      return title[1]
     },
     randomImg () {
-      return require(`../assets/images/illust/illust_signin_${this.randomNumber + 1}.svg`)
+      // this.randomNumber + 1
+      return require('../assets/images/illust/illust_signin_1.svg')
     }
 
   },
   methods: {
     singIn () {
-      axios({
+      this.$http({
         method: 'POST',
-        url: `${this.$store.state.host}/accounts/sign-in/`,
+        url: '/accounts/sign-in/',
         data: {
           email: this.email,
           password: this.password
         }
-      }).then(({ data }) => {
-        if (data !== undefined) {
+      }).then((res) => {
+        if (res.status === 200) {
+          const data = res.data
+          // console.log(data)
           this.nonUser = false
-          this.$store.state.userInfo = data
+          this.userId = data.id
           /* 토큰정보 넣기 & 저장 */
           document.cookie = `accessToken=${data.token}`
-          axios.defaults.headers.common.Authorization = `jwt ${data.token}`
-          localStorage.setItem('userInfo', JSON.stringify(data))
           localStorage.setItem('token', data.token)
-          /* 로그인 하면 이동하기 */
+          delete data.token
+          localStorage.setItem('userInfo', JSON.stringify(data))
+          this.$store.commit('setUserInfo', data)
           this.$router.push('/hacks/list')
         } else {
           this.nonUser = true
@@ -97,6 +100,22 @@ export default {
       })
         .catch(({ error }) => {
           this.nonUser = true
+          console.log(error)
+        })
+        .then(() => {
+          this.getAccountsProfile()
+        })
+    },
+    getAccountsProfile () {
+      this.$http.get(`/accounts/profile/${this.userId}`)
+        .then(({ data }) => {
+          // console.log(data)
+          let userInfo = JSON.parse(localStorage.getItem('userInfo'))
+          userInfo = { ...userInfo, ...data }
+          localStorage.setItem('userInfo', JSON.stringify(userInfo))
+          this.$store.commit('setUserInfo', userInfo)
+        })
+        .catch(error => {
           console.log(error)
         })
     },
@@ -113,7 +132,7 @@ export default {
      color: #BB86FC;
    }
    .signin_img{
-     position: fixed;
+     position: relative;
      bottom: 0;
      left: 50%;
      transform: translateX(-50%);

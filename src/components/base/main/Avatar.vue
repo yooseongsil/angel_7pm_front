@@ -1,5 +1,5 @@
 <template>
-  <v-avatar color="#bb86fc">
+  <v-avatar color="#bb86fc" >
     <span class="black--text headline">{{avatarText}}</span>
   </v-avatar>
 </template>
@@ -16,6 +16,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
 
 </style>

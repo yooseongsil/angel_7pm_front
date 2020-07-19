@@ -38,4 +38,17 @@ export default {
   .is-dark {
     color: white;
   }
+
+  .list_title_img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  .only-mobile {
+    display: none;
+    @media (max-width: 480px) {
+      display: block;
+    }
+  }
 </style>

@@ -6,13 +6,27 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     host: 'http://localhost:8000',
-    userInfo: {}
+    userInfo: null
   },
   mutations: {
+    setUserInfo: function (state, payload) {
+      if (payload) {
+        state.userInfo = payload
+      } else {
+        state.userInfo = JSON.parse(localStorage.getItem('userInfo'))
+      }
+    }
   },
   actions: {
   },
   modules: {
-
+  },
+  getters: {
+    getHost: function (state) {
+      return state.host
+    },
+    getUserInfo: function (state) {
+      return state.userInfo
+    }
   }
 })
