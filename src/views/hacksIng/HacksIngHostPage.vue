@@ -8,10 +8,10 @@
 
     <section class="nes-container is-dark with-title is-left mb-6">
       <p class="title">팀빌딩 제출 링크</p>
-      <input type="url" v-model="teamFormLink.teamBuilding" style="display: none">
+      <input type="url" v-model="teamSurveyLink.teamBuilding" style="display: none">
       <div class="text-center">
         <button type="button" class="nes-btn is-primary"
-                v-clipboard:copy="teamFormLink.teamBuilding"
+                v-clipboard:copy="teamSurveyLink.teamBuilding"
                 v-clipboard:success="onCopy"
         >
           링크 만들기
@@ -20,10 +20,10 @@
     </section>
     <section class="nes-container is-dark with-title is-left mb-6">
       <p class="title">아이디어 제출 링크</p>
-      <input type="url" v-model="teamFormLink.teamIdeation" style="display: none">
+      <input type="url" v-model="teamSurveyLink.teamIdeation" style="display: none">
       <div class="text-center">
         <button type="button" class="nes-btn is-primary"
-                v-clipboard:copy="teamFormLink.teamIdeation"
+                v-clipboard:copy="teamSurveyLink.teamIdeation"
                 v-clipboard:success="onCopy"
         >
           링크 만들기
@@ -32,10 +32,10 @@
     </section>
     <section class="nes-container is-dark with-title is-left">
       <p class="title">결과물 제출 링크</p>
-      <input type="url" v-model="teamFormLink.teamSubmission" style="display: none">
+      <input type="url" v-model="teamSurveyLink.teamSubmission" style="display: none">
       <div class="text-center">
         <button type="button" class="nes-btn is-primary"
-                v-clipboard:copy="teamFormLink.teamSubmission"
+                v-clipboard:copy="teamSurveyLink.teamSubmission"
                 v-clipboard:success="onCopy"
         >
           링크 만들기
@@ -63,10 +63,15 @@ export default {
   components: { Modal },
   data () {
     return {
-      teamFormLink: {
-        teamBuilding: '/hacks/ing/mission/teamBuilding',
-        teamIdeation: '/hacks/ing/mission/teamIdeation',
-        teamSubmission: '/hacks/ing/mission/teamSubmission'
+      // teamFormLink: {
+      // teamBuilding: '/hacks/ing/mission/teamBuilding',
+      // teamIdeation: '/hacks/ing/mission/teamIdeation',
+      // teamSubmission: '/hacks/ing/mission/teamSubmission'
+      // },
+      teamSurveyLink: {
+        teamBuilding: 'https://forms.gle/M79xbnGgWCgzmrLVA',
+        teamIdeation: 'https://forms.gle/CA9ppA6s6Dhj1kGn8',
+        teamSubmission: 'https://forms.gle/cKuzHGF3SpyFxvTY9'
       },
       showHacksIngModal: false,
       progress: 30,

@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <HacksIngApplicantPage v-if="userType === 1"  />
-    <HacksIngHostPage v-else />
+  <div v-if="hacksIngList && userInfo">
+    <HacksIngHostPage v-if="isHost" />
+    <HacksIngApplicantPage v-else />
   </div>
 </template>
 
@@ -11,8 +11,19 @@ import HacksIngHostPage from './HacksIngHostPage'
 export default {
   name: 'HacksIngPage',
   data: () => ({
-    userType: 1
+    userInfo: null
   }),
+  computed: {
+    getUserInfo () {
+      return this.$store.getters.getUserInfo
+    },
+    isHost () {
+      return this.hacksIngList.email === this.userInfo.email
+    }
+  },
+  async created () {
+    this.userInfo = await this.getUserInfo
+  },
   components: { HacksIngHostPage, HacksIngApplicantPage }
 }
 </script>
