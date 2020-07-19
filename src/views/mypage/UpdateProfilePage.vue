@@ -149,7 +149,7 @@ export default {
       this.$http.patch(`/accounts/profile/${this.userInfo.id}`, params)
         .then(({ data }) => {
           console.log(data)
-          localStorage.setItem('userInfo', this.userInfo)
+          localStorage.setItem('userInfo', JSON.stringify(this.userInfo))
           this.responseMessage = '회원 정보가 정상적으로 업데이트되었습니다.'
           this.snackbar = true
         }
