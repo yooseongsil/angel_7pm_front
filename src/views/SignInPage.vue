@@ -89,6 +89,8 @@ export default {
           this.userId = data.id
           /* 토큰정보 넣기 & 저장 */
           document.cookie = `accessToken=${data.token}`
+          localStorage.setItem('token', data.token)
+          delete data.token
           localStorage.setItem('userInfo', JSON.stringify(data))
           this.$store.commit('setUserInfo', data)
           this.$router.push('/hacks/list')
