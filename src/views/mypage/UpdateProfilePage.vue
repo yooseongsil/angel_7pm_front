@@ -124,9 +124,10 @@ export default {
   },
   methods: {
     getAccountsProfile () {
-      this.$http.get(`/accounts/profile/${this.$store.state.userInfo.id}`)
+      this.$http.patch(`/accounts/profile/${this.$store.state.userInfo.id}`)
         .then(({ data }) => {
           this.userInfo = data
+          console.log(this.userInfo)
         })
     },
     async validCheck () {
@@ -137,6 +138,7 @@ export default {
       })
     },
     updateProfile () {
+      console.log(this.userInfo.portfolio)
       const params = {
         email: this.userInfo.email,
         name: this.userInfo.name,
