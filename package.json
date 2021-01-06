@@ -10,7 +10,7 @@
     "clean": "aws cloudfront create-invalidation —distribution-id EXSRYOEP5JRX7  —paths \"/*\""
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "dotenv": "^8.2.0",
     "moment": "^2.27.0",
